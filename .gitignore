@@ -1,0 +1,26 @@
+# Archivos que Git NO sube al repositorio (se generan solos en cada computadora)
+
+# Python y Jupyter
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Archivos auxiliares de LaTeX
+informe/*.aux
+informe/*.log
+informe/*.out
+informe/*.toc
+informe/*.bbl
+informe/*.bcf
+informe/*.blg
+informe/*.run.xml
+informe/*.fdb_latexmk
+informe/*.fls
+informe/*.synctex.gz
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,6 @@
+Acá van los archivos tal como los exporta la interfaz de adquisición, SIN modificarlos.
+
+Nombre de cada archivo: V1_reposo, V1_post_ejercicio, V2_reposo, V2_post_ejercicio
+(+ la extensión que tenga el archivo original).
+
+Después de copiar un archivo, completar su fila en datos/lista_de_registros.csv.

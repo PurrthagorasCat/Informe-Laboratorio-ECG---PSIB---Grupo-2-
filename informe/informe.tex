@@ -1,0 +1,73 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Idioma y tipografía ------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[margin=2.5cm]{geometry}
+
+% --- Matemática, figuras y tablas ---------------------------------------------
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{output-decimal-marker={,}}
+\graphicspath{{figuras/}}
+
+% --- Bibliografía: APA, ordenada por aparición --------------------------------
+\usepackage{csquotes}
+\usepackage[style=apa,sorting=none,backend=biber]{biblatex}
+\addbibresource{referencias.bib}
+
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+% --- Marcas de trabajo pendiente ----------------------------------------------
+% Para la entrega: cambiar \borradortrue por \borradorfalse (o borrar las marcas).
+\newif\ifborrador
+\borradortrue
+\newcommand{\pendiente}[1]{\ifborrador{\color{red}\textbf{[PENDIENTE]} #1}\fi}
+
+% ------------------------------------------------------------------------------
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  {\large Instituto Tecnológico de Buenos Aires\par}
+  \vspace{0.3cm}
+  {\large Procesamiento de Señales e Imágenes Biomédicas --- 2026Q1\par}
+  \vspace{3cm}
+  {\LARGE\bfseries Laboratorio de adquisición de señales biomédicas\par}
+  \vspace{0.4cm}
+  {\Large Análisis de la variabilidad de la frecuencia cardíaca\par}
+  \vspace{3cm}
+  {\large Grupo \pendiente{N.\textsuperscript{o}}\par}
+  \vspace{0.8cm}
+  \begin{tabular}{ll}
+    \toprule
+    Integrante & Legajo \\
+    \midrule
+    Cassano Nieto, Facundo Tomás & 65555 \\
+    \pendiente{Apellido, Nombre} & \\
+    \pendiente{Apellido, Nombre} & \\
+    \bottomrule
+  \end{tabular}
+  \vfill
+  {\large 4 de noviembre de 2026\par}
+\end{titlepage}
+
+\input{secciones/00_resumen}
+\tableofcontents
+\clearpage
+
+\input{secciones/01_introduccion}
+\input{secciones/02_materiales_metodos}
+\input{secciones/03_resultados}
+\input{secciones/04_discusion}
+\input{secciones/05_conclusiones}
+
+\printbibliography[heading=bibintoc,title={Referencias}]
+
+\end{document}
