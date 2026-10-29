@@ -56,19 +56,61 @@ La señal necesita acondicionamiento antes del análisis. El módulo ya la filtr
 \begin{itemize}
   \item \textbf{Nivel de continua.} La salida está referida a \SI{1.65}{\volt}, así que todo el registro está montado sobre ese valor. No es un ruido en sentido estricto, pero hay que quitarlo para trabajar con una señal centrada en cero.
   \item \textbf{Deriva de la línea de base.} La interfaz entre el electrodo y la piel genera un potencial de media celda que cambia lentamente con el secado del gel, la presión y la temperatura. El pasaaltos del módulo atenúa estas variaciones pero no las elimina, y además tarda en estabilizarse después de colocar los electrodos o de una saturación. Se ve como una ondulación lenta del nivel de base, por debajo de \SI{1}{\hertz}.
-  \item \textbf{Interferencia de línea.} La red eléctrica (\SI{50}{\hertz} en Argentina) se acopla capacitivamente al cuerpo y a los cables, y también puede entrar por la computadora, que alimenta al Arduino por USB. El rechazo de modo común y la pierna derecha activa la reducen, pero el pasabajos del módulo, con corte en \SI{40}{\hertz}, la atenúa apenas unos \SI{4}{\decibel}. Se ve como una oscilación rápida superpuesta al trazado y como un pico en \SI{50}{\hertz} en el espectro.
+  \item \textbf{Interferencia de línea.} La red eléctrica (\SI{50}{\hertz} en Argentina) se acopla capacitivamente al cuerpo y a los cables, y también puede entrar por la computadora, que alimenta al Arduino por USB. El rechazo de modo común y la pierna derecha activa la reducen, pero el pasabajos del módulo, con corte en \SI{40}{\hertz}, la atenúa apenas unos \SI{4}{\decibel}. Cuando está presente, se ve como una oscilación rápida superpuesta al trazado y como un pico en \SI{50}{\hertz} en el espectro. En nuestros registros, sin embargo, el espectro no muestra ese pico: la densidad espectral en \SI{50}{\hertz} es igual o menor que la de las frecuencias vecinas (figura~\ref{fig:acond_espectro_crudo}).
   \item \textbf{Ruido de cuantización.} Por el redondeo a \SI{10}{\milli\volt} que hace la interfaz, la señal avanza en escalones visibles en los tramos de baja amplitud, como las ondas P y T y el segmento isoeléctrico. Es pequeño frente al QRS y no afecta la detección de latidos, pero la información perdida no se puede recuperar.
-  \item \textbf{Saturación.} La salida solo puede alejarse unos \SI{1.55}{\volt} de la referencia hacia cada lado, lo que con ganancia 1100 equivale a unos \SI{1.4}{\milli\volt} en la entrada. Una onda R grande o un salto brusco del potencial de contacto llevan la salida al extremo y la recortan. El firmware tampoco lee las salidas de detección de electrodo suelto (LO+ y LO$-$), aunque estén cableadas, de modo que un electrodo despegado no queda marcado en el archivo: solo se reconoce como un tramo plano en \SI{0.1}{\volt} o en \SI{3.2}{\volt}.
-  \item \textbf{Discontinuidad al inicio.} Antes de que se presione \textit{Comenzar grabación}, el Arduino llena su primer paquete de 100 muestras y queda esperando el pedido de la interfaz. Ese paquete, tomado en un momento anterior, es el primero que se guarda, por lo que las primeras \SI{0.4}{\second} del archivo no son continuas con el resto. Si se graba más de una vez sin desconectar, pueden acumularse dos paquetes viejos.
+  \item \textbf{Saturación.} La salida solo puede alejarse unos \SI{1.55}{\volt} de la referencia hacia cada lado, lo que con ganancia 1100 equivale a unos \SI{1.4}{\milli\volt} en la entrada. Una onda R grande o un salto brusco del potencial de contacto llevan la salida al extremo y la recortan. En el registro post ejercicio la salida llega a \SI{0}{\volt} y a \SI{3.3}{\volt}: muchas ondas R quedan recortadas en unas pocas muestras y la deriva lleva la línea de base al mínimo en varios tramos de hasta \SI{0.7}{\second} (figura~\ref{fig:acond_detalles}b). El registro de reposo no satura. El firmware tampoco lee las salidas de detección de electrodo suelto (LO+ y LO$-$), aunque estén cableadas, de modo que un electrodo despegado no queda marcado en el archivo: solo se reconoce como un tramo plano en \SI{0.1}{\volt} o en \SI{3.2}{\volt}.
+  \item \textbf{Discontinuidad al inicio.} Antes de que se presione \textit{Comenzar grabación}, el Arduino llena su primer paquete de 100 muestras y queda esperando el pedido de la interfaz. Ese paquete, tomado en un momento anterior, es el primero que se guarda, por lo que las primeras \SI{0.4}{\second} del archivo no son continuas con el resto. Si se graba más de una vez sin desconectar, pueden acumularse dos paquetes viejos. En el registro post ejercicio se ven \SI{0.2}{\second} saturados al comienzo y saltos a los \SI{0.2}{\second} y a los \SI{0.6}{\second}, separados justamente por un paquete (figura~\ref{fig:acond_detalles}a).
 \end{itemize}
 
 Hay también una exigencia propia del análisis de variabilidad. El resultado final son los instantes de los latidos, así que el filtrado no debe desplazar la señal en el tiempo. Por eso los filtros deben aplicarse sin desfasaje.
 
-El acondicionamiento debe, entonces, descartar el primer segundo de cada registro, quitar el nivel de continua y la deriva de la línea de base con un pasaaltos de corte bajo, atenuar la interferencia de \SI{50}{\hertz} y detectar los tramos saturados para excluirlos. El ruido de cuantización y el ruido electrónico del amplificador quedan por debajo de lo que afecta a la detección y no requieren un tratamiento específico. El algoritmo de Pan-Tompkins incluye su propio pasabanda, pero el acondicionamiento previo sigue siendo necesario para inspeccionar la morfología, graficar los registros y evitar que los umbrales del detector dependan de la deriva o de la interferencia.
+El acondicionamiento debe, entonces, descartar el primer segundo de cada registro, quitar el nivel de continua y la deriva de la línea de base con un pasaaltos de corte bajo y detectar los tramos saturados para excluirlos. La interferencia de \SI{50}{\hertz} no aparece en los registros, por lo que no se aplicó un filtro específico para ella. El ruido de cuantización y el ruido electrónico del amplificador quedan por debajo de lo que afecta a la detección y no requieren un tratamiento específico. El algoritmo de Pan-Tompkins incluye su propio pasabanda, pero el acondicionamiento previo sigue siendo necesario para inspeccionar la morfología, graficar los registros y evitar que los umbrales del detector dependan de la deriva o de la interferencia.
 
-\pendiente{Figura con un fragmento del registro crudo de V1 en reposo y su espectro, donde se vean el nivel de continua, la deriva y el pico de 50 Hz (generarla en el cuaderno de M1).}
+La figura~\ref{fig:acond_crudo} muestra los registros completos tal como los guarda la interfaz. Los dos están montados sobre \SI{1.65}{\volt}. En reposo la línea de base es estable y la señal no satura; en el registro post ejercicio la deriva supera \SI{1}{\volt} y la señal recorre todo el rango de salida. En el espectro (figura~\ref{fig:acond_espectro_crudo}) esa deriva aparece como potencia concentrada por debajo de \SI{0.5}{\hertz}, unas cien veces mayor en el registro post ejercicio que en el de reposo. La figura~\ref{fig:acond_detalles} muestra en detalle la discontinuidad del inicio, un tramo saturado y los escalones de cuantización.
 
-\pendiente{Etapas de acondicionamiento implementadas y sus parámetros (ítem 5).}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{acond_crudo_completo}
+  \caption{Registros crudos de V1 en reposo y post ejercicio. La línea punteada marca la referencia de \SI{1.65}{\volt}.}
+  \label{fig:acond_crudo}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{acond_espectro_crudo}
+  \caption{Densidad espectral de potencia de los registros crudos (Welch, ventanas de \SI{8}{\second}). Izquierda: espectro completo; la línea punteada marca \SI{50}{\hertz}. Derecha: detalle de 0 a \SI{3}{\hertz}; la línea punteada marca el corte del pasaaltos, \SI{0.5}{\hertz}.}
+  \label{fig:acond_espectro_crudo}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{acond_detalles}
+  \caption{Defectos del registro. (a) Primer segundo del registro post ejercicio, que se descarta (sombreado). (b) Tramo saturado en \SI{0}{\volt} del registro post ejercicio (sombreado). (c) Onda T del registro en reposo, con los escalones de \SI{10}{\milli\volt} del redondeo de la interfaz.}
+  \label{fig:acond_detalles}
+\end{figure}
+
+\paragraph{Etapas implementadas (ítem 5).}
+El acondicionamiento se aplica en el orden de la tabla~\ref{tab:acond}. Primero se reemplazan por una recta los tramos saturados de más de \SI{0.1}{\second}: dentro de ellos la señal real es desconocida, y la meseta, con sus escalones de entrada y salida, haría oscilar al pasaaltos. Las puntas de onda R recortadas duran unas pocas muestras y no se tocan, para no mover el pico. Después se resta la mediana del registro, que es menos sensible que la media a los tramos saturados, y se aplica un pasaaltos Butterworth con corte en \SI{0.5}{\hertz}. El corte queda por debajo de la frecuencia cardíaca más baja esperable y deja pasar el complejo QRS completo, cuya energía se concentra entre 5 y \SI{15}{\hertz} \parencite{pan1985}.
+
+El pasaaltos se aplica hacia adelante y hacia atrás (\texttt{sosfiltfilt} de SciPy). La respuesta resultante tiene fase nula y módulo igual al cuadrado del filtro original, por lo que la señal acondicionada tiene la misma cantidad de muestras que la cruda y los picos no se desplazan. Lo comprobamos sobre los picos de los dos registros: el corrimiento mediano es nulo y el máximo, de 5 muestras, aparece en una punta recortada, donde la posición del máximo dentro de la meseta no está definida.
+
+El primer segundo y los tramos saturados largos, con un margen de \SI{0.2}{\second} a cada lado, no se borran de la señal, para conservar su longitud, sino que se marcan en una máscara de muestras válidas (función \texttt{mascara\_valida}). Los latidos que caen en esas zonas se descartan al construir el tacograma. La máscara excluye el \SI{0.9}{\percent} del registro de reposo y el \SI{1.9}{\percent} del registro post ejercicio. No se aplicó notch ni pasabajos: no hay interferencia de red, y el módulo ya limita la banda a unos \SI{40}{\hertz}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Etapas de acondicionamiento y sus parámetros.}
+  \label{tab:acond}
+  \begin{tabular}{@{}p{3.8cm}p{3.6cm}p{7.6cm}@{}}
+    \toprule
+    Etapa & Defecto que corrige & Parámetros \\
+    \midrule
+    Interpolación de saturaciones & Saturación & Tramos $\geq \SI{0.1}{\second}$ a menos del \SI{1}{\percent} del rango de los extremos \\
+    Resta de la mediana & Nivel de continua & --- \\
+    Pasaaltos Butterworth & Deriva de la línea de base & $f_c = \SI{0.5}{\hertz}$, orden 2, fase cero (orden 4 efectivo) \\
+    Máscara de muestras válidas & Inicio y saturación & Primer \SI{1}{\second}; tramos saturados $\pm\SI{0.2}{\second}$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \subsection{Detección de latidos: algoritmo de Pan-Tompkins}
 \label{sec:met-pantompkins}
