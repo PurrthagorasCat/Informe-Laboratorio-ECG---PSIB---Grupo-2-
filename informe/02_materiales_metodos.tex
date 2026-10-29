@@ -7,17 +7,68 @@
 
 \subsection{Sistema de adquisición}
 \label{sec:adquisicion}
-% Responde: ítems 1 (primera parte), 2 y 3a
-\pendiente{Ítem 3a: resolución de la placa AD8232.}
 
-\pendiente{Ítem 1: formato en que se registró la señal.}
+La cadena de adquisición está formada por tres electrodos descartables, el módulo AD8232 de SparkFun, un Arduino UNO y una interfaz gráfica en Python que corre en la computadora \parencite{tassara_ecg}. El módulo amplifica y filtra la señal en forma analógica. El Arduino la digitaliza con su conversor de 10 bits y la envía por el puerto serie, y la interfaz la grafica en tiempo real y, al terminar, la guarda en un archivo.
 
-\pendiente{Ítem 2: frecuencia de muestreo y su justificación.}
+\subsubsection{Resolución de la placa AD8232}
+\label{sec:resolucion}
+% Responde: ítem 3a
+
+El AD8232 es un front-end analógico. Integra un amplificador de instrumentación, un amplificador operacional, el amplificador de pierna derecha activa y la detección de electrodo suelto, pero no tiene conversor analógico-digital \parencite{analog_ad8232}. Por eso no tiene una resolución en bits: su desempeño se describe por la ganancia, el ancho de banda y el ruido. El amplificador de instrumentación tiene ganancia fija de 100 y un rechazo de modo común de al menos \SI{80}{\decibel} entre continua y \SI{60}{\hertz}. Tolera potenciales de contacto de hasta \SI{\pm300}{\milli\volt} y su ruido referido a la entrada es de \SI{14}{\micro\volt} pico a pico entre \SI{0.5}{\hertz} y \SI{40}{\hertz}. Ese ruido es el límite de lo que la placa puede distinguir en la señal.
+
+En el módulo de SparkFun, la etapa de salida tiene ganancia 11, por lo que la ganancia total es 1100. Esa etapa forma además un pasabajos de dos polos, y la red de bloqueo de continua del amplificador de instrumentación, un pasaaltos también de dos polos. Simulamos la respuesta en frecuencia con los valores de los componentes del esquemático \parencite{sparkfun_hw} y obtuvimos una banda de paso a \SI{-3}{\decibel} de aproximadamente \SI{0.4}{\hertz} a \SI{44}{\hertz}, que coincide con la configuración de monitor cardíaco de la hoja de datos (pasaaltos en \SI{0.5}{\hertz} y pasabajos en \SI{40}{\hertz}). La placa se alimenta con \SI{3.3}{\volt} y referencia su salida a la mitad de esa tensión, \SI{1.65}{\volt}. La salida puede variar entre \SI{0.1}{\volt} y \SI{3.2}{\volt}.
+
+La resolución con la que efectivamente queda registrada la señal la fija la digitalización. El conversor del Arduino UNO es de 10 bits y toma como referencia la alimentación de \SI{5}{\volt}, de modo que un paso de cuantización vale $\SI{5}{\volt}/1024 \approx \SI{4.9}{\milli\volt}$. Como la salida del módulo solo ocupa el rango de \SI{0.1}{\volt} a \SI{3.2}{\volt}, se usan unos 635 de los 1024 niveles posibles, algo más de 9 bits efectivos. Dividido por la ganancia, un paso de cuantización equivale a \SI{4.4}{\micro\volt} en los electrodos.
+
+La interfaz empeora un poco este valor, porque al guardar redondea cada muestra a dos decimales en voltios, es decir, a pasos de \SI{10}{\milli\volt}. La resolución real del archivo es entonces de \SI{10}{\milli\volt} a la salida del módulo, unos \SI{9}{\micro\volt} referidos a la entrada. Ese valor es del mismo orden que el ruido propio del amplificador y unas cien veces menor que la amplitud de un complejo QRS, que ronda \SI{1}{\milli\volt}.
+
+\subsubsection{Formato del registro}
+\label{sec:formato}
+% Responde: ítem 1 (primera parte)
+
+La interfaz guarda cada registro en un archivo de texto con valores separados por comas (CSV) \parencite{tassara_ecg}. El archivo tiene una sola columna: la primera fila es el encabezado \texttt{Sample} y cada fila siguiente es una muestra. Cada valor es la tensión a la salida del módulo en voltios, que la interfaz calcula a partir de la cuenta del conversor $n$ como $V = 5\,n/1023$ y redondea a dos decimales. Los valores quedan entre \SI{0.10}{\volt} y \SI{3.20}{\volt}, centrados cerca de \SI{1.65}{\volt}.
+
+El archivo no incluye columna de tiempo, frecuencia de muestreo, unidades, ganancia ni identificación del sujeto o de la derivación. Además, la conversión a voltios supone que la referencia del conversor es exactamente \SI{5}{\volt}, cuando en realidad depende de la tensión que entrega el puerto USB. Esto puede introducir un error de algunos puntos porcentuales en la amplitud absoluta, que no afecta ni la detección de latidos ni los intervalos RR.
+
+\subsubsection{Frecuencia de muestreo}
+\label{sec:fs}
+% Responde: ítem 2
+
+Como el archivo no guarda una base de tiempo, la frecuencia de muestreo no se puede leer del registro y hay que deducirla del firmware del Arduino. El programa configura el Timer1 del microcontrolador en modo CTC, con el reloj de \SI{16}{\mega\hertz}, un divisor $N = 64$ y el registro de comparación \texttt{OCR1A} en 999. El timer genera entonces una interrupción con frecuencia
+\begin{equation}
+  f_s = \frac{f_\text{clk}}{N\,(1 + \texttt{OCR1A})} = \frac{\SI{16}{\mega\hertz}}{64 \cdot 1000} = \SI{250}{\hertz},
+  \label{eq:fs}
+\end{equation}
+es decir, una cada \SI{4}{\milli\second}, y en cada interrupción se lee una muestra del conversor. El muestreo queda fijado por hardware y es uniforme: no depende de lo que tarden la comunicación serie ni la computadora.
+
+Las muestras se acumulan en paquetes de 100, equivalentes a \SI{0.4}{\second} de señal, que se envían en binario, con dos bytes por muestra, cada vez que la interfaz los pide. El puerto serie funciona a 9600 baudios, unos 960 bytes por segundo, y la señal produce 500 bytes por segundo, así que el enlace alcanza y no se pierden muestras durante la adquisición.
+
+El código de la interfaz define internamente una frecuencia de \SI{100}{\hertz} (variable \texttt{sampling\_rate}), que usa solo para la estimación de frecuencia cardíaca que muestra en pantalla. Ese valor no coincide con el firmware, por lo que esa estimación no es confiable. En el análisis usamos \SI{250}{\hertz}. Como verificación, el registro de reposo de V1 tiene \pendiente{$N$} muestras para una duración cronometrada de \pendiente{$T$}~s, lo que da \pendiente{$N/T$}~Hz, consistente con la ecuación~\eqref{eq:fs}.
+
+La frecuencia elegida es adecuada para este trabajo. La frecuencia de Nyquist es \SI{125}{\hertz}. A esa frecuencia el pasabajos del módulo atenúa unos \SI{15}{\decibel}, y el ECG tiene muy poca energía por encima de \SI{40}{\hertz}, de modo que el solapamiento espectral es despreciable. Para el análisis de variabilidad, \SI{250}{\hertz} permite ubicar cada pico R con una resolución de \SI{4}{\milli\second}. \textcite{kwon2018} compararon distintas frecuencias de muestreo y encontraron que con \SI{250}{\hertz} los índices de variabilidad, tanto temporales como espectrales, tienen excelente concordancia con los obtenidos a \SI{500}{\hertz}.
 
 \subsection{Acondicionamiento de la señal}
 \label{sec:met-acondicionamiento}
-% Responde: ítem 4 (justificación) — el resultado va en Resultados
-\pendiente{Ítem 4: ruidos asociados al registro observados y etapas de acondicionamiento elegidas para cada uno.}
+% Responde: ítem 4
+
+La señal necesita acondicionamiento antes del análisis. El módulo ya la filtra aproximadamente entre \SI{0.5}{\hertz} y \SI{40}{\hertz}, pero el registro, tal como lo guarda la interfaz, contiene componentes que no provienen del corazón sino de la propia cadena de adquisición. Dejamos de lado los artefactos fisiológicos (respiración, actividad muscular y movimiento), que la consigna excluye. Los ruidos y defectos asociados al registro son los siguientes:
+
+\begin{itemize}
+  \item \textbf{Nivel de continua.} La salida está referida a \SI{1.65}{\volt}, así que todo el registro está montado sobre ese valor. No es un ruido en sentido estricto, pero hay que quitarlo para trabajar con una señal centrada en cero.
+  \item \textbf{Deriva de la línea de base.} La interfaz entre el electrodo y la piel genera un potencial de media celda que cambia lentamente con el secado del gel, la presión y la temperatura. El pasaaltos del módulo atenúa estas variaciones pero no las elimina, y además tarda en estabilizarse después de colocar los electrodos o de una saturación. Se ve como una ondulación lenta del nivel de base, por debajo de \SI{1}{\hertz}.
+  \item \textbf{Interferencia de línea.} La red eléctrica (\SI{50}{\hertz} en Argentina) se acopla capacitivamente al cuerpo y a los cables, y también puede entrar por la computadora, que alimenta al Arduino por USB. El rechazo de modo común y la pierna derecha activa la reducen, pero el pasabajos del módulo, con corte en \SI{40}{\hertz}, la atenúa apenas unos \SI{4}{\decibel}. Se ve como una oscilación rápida superpuesta al trazado y como un pico en \SI{50}{\hertz} en el espectro.
+  \item \textbf{Ruido de cuantización.} Por el redondeo a \SI{10}{\milli\volt} que hace la interfaz, la señal avanza en escalones visibles en los tramos de baja amplitud, como las ondas P y T y el segmento isoeléctrico. Es pequeño frente al QRS y no afecta la detección de latidos, pero la información perdida no se puede recuperar.
+  \item \textbf{Saturación.} La salida solo puede alejarse unos \SI{1.55}{\volt} de la referencia hacia cada lado, lo que con ganancia 1100 equivale a unos \SI{1.4}{\milli\volt} en la entrada. Una onda R grande o un salto brusco del potencial de contacto llevan la salida al extremo y la recortan. El firmware tampoco lee las salidas de detección de electrodo suelto (LO+ y LO$-$), aunque estén cableadas, de modo que un electrodo despegado no queda marcado en el archivo: solo se reconoce como un tramo plano en \SI{0.1}{\volt} o en \SI{3.2}{\volt}.
+  \item \textbf{Discontinuidad al inicio.} Antes de que se presione \textit{Comenzar grabación}, el Arduino llena su primer paquete de 100 muestras y queda esperando el pedido de la interfaz. Ese paquete, tomado en un momento anterior, es el primero que se guarda, por lo que las primeras \SI{0.4}{\second} del archivo no son continuas con el resto. Si se graba más de una vez sin desconectar, pueden acumularse dos paquetes viejos.
+\end{itemize}
+
+Hay también una exigencia propia del análisis de variabilidad. El resultado final son los instantes de los latidos, así que el filtrado no debe desplazar la señal en el tiempo. Por eso los filtros deben aplicarse sin desfasaje.
+
+El acondicionamiento debe, entonces, descartar el primer segundo de cada registro, quitar el nivel de continua y la deriva de la línea de base con un pasaaltos de corte bajo, atenuar la interferencia de \SI{50}{\hertz} y detectar los tramos saturados para excluirlos. El ruido de cuantización y el ruido electrónico del amplificador quedan por debajo de lo que afecta a la detección y no requieren un tratamiento específico. El algoritmo de Pan-Tompkins incluye su propio pasabanda, pero el acondicionamiento previo sigue siendo necesario para inspeccionar la morfología, graficar los registros y evitar que los umbrales del detector dependan de la deriva o de la interferencia.
+
+\pendiente{Figura con un fragmento del registro crudo de V1 en reposo y su espectro, donde se vean el nivel de continua, la deriva y el pico de 50 Hz (generarla en el cuaderno de M1).}
+
+\pendiente{Etapas de acondicionamiento implementadas y sus parámetros (ítem 5).}
 
 \subsection{Detección de latidos: algoritmo de Pan-Tompkins}
 \label{sec:met-pantompkins}

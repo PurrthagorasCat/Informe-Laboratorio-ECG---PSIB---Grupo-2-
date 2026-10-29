@@ -5,15 +5,45 @@
 
 \subsection{Electrocardiograma y derivaciones}
 \label{sec:derivaciones}
-% Responde: ítems 3b y 3c
-\pendiente{Ítem 3b: por qué en los estudios clínicos se colocan electrodos en miembros superiores e inferiores.}
 
-\pendiente{Ítem 3c: otras derivaciones del ECG y qué información espacial de la actividad eléctrica cardíaca aportan al profesional.}
+El electrocardiograma (ECG) registra en la superficie del cuerpo las diferencias de potencial que genera la actividad eléctrica del corazón. Cada derivación es la diferencia de potencial entre un electrodo explorador y una referencia, que puede ser otro electrodo o una combinación de varios, y muestra la proyección del vector cardíaco sobre una dirección particular \parencite{malmivuo1995}. Por eso la morfología de las ondas depende de dónde se coloquen los electrodos, y un trazado solo puede compararse con otro, o con los criterios diagnósticos, si se registró con la misma ubicación.
+
+\subsubsection{Electrodos en los miembros}
+\label{sec:electrodos-miembros}
+% Responde: ítem 3b
+
+En el ECG clínico de reposo se colocan electrodos en ambos brazos (RA y LA) y en ambas piernas (LL y RL). La razón principal es eléctrica. Los miembros se comportan como conductores largos y delgados conectados al tronco por un extremo, por los que casi no circula corriente de origen cardíaco, de modo que el potencial en la muñeca es prácticamente el mismo que en la unión del brazo con el tórax. Medir en la muñeca o en el tobillo equivale entonces a medir en el hombro o en la cadera. Esos tres puntos quedan lejos del corazón y a distancias parecidas de él, y forman el triángulo de Einthoven, sobre el que se definen las derivaciones bipolares del plano frontal \parencite{malmivuo1995}.
+
+La segunda razón es la estandarización. Los valores normales de amplitud y de eje eléctrico, y los criterios diagnósticos que se usan en la práctica, se establecieron con los electrodos en esas posiciones. Si se los desplaza al torso, como en la configuración de Mason-Likar que se usa en las pruebas de esfuerzo, cambian las amplitudes y el eje, y el trazado deja de ser equivalente a uno estándar \parencite{kligfield2007}. Los electrodos de los miembros son, además, la base de las demás derivaciones: RA, LA y LL promediados forman el terminal central de Wilson, que es la referencia de las derivaciones precordiales, y combinados de a dos dan la referencia de las derivaciones aumentadas. El electrodo de la pierna derecha (RL) no forma parte de ninguna derivación. Sirve de referencia del amplificador o, en los equipos con circuito de pierna derecha activa, recibe una señal que reduce la tensión de modo común y con ella la interferencia de línea.
+
+En este trabajo usamos otra configuración: los tres electrodos en el torso, uno debajo de cada clavícula y el tercero en el abdomen, por encima de la cadera derecha. La placa mide la diferencia entre el electrodo izquierdo y el derecho, una aproximación a la derivación I, y conecta el tercero al circuito de pierna derecha activa. Cerca del corazón y lejos de los músculos de los brazos, la señal tiene más amplitud y menos contaminación muscular \parencite{sparkfun_guia}. Esto alcanza para detectar los complejos QRS y medir intervalos RR, pero el registro no reproduce ninguna derivación estándar y su morfología no se puede evaluar con criterios clínicos.
+
+\subsubsection{Otras derivaciones}
+\label{sec:otras-derivaciones}
+% Responde: ítem 3c
+
+El estudio estándar de reposo registra doce derivaciones. En el plano frontal están las tres bipolares de Einthoven (I, II y III, que miden LA$-$RA, LL$-$RA y LL$-$LA) y las tres aumentadas de Goldberger (aVR, aVL y aVF), que miden el potencial de cada miembro respecto del promedio de los otros dos. Juntas forman el sistema hexaxial: seis direcciones separadas \ang{30} que cubren el plano frontal. En el plano horizontal están las seis precordiales, V1 a V6, que miden el potencial de puntos del tórax ubicados entre el borde derecho del esternón y la línea axilar media izquierda, respecto del terminal de Wilson \parencite{kligfield2007,malmivuo1995}.
+
+Fuera del estudio estándar se agregan derivaciones para situaciones particulares: precordiales derechas (V3R a V6R) para evaluar el ventrículo derecho, posteriores (V7 a V9) para la pared posterior del ventrículo izquierdo, el sistema ortogonal de Frank (X, Y, Z) que se usa en vectorcardiografía, y derivaciones bipolares de tórax modificadas para Holter y monitoreo continuo, del mismo tipo que la que usamos en este experimento.
+
+Con doce vistas distribuidas en dos planos casi perpendiculares, el profesional puede reconstruir la dirección de la activación eléctrica en el espacio y ubicar dónde está una anomalía. El eje eléctrico medio del QRS en el plano frontal orienta hacia hipertrofias o bloqueos fasciculares cuando se desvía. Los cambios del segmento ST y las ondas Q patológicas se localizan según el grupo de derivaciones donde aparecen: cara inferior en II, III y aVF; cara lateral en I, aVL, V5 y V6; región anterior y septal en V1 a V4. A partir de esa localización se infiere qué arteria coronaria está comprometida. Los bloqueos de rama se reconocen por la forma del QRS en V1 y V6, y la hipertrofia ventricular, por criterios que comparan amplitudes entre derivaciones precordiales \parencite{wagner2014}. Una sola derivación, en cambio, permite medir frecuencia y ritmo, que es lo que necesita el análisis de variabilidad de este trabajo, pero no localizar nada.
 
 \subsection{Formatos de almacenamiento de ECG}
 \label{sec:formatos}
 % Responde: ítem 1 (segunda parte)
-\pendiente{Ítem 1: otros formatos en los que se registran electrocardiogramas.}
+
+Los ECG digitales se guardan en formatos muy distintos según su uso, y lo que más los diferencia es cuánta información acompaña a las muestras. \textcite{bond2011} revisaron los formatos existentes y distinguieron estándares abiertos, formatos propietarios de los fabricantes y formatos de investigación. Entre los estándares clínicos, los más difundidos son:
+
+\begin{itemize}
+  \item \textbf{SCP-ECG} (norma europea EN~1064, adoptada luego como ISO~11073-91064): formato binario y compacto para ECG de reposo, organizado en secciones con los datos del paciente y del equipo, la señal (con compresión opcional) y las mediciones e interpretación automáticas.
+  \item \textbf{HL7 aECG}: formato XML que la FDA de Estados Unidos adoptó para recibir los ECG de los ensayos clínicos.
+  \item \textbf{DICOM Waveform}: extensión del estándar de imágenes médicas que permite archivar el ECG junto con los demás estudios del paciente en los sistemas de almacenamiento de imágenes (PACS).
+  \item \textbf{ISHNE}: formato binario pensado para registros Holter de larga duración.
+\end{itemize}
+
+En investigación es habitual el formato \textbf{WFDB} de PhysioNet, que separa un encabezado en texto (frecuencia de muestreo, ganancia, resolución del conversor y nombre de cada derivación), un archivo binario con las muestras y archivos de anotaciones con la posición y el tipo de cada latido \parencite{goldberger2000}. También se usa \textbf{EDF}, un formato general para señales fisiológicas multicanal cuyo encabezado guarda, para cada canal, la frecuencia de muestreo y los rangos físico y digital necesarios para convertir las muestras a unidades; su versión EDF+ agrega anotaciones \parencite{kemp2003}. Muchos equipos exportan además en formatos propios del fabricante, en general XML, o directamente en PDF o como imagen del trazado. Estos últimos sirven para leer el ECG, pero no para procesar la señal.
+
+Frente a estos formatos, el archivo CSV de este experimento (sección~\ref{sec:formato}) es el más simple posible: no guarda la frecuencia de muestreo, las unidades, la ganancia, la derivación ni datos del sujeto. Toda esa información tuvimos que obtenerla por fuera del archivo, a partir del firmware y del código de la interfaz.
 
 \subsection{Variabilidad de la frecuencia cardíaca}
 \label{sec:hrv}
