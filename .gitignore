@@ -6,18 +6,22 @@ __pycache__/
 .venv/
 venv/
 
-# Archivos auxiliares de LaTeX
-informe/*.aux
-informe/*.log
-informe/*.out
-informe/*.toc
-informe/*.bbl
-informe/*.bcf
-informe/*.blg
-informe/*.run.xml
-informe/*.fdb_latexmk
-informe/*.fls
-informe/*.synctex.gz
+# Archivos auxiliares de LaTeX (en cualquier carpeta)
+informe/build/
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.synctex(busy)
 
 # Sistema operativo y editores
 .DS_Store

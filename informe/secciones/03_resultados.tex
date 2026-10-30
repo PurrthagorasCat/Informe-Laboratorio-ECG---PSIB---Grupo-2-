@@ -43,6 +43,44 @@ La figura~\ref{fig:acond_antes_despues} compara \SI{10}{\second} de cada registr
 \subsection{Análisis espectral}
 \label{sec:res-lomb}
 % Responde: ítems 7a y 7b
-\pendiente{Ítem 7a: diferencias entre reposo y post ejercicio.}
+% Valores calculados con fs = 500 Hz y detectar_picos_r(..., umbral_relativo=0.1).
+% Con el umbral por defecto de M2 (0,3), el detector pierde cerca de un tercio de
+% los latidos del registro post ejercicio y los índices de esta sección no valen.
 
-\pendiente{Ítem 7b: comparación entre voluntarios.}
+La figura~\ref{fig:lomb_periodogramas} muestra los periodogramas de Lomb de los dos registros de V1, y la tabla~\ref{tab:lomb} resume los índices espectrales. En el registro post ejercicio se descartaron 2 de 361 intervalos RR por atípicos (dos latidos no detectados); en el de reposo no se descartó ninguno.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{lomb_periodogramas}
+  \caption{Periodograma de Lomb del tacograma de V1 en reposo (arriba) y post ejercicio (abajo). El área pintada indica la banda: VLF (por debajo de \SI{0.04}{\hertz}, no se analiza), LF (\SIrange{0.04}{0.15}{\hertz}) y HF (\SIrange{0.15}{0.4}{\hertz}). Cada registro tiene su propia escala vertical: la del reposo es unas 30 veces mayor.}
+  \label{fig:lomb_periodogramas}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Índices espectrales del tacograma. $N$: intervalos RR usados; $T$: duración del tacograma; FC: frecuencia cardíaca media; $f_\mathrm{HF}$: frecuencia del pico en la banda HF. Las tres últimas filas dividen el registro post ejercicio en ventanas de \SI{1}{\minute} desde el inicio del tacograma (la última dura \SI{51}{\second}).}
+  \label{tab:lomb}
+  \small
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{@{}lrrrrrrrr@{}}
+    \toprule
+    Registro & $N$ & $T$ (s) & FC (lpm) & LF (\si{\milli\second\squared}) & HF (\si{\milli\second\squared}) & LF/HF & $\mathrm{LF_{nu}}$ (\%) & $f_\mathrm{HF}$ (Hz) \\
+    \midrule
+    V1 reposo              &  78 &  55 &  84 & 4870 & 1029 & \num{4.7} & 83 & \num{0.18} \\
+    V1 post, completo      & 359 & 171 & 131 &   48 &   21 & \num{2.2} & 69 & \num{0.19} \\
+    \quad minuto 1         & 140 &  60 & 141 &   56 & \num{4.2} & \num{13.3} & 93 & \num{0.36} \\
+    \quad minuto 2         & 126 &  60 & 128 &   44 &   47 & \num{0.9} & 48 & \num{0.19} \\
+    \quad minuto 3         &  93 &  51 & 121 &   23 &   16 & \num{1.5} & 59 & \num{0.21} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Ítem 7a: reposo frente a post ejercicio.}
+La diferencia más marcada está en la potencia total. Después del ejercicio, la potencia LF cae de \SI{4870}{\milli\second\squared} a \SI{48}{\milli\second\squared} y la HF, de \SI{1029}{\milli\second\squared} a \SI{21}{\milli\second\squared}: la variabilidad en ambas bandas se reduce entre 50 y 100 veces, mientras la frecuencia cardíaca media sube de 84 a \SI{131}{lpm}. En la figura~\ref{fig:lomb_periodogramas}, el espectro de reposo tiene picos definidos, el mayor en \SI{0.064}{\hertz}, dentro de LF, y otro en \SI{0.18}{\hertz}, dentro de HF, que corresponde a unas 11 respiraciones por minuto. El espectro post ejercicio, en cambio, tiene una escala unas 30 veces menor y, por encima de \SI{0.04}{\hertz}, no muestra picos dominantes: la potencia se reparte en muchos picos chicos, salvo uno leve cerca de \SI{0.2}{\hertz}. Por debajo de \SI{0.04}{\hertz}, en la banda VLF, queda una potencia de \SI{53}{\milli\second\squared}, comparable a la suma de LF y HF. Corresponde a la tendencia lenta de la recuperación que el polinomio no terminó de quitar. Parte de esta caída se debe a que, con RR más cortos, las mismas variaciones relativas producen variaciones absolutas menores, por lo que conviene comparar también las unidades normalizadas.
+
+En el registro post ejercicio completo, la potencia se reparte entre las bandas de forma parecida al reposo ($\mathrm{LF_{nu}}$ de \SI{69}{\percent} frente a \SI{83}{\percent}), pero el análisis por minuto muestra que ese promedio mezcla etapas distintas de la recuperación. En el primer minuto, con la frecuencia cardíaca en \SI{141}{lpm}, la banda HF prácticamente desaparece (\SI{4.2}{\milli\second\squared}, el \SI{7}{\percent} de LF + HF) y el cociente LF/HF llega a 13. El pico de HF se corre a \SI{0.36}{\hertz}, unas 22 respiraciones por minuto, lo que es compatible con la respiración agitada posterior al esfuerzo (no se registró la respiración, así que no se puede confirmar). En los minutos 2 y 3, mientras la frecuencia cardíaca baja a 128 y \SI{121}{lpm}, la potencia HF reaparece, el pico respiratorio vuelve a \SIrange{0.19}{0.21}{\hertz} y el cociente LF/HF queda entre 0,9 y 1,5. Este patrón coincide con lo que se espera de la retirada vagal durante el ejercicio y su reactivación gradual en la recuperación; la comparación con la teoría se desarrolla en la sección~\ref{sec:discusion}.
+
+El cociente LF/HF del reposo (4,7) es alto para un sujeto en reposo. Está dominado por la oscilación de \SI{0.064}{\hertz}, con un período de unos \SI{16}{\second}, que en un registro de \SI{55}{\second} completa apenas tres ciclos y medio. Como el registro es más corto que los \SI{2}{\minute} recomendados para LF, ese valor es poco confiable: unas pocas oscilaciones lentas, por ejemplo por una respiración profunda o por hablar durante el registro, alcanzan para inflarlo.
+
+\paragraph{Ítem 7b: comparación entre voluntarios.}
+Se registró un solo voluntario, por lo que no fue posible comparar el comportamiento espectral entre sujetos.
