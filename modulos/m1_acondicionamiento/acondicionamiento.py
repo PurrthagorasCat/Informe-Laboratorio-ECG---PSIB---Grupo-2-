@@ -48,8 +48,8 @@ MARGEN_SAT = 0.2        # s. Además del tramo saturado, se excluye este margen
                         # alrededor del tramo interpolado).
 DESCARTE_INICIO = 1.0   # s. El primer paquete que guarda la interfaz (100
                         # muestras) es viejo y no es continuo con el resto.
-                        # A 200 Hz un paquete dura 0,5 s, así que 1 s cubre
-                        # hasta dos paquetes viejos.
+                        # A 500 Hz un paquete dura 0,2 s, así que 1 s cubre
+                        # holgadamente los paquetes viejos.
 FC_PASAALTOS = 0.5      # Hz. Corte del pasaaltos para la deriva de la línea
                         # de base. Queda por debajo de la FC más baja esperable.
 ORDEN_PASAALTOS = 2     # Orden del Butterworth. Como se aplica ida y vuelta
