@@ -148,7 +148,7 @@ def figura_etapas(ecg, fs, etapas, desde=2.0, hasta=8.0, titulo=""):
     """Las señales de cada etapa, una debajo de la otra, en el tramo [desde, hasta) segundos.
 
     `etapas` es el diccionario que devuelve pan_tompkins(). Es la figura del
-    paso a paso del algoritmo en el informe (sección 3.2).
+    paso a paso del algoritmo en el informe (anexo D).
     """
     import matplotlib.pyplot as plt
     from modulos.herramientas import graficos

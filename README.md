@@ -125,7 +125,7 @@ Esto es lo que permite trabajar por separado. Si alguien necesita cambiarlo, lo 
 
 Tiempos e intervalos siempre en **segundos**; milisegundos sólo en los ejes de los gráficos.
 
-Desde un cuaderno, `procesar_todos(hasta="pan_tompkins")` corre los cuatro registros sólo hasta la etapa que ya esté programada.
+Desde un cuaderno, `procesar_todos(hasta="pan_tompkins")` corre los dos registros sólo hasta la etapa que ya esté programada.
 
 ## Cómo trabajar con Git
 
