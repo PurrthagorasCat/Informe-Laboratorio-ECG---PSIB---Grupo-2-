@@ -80,7 +80,7 @@ python main.py
 - `FALTA`: hay funciones sin programar (o faltan los registros).
 - `ERROR`: está programado pero no cumple; el mensaje dice qué está mal.
 
-Cuando M0 a M4 están en `LISTO`, `main.py` procesa los cuatro registros y genera las figuras y tablas finales (M5) en `informe/figuras/`.
+Cuando M0 a M4 están en `LISTO`, `main.py` procesa los registros de `datos/lista_de_registros.csv`, muestra las tablas de resultados (ítems 6 y 7) y genera las figuras (`.pdf`) y tablas (`.csv`) finales (M5) en `informe/figuras/`.
 
 Antes de subir cambios, tu módulo tiene que estar en `LISTO`.
 
@@ -120,7 +120,7 @@ Esto es lo que permite trabajar por separado. Si alguien necesita cambiarlo, lo 
 | `cargar_registro(ruta)` | un `Registro` con `ecg` (señal cruda) y `fs` (Hz) |
 | `acondicionar(ecg, fs)` | la señal acondicionada, **misma cantidad de muestras y sin corrimiento** |
 | `detectar_picos_r(ecg, fs)` | posiciones de los picos R (números de muestra), **referidas a la señal que entró** |
-| `intervalos_rr(picos_r, fs)` | `t_rr` y `rr` en segundos; `t_rr[i]` es el latido que cierra el intervalo |
+| `intervalos_rr(picos_r, fs, valida=None)` | `t_rr` y `rr` en segundos; `t_rr[i]` es el latido que cierra el intervalo. Con `valida` (máscara de M1) se descartan los intervalos con alguna muestra inválida |
 | `periodograma_lomb(t_rr, rr)` | `f` (Hz) y `p` |
 
 Tiempos e intervalos siempre en **segundos**; milisegundos sólo en los ejes de los gráficos.

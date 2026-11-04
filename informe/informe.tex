@@ -6,6 +6,7 @@
 \usepackage{lmodern}
 \usepackage{microtype}
 \usepackage[margin=2.5cm]{geometry}
+\setlength{\emergencystretch}{2em}   % evita líneas que se pasan del margen por palabras largas en \texttt
 
 % --- Matemática, figuras y tablas ---------------------------------------------
 \usepackage{amsmath,amssymb}
@@ -27,7 +28,7 @@
 % --- Marcas de trabajo pendiente ----------------------------------------------
 % Para la entrega: cambiar \borradortrue por \borradorfalse (o borrar las marcas).
 \newif\ifborrador
-\borradortrue
+\borradorfalse
 \newcommand{\pendiente}[1]{\ifborrador{\color{red}\textbf{[PENDIENTE]} #1}\fi}
 
 % ------------------------------------------------------------------------------
@@ -43,7 +44,7 @@
   \vspace{0.4cm}
   {\Large Análisis de la variabilidad de la frecuencia cardíaca\par}
   \vspace{3cm}
-  {\large Grupo \pendiente{N.\textsuperscript{o}}\par}
+  {\large Grupo 2\par}
   \vspace{0.8cm}
   \begin{tabular}{ll}
     \toprule

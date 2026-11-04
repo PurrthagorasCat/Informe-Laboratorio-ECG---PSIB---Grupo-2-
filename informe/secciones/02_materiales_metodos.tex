@@ -3,7 +3,7 @@
 
 \subsection{Protocolo experimental}
 \label{sec:protocolo}
-\pendiente{Un voluntario (V1), ubicación de los electrodos, registro de 1 min en reposo, actividad física y registro de 3 min posterior.}
+Se registró a un voluntario (V1), siguiendo el procedimiento de la consigna. Se limpió la piel con alcohol y se colocaron tres electrodos descartables en el torso según la configuración de la guía de la placa \parencite{sparkfun_guia}: el electrodo rojo (RA) debajo de la clavícula derecha, el amarillo (LA) debajo de la clavícula izquierda y el verde (RL, referencia) en el abdomen, por encima de la cadera derecha. Con el voluntario en reposo se registró aproximadamente \SI{1}{\minute} de señal. A continuación realizó una actividad física demandante, como indica la consigna, hasta sentirse agitado y percibir el aumento de su frecuencia cardíaca, e inmediatamente después se registraron unos \SI{3}{\minute} más, durante la recuperación. Cada archivo se guardó con el nombre de la condición (\texttt{ECG\_data\_pre.csv} para el reposo y \texttt{ECG\_data\_post.csv} para la recuperación) y se copió sin modificaciones al repositorio. No se registró un segundo voluntario, por lo que las comparaciones entre voluntarios que pide la consigna (ítems 6b y 7b) no pudieron hacerse.
 
 \subsection{Sistema de adquisición}
 \label{sec:adquisicion}
@@ -41,11 +41,11 @@ Como el archivo no guarda una base de tiempo, la frecuencia de muestreo no se pu
 \end{equation}
 es decir, una muestra cada \SI{2}{\milli\second}. El firmware publicado trae \texttt{OCR1A} en 999, que da \SI{250}{\hertz}, y, como alternativa comentada, en 499, que da \SI{500}{\hertz} \parencite{tassara_ecg}. Los registros muestran que se usó la segunda. El de reposo tiene \num{28800} muestras y el post ejercicio, \num{86600}: a \SI{250}{\hertz} equivaldrían a \SI{115}{\second} y \SI{346}{\second}, casi el doble de lo que duró cada registro según el protocolo (1 y \SI{3}{\minute}). A \SI{500}{\hertz} equivalen a \SI{57.6}{\second} y \SI{173.2}{\second}.
 
-Las muestras se acumulan en paquetes de 100, equivalentes a \SI{0.2}{\second} de señal, que se envían en binario, con dos bytes por muestra, cada vez que la interfaz los pide. Esta transmisión limita el muestreo. El puerto serie funciona a 9600 baudios; con 10 bits por byte, transmite 960 bytes por segundo, es decir, 480 muestras por segundo, menos que las 500 que toma el timer. Mientras se envía un paquete, el Arduino llena el siguiente, pero el envío tarda \SI{0.208}{\second} y el paquete se completa en \SI{0.2}{\second}. Mientras espera el próximo pedido, el firmware deja de guardar muestras durante unos \SI{8}{\milli\second}. Cada paquete es continuo, pero entre un paquete y el siguiente se pierden unas 4 muestras. Lo comprobamos en los registros: el salto entre muestras consecutivas es, en promedio, unas 4,5 veces mayor en el borde entre paquetes que en cualquier otra posición, algo que no ocurre si se agrupan las muestras en bloques de otro tamaño. Esto explica también la cantidad de muestras de cada registro: \num{28800} en \SI{1}{\minute} y \num{86600} en \SI{3}{\minute} dan una tasa media de 480 muestras por segundo, justo lo que permite el enlace.
+Las muestras se acumulan en paquetes de 100, equivalentes a \SI{0.2}{\second} de señal, que se envían en binario, con dos bytes por muestra, cada vez que la interfaz los pide. Esta transmisión limita el muestreo. El puerto serie funciona a 9600 baudios; con 10 bits por byte, transmite 960 bytes por segundo, es decir, 480 muestras por segundo, menos que las 500 que toma el timer. Mientras se envía un paquete, el Arduino llena el siguiente, pero el envío tarda \SI{0.208}{\second} y el paquete se completa en \SI{0.2}{\second}. Mientras espera el próximo pedido, el firmware deja de guardar muestras durante unos \SI{8}{\milli\second}. Cada paquete es continuo, pero entre un paquete y el siguiente se pierden unas 4 muestras. Lo comprobamos en los registros: el salto entre muestras consecutivas es, en promedio, entre 4,2 y 4,6 veces mayor en el borde entre paquetes que en cualquier otra posición, algo que no ocurre si se agrupan las muestras en bloques de otro tamaño. Esto explica también la cantidad de muestras de cada registro: \num{28800} en \SI{1}{\minute} y \num{86600} en \SI{3}{\minute} dan una tasa media de 480 muestras por segundo, justo lo que permite el enlace.
 
 En el análisis usamos $f_s = \SI{500}{\hertz}$, que es la separación real entre muestras dentro de cada paquete. Al no tener en cuenta los huecos, el eje de tiempo queda comprimido un \SI{4}{\percent}: los intervalos RR resultan un \SI{4}{\percent} más cortos, y la frecuencia cardíaca y las frecuencias del espectro, un \SI{4}{\percent} más altas. Este error es sistemático y el mismo en todos los registros, por lo que no cambia las comparaciones entre condiciones. Además, como la cantidad de huecos dentro de un intervalo RR varía de un latido a otro, cada intervalo tiene una incertidumbre adicional de hasta \SI{8}{\milli\second}.
 
-El código de la interfaz define internamente una frecuencia de \SI{100}{\hertz} (variable \texttt{sampling\_rate}), que usa solo para la estimación de frecuencia cardíaca que muestra en pantalla. Ese valor no coincide con el firmware, por lo que esa estimación no es confiable.
+El código de la interfaz define una frecuencia de \SI{100}{\hertz} en la variable \texttt{sampling\_rate}, que usa solo para la estimación de frecuencia cardíaca que muestra en pantalla. Ese valor no coincide con el firmware, por lo que esa estimación no es confiable.
 
 La frecuencia de muestreo es adecuada para este trabajo. La frecuencia de Nyquist es \SI{250}{\hertz}. A esa frecuencia el pasabajos del módulo atenúa unos \SI{30}{\decibel}, y el ECG tiene muy poca energía por encima de \SI{40}{\hertz}, de modo que el solapamiento espectral es despreciable. Para el análisis de variabilidad, \SI{500}{\hertz} permite ubicar cada pico R con una resolución de \SI{2}{\milli\second}. \textcite{kwon2018} compararon distintas frecuencias de muestreo y encontraron que ya con \SI{250}{\hertz} los índices de variabilidad, tanto temporales como espectrales, tienen excelente concordancia con los obtenidos a \SI{500}{\hertz}.
 
@@ -96,7 +96,7 @@ El acondicionamiento se aplica en el orden de la tabla~\ref{tab:acond}. Primero 
 
 El pasaaltos se aplica hacia adelante y hacia atrás (\texttt{sosfiltfilt} de SciPy). La respuesta resultante tiene fase nula y módulo igual al cuadrado del filtro original, por lo que la señal acondicionada tiene la misma cantidad de muestras que la cruda y los picos no se desplazan. Lo comprobamos sobre los picos R de los dos registros (80 en reposo y 372 post ejercicio): el corrimiento mediano es nulo y en ningún pico supera una muestra (\SI{2}{\milli\second}), salvo en las puntas recortadas, donde la posición del máximo dentro de la meseta no está definida.
 
-El primer segundo y los tramos saturados largos, con un margen de \SI{0.2}{\second} a cada lado, no se borran de la señal, para conservar su longitud, sino que se marcan en una máscara de muestras válidas (función \texttt{mascara\_valida}). Los latidos que caen en esas zonas se descartan al construir el tacograma. La máscara excluye el \SI{1.7}{\percent} del registro de reposo y el \SI{2.7}{\percent} del registro post ejercicio. No se aplicó notch ni pasabajos: no hay interferencia de red, y el módulo ya limita la banda a unos \SI{40}{\hertz}.
+El primer segundo y los tramos saturados largos, con un margen de \SI{0.2}{\second} a cada lado, no se borran de la señal, para conservar su longitud, sino que se marcan en una máscara de muestras válidas (función \texttt{mascara\_valida}). Al construir el tacograma se descartan los intervalos RR que tienen alguna muestra en esas zonas (sección~\ref{sec:met-tacograma}). La máscara excluye el \SI{1.7}{\percent} del registro de reposo y el \SI{2.7}{\percent} del registro post ejercicio. No se aplicó notch ni pasabajos: no hay interferencia de red, y el módulo ya limita la banda a unos \SI{40}{\hertz}.
 
 \begin{table}[htbp]
   \centering
@@ -117,11 +117,53 @@ El primer segundo y los tramos saturados largos, con un margen de \SI{0.2}{\seco
 \subsection{Detección de latidos: algoritmo de Pan-Tompkins}
 \label{sec:met-pantompkins}
 % Responde: ítem 6 (método)
-\pendiente{Etapas del algoritmo y parámetros usados.}
+
+Los latidos se detectan con el algoritmo de \textcite{pan1985}, que no busca directamente el pico R sino los tramos de la señal con pendientes grandes y concentradas en el tiempo, que son característicos del complejo QRS. El detector recibe la señal acondicionada y aplica las etapas de la tabla~\ref{tab:pantompkins}:
+
+\begin{enumerate}
+  \item \textbf{Pasabanda de 5 a \SI{15}{\hertz}.} La mayor parte de la energía del QRS está en esa banda. El filtro atenúa por debajo las ondas P y T y lo que quede de la deriva, y por encima el ruido muscular y la interferencia de línea.
+  \item \textbf{Derivada de cinco puntos}, $y[n] = \tfrac{f_s}{8}\,(x[n+2] + 2x[n+1] - 2x[n-1] - x[n-2])$. Resalta las pendientes pronunciadas del QRS frente a las ondas lentas. En la banda del pasabanda su respuesta coincide con la de una derivada ideal.
+  \item \textbf{Cuadrado.} Hace positivos todos los lóbulos de la derivada y acentúa las pendientes grandes frente a las chicas.
+  \item \textbf{Integración con ventana móvil de \SI{150}{\milli\second}.} Promedia la señal al cuadrado en una ventana del orden del ancho de un QRS, de modo que cada complejo queda como un único pulso. Con ventanas más cortas el QRS sigue partido en varios picos; con ventanas más largas el pulso se mezcla con la onda T.
+  \item \textbf{Decisión.} Un máximo local de la señal integrada es un QRS si supera un umbral y está a más de \SI{200}{\milli\second} del anterior (período refractario; dos latidos más cercanos implicarían más de \SI{300}{lpm}).
+  \item \textbf{Ubicación del pico R.} El máximo de la señal integrada no coincide exactamente con el R, así que se busca el extremo de la señal acondicionada dentro de \SI{\pm100}{\milli\second} alrededor de cada QRS. Antes se decide la polaridad del registro, comparando cuánto sube y cuánto baja la señal respecto de su mediana en cada ventana, para que el método funcione aunque los complejos estén invertidos.
+\end{enumerate}
+
+Nuestra implementación se aparta del artículo en tres puntos. Primero, como los registros se analizan después de grabados, el pasabanda es un Butterworth de orden 2 aplicado ida y vuelta (\texttt{filtfilt}) y la derivada y la ventana móvil están centradas: ninguna etapa introduce retardo, y la posición de los picos no necesita corrección. Segundo, en lugar de los dos pares de umbrales adaptativos y la búsqueda hacia atrás de latidos perdidos, usamos un único umbral fijo para todo el registro, lo que permite estudiar directamente cómo cambia la detección con ese parámetro. Tercero, el umbral es una fracción (0,2) del percentil 99 de la señal integrada, y no de su máximo. La primera versión usaba el máximo, pero en el registro post ejercicio el salto de la línea de base al entrar en una saturación, a los \SI{47}{\second}, genera un pulso integrado de más del doble de altura que cualquier QRS. Con esa referencia el umbral subía, y con una fracción de 0,3 se detectaban 253 latidos de unos 375. Un artefacto así dura unos \SI{150}{\milli\second}, menos del \SI{1}{\percent} de las muestras, y no modifica el percentil 99, que queda a la altura de los QRS normales.
+
+El valor de 0,2 se eligió con un barrido del umbral relativo entre 0,05 y 0,9 (sección~\ref{sec:res-deteccion}). La validación con un ECG sintético de picos conocidos, a 60 y \SI{120}{lpm} y con ruido blanco agregado, dio una sensibilidad y un valor predictivo positivo del \SI{100}{\percent}, con un error de ubicación de a lo sumo una muestra (\SI{2}{\milli\second}).
+
+\begin{table}[htbp]
+  \centering
+  \caption{Etapas del detector de Pan-Tompkins y sus parámetros.}
+  \label{tab:pantompkins}
+  \begin{tabular}{@{}p{4.2cm}p{10.6cm}@{}}
+    \toprule
+    Etapa & Parámetros \\
+    \midrule
+    Pasabanda & Butterworth de orden 2, \SIrange{5}{15}{\hertz}, ida y vuelta (fase cero) \\
+    Derivada & Cinco puntos, centrada \\
+    Cuadrado & --- \\
+    Integración & Ventana rectangular centrada de \SI{150}{\milli\second} \\
+    Decisión & Umbral $= 0{,}2 \times$ percentil 99 de la integrada; período refractario de \SI{200}{\milli\second} \\
+    Ubicación del R & Extremo de la señal acondicionada en \SI{\pm100}{\milli\second}, con detección de polaridad \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \subsection{Tacograma}
 \label{sec:met-tacograma}
-\pendiente{Construcción de la serie RR y métricas reportadas.}
+% Responde: ítem 6 (método)
+
+A partir de las posiciones $n_i$ de los picos R (en muestras) se calculan los instantes de los latidos, $t_i = n_i / f_s$, y los intervalos $\mathrm{RR}_i = t_{i+1} - t_i$. Cada intervalo se ubica en el instante del latido que lo cierra, $t_{i+1}$, de modo que el tacograma es la serie $(t_{i+1}, \mathrm{RR}_i)$, en segundos, y la frecuencia cardíaca instantánea es $\mathrm{FC}_i = 60/\mathrm{RR}_i$, en latidos por minuto.
+
+Se descartan dos tipos de intervalos:
+\begin{itemize}
+  \item \textbf{Intervalos que tocan zonas inválidas.} Un intervalo se usa solo si todas las muestras entre sus dos latidos, extremos incluidos, son válidas según la máscara del acondicionamiento (primer segundo del registro y tramos saturados con su margen). No alcanza con revisar los dos latidos de los extremos: si un latido cae dentro de un tramo saturado y no se detecta, el intervalo que lo contiene mide el doble aunque sus extremos estén en zona válida. En el registro post ejercicio esto ocurría en dos intervalos. Los intervalos descartados no se rellenan: quedan como huecos en el tacograma.
+  \item \textbf{Intervalos atípicos.} Se marca como atípico cada RR que se aparta más de un \SI{30}{\percent} de la mediana de los 11 intervalos centrados en él. Este criterio detecta latidos perdidos, que duplican el RR, y detecciones falsas, que lo parten en dos, pero sigue los cambios lentos de la frecuencia cardíaca durante la recuperación. Con un umbral del \SI{20}{\percent} se marcaban como atípicos dos intervalos reales del registro de reposo, ubicados en las crestas de una oscilación lenta.
+\end{itemize}
+
+Para cada registro se informan, sin los intervalos atípicos, la frecuencia cardíaca media ($60/\overline{\mathrm{RR}}$), sus valores instantáneos mínimo y máximo, la frecuencia media de los primeros y de los últimos \SI{10}{\second}, y la pendiente de la recta ajustada por cuadrados mínimos a la frecuencia instantánea en función del tiempo, que resume la tendencia del registro. Como índices temporales de variabilidad se calculan SDNN, RMSSD y pNN50 \parencite{taskforce1996}. Las diferencias sucesivas se toman solo entre intervalos consecutivos, es decir, sin un hueco entre ellos, para no confundir un salto en el tiempo con variabilidad.
 
 \subsection{Periodograma de Lomb}
 \label{sec:met-lomb}
@@ -144,7 +186,7 @@ donde el corrimiento $\tau$ hace que los ajustes del seno y del coseno sean inde
 \paragraph{Tratamiento previo del tacograma.}
 Antes de calcular el periodograma se aplican dos pasos:
 \begin{itemize}
-  \item \textbf{Descarte de intervalos atípicos.} Un latido no detectado duplica el RR y una detección falsa lo parte en dos. Ambos errores agregan potencia de banda ancha que no es fisiológica. Se descarta cada RR que se aparta más de un \SI{30}{\percent} de la mediana de los 11 intervalos centrados en él. Con un umbral del \SI{20}{\percent} se descartaban dos intervalos reales del registro de reposo, ubicados en las crestas de una oscilación lenta. Como Lomb no necesita muestras equiespaciadas, los intervalos descartados simplemente se quitan, sin interpolar.
+  \item \textbf{Descarte de intervalos atípicos.} Un latido no detectado duplica el RR y una detección falsa lo parte en dos. Ambos errores agregan potencia de banda ancha que no es fisiológica. Se quitan los RR marcados como atípicos con el criterio de la sección~\ref{sec:met-tacograma} (más de un \SI{30}{\percent} de diferencia con la mediana de los 11 intervalos centrados en cada uno). Como Lomb no necesita muestras equiespaciadas, los intervalos descartados, igual que los huecos de las zonas inválidas, simplemente se quitan, sin interpolar.
   \item \textbf{Quitar la tendencia.} Se resta un polinomio de grado 2 en función del tiempo, ajustado por cuadrados mínimos. Esto quita la media, que Lomb necesita nula, y la tendencia lenta de la recuperación posterior al ejercicio, durante la cual el RR aumenta en forma sostenida. Sin este paso, la tendencia concentra potencia en las frecuencias más bajas y, por las fugas espectrales, contamina la banda LF. Un polinomio de grado 2 sobre registros de 1 a 3 minutos solo sigue variaciones mucho más lentas que \SI{0.04}{\hertz}, de modo que no afecta las bandas analizadas.
 \end{itemize}
 
@@ -157,4 +199,4 @@ Se usan las bandas de la \textcite{taskforce1996} para registros cortos: LF (baj
 La \textcite{taskforce1996} recomienda registros de al menos \SI{1}{\minute} para estimar HF y de al menos \SI{2}{\minute} para LF. El registro de reposo, de unos \SI{55}{\second} útiles, alcanza para HF, pero su estimación de LF es solo orientativa. El registro post ejercicio no es estacionario, porque la frecuencia cardíaca baja durante toda la recuperación. Por eso, además de analizarlo completo, se lo dividió en ventanas consecutivas de \SI{1}{\minute}, cada una con su propio tratamiento previo y su propia grilla.
 
 \paragraph{Implementación y validación.}
-Todo el procedimiento está en el módulo \texttt{periodograma\_lomb.py}, que implementa la ecuación~\eqref{eq:lomb} con NumPy. Se lo validó con un tacograma sintético de \SI{180}{\second} a \SI{70}{lpm}, cuyo RR oscila un \SI{5}{\percent} a \SI{0.2}{\hertz}. El pico del periodograma quedó en \SI{0.200}{\hertz} y el área bajo la curva coincidió con la varianza de la serie con un error del \SI{0.5}{\percent}. El resultado también coincidió, salvo errores de redondeo, con la función \texttt{lombscargle} de SciPy.
+La ecuación~\eqref{eq:lomb} está implementada con NumPy en el módulo \texttt{periodograma\_lomb.py}, junto con el resto del procedimiento. Se lo validó con un tacograma sintético de \SI{180}{\second} a \SI{70}{lpm}, cuyo RR oscila un \SI{5}{\percent} a \SI{0.2}{\hertz}. El pico del periodograma quedó en \SI{0.200}{\hertz} y el área bajo la curva coincidió con la varianza de la serie con un error del \SI{0.5}{\percent}. El resultado también coincidió, salvo errores de redondeo, con la función \texttt{lombscargle} de SciPy.

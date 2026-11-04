@@ -13,7 +13,7 @@ registro, tramos saturados). Lomb ajusta senoidales por cuadrados mínimos
 directamente sobre esos instantes, sin interpolar ni remuestrear.
 
 Etapas de periodograma_lomb() (justificación en el informe, sección 2.6):
-  1. preparar_tacograma     descarta latidos atípicos y quita la tendencia
+  1. preparar_tacograma     descarta latidos atípicos (criterio de M3) y quita la tendencia
   2. grilla_de_frecuencias  si no se pasa f: de df a F_MAX, con df = 1/(SOBREMUESTREO*T)
   3. lomb                   periodograma de Lomb, pasado a densidad espectral en s²/Hz
 
@@ -24,6 +24,10 @@ bibliografía de VFC).
 """
 
 import numpy as np
+
+# El criterio de RR atípicos es parte del tacograma (M3); se importa de ahí para
+# que el tacograma, su tabla y el periodograma descarten exactamente los mismos.
+from modulos.m3_tacograma.tacograma import UMBRAL_ATIPICOS, VENTANA_ATIPICOS, rr_atipicos  # noqa: F401
 
 # ------------------------------ Parámetros ------------------------------
 
@@ -39,11 +43,6 @@ F_MAX = 0.5              # Hz. Cubre HF (hasta 0,4 Hz) con margen. Es la "Nyquis
                          # media" de un tacograma a 60 lpm (un latido por segundo).
 SOBREMUESTREO = 4        # La resolución natural es 1/T; se evalúa 4 veces más
                          # fino para ubicar bien los picos (no agrega resolución).
-VENTANA_ATIPICOS = 11    # latidos. Ancho de la mediana móvil de referencia.
-UMBRAL_ATIPICOS = 0.30   # Se descarta un RR que se aparta más de 30 % de la
-                         # mediana de sus vecinos. Un latido perdido duplica el
-                         # RR (+100 %) y uno falso lo parte en dos. Con 20 % se
-                         # perdían crestas reales del reposo de V1 (+28 %).
 GRADO_TENDENCIA = 2      # Grado del polinomio que se resta como tendencia. Quita
                          # la recuperación lenta post ejercicio sin tocar LF.
 
@@ -79,14 +78,6 @@ def preparar_tacograma(t, rr):
     ok = ~rr_atipicos(rr)
     t, rr = t[ok], rr[ok]
     return t, quitar_tendencia(t, rr)
-
-
-def rr_atipicos(rr, ventana=VENTANA_ATIPICOS, umbral=UMBRAL_ATIPICOS):
-    """True en los RR que se apartan más de `umbral` (fracción) de la mediana móvil."""
-    rr = np.asarray(rr, dtype=float)
-    medio = ventana // 2
-    referencia = np.array([np.median(rr[max(i - medio, 0): i + medio + 1]) for i in range(len(rr))])
-    return np.abs(rr / referencia - 1) > umbral
 
 
 def quitar_tendencia(t, x, grado=GRADO_TENDENCIA):
@@ -218,5 +209,35 @@ def figura_periodogramas(resultados):
         ax.set(title=f"{reg.voluntario} - {reg.condicion.replace('_', ' ')}", ylabel="DEP (ms²/Hz)", ylim=(0, None))
         ax.legend(loc="upper right")
     axs[-1, 0].set(xlim=(0, F_MAX), xlabel="Frecuencia (Hz)")
+    fig.tight_layout()
+    return fig
+
+
+def figura_ventanas(resultados, duracion=60.0):
+    """Periodograma de cada ventana de `duracion` s de los registros post ejercicio.
+
+    Eje y logarítmico; más oscuro = más tarde en la recuperación. Las ventanas
+    son las mismas que usa indices_por_ventanas().
+    """
+    import matplotlib.pyplot as plt
+    from modulos.herramientas import graficos
+
+    post = [res for res in resultados if res.registro.condicion == "post_ejercicio"]
+    cm = 1 / 2.54
+    fig, axs = plt.subplots(1, len(post), figsize=(16 * cm, 6 * cm), squeeze=False)
+    for ax, res in zip(axs[0], post):
+        color = graficos.COLOR_CONDICION["post_ejercicio"]
+        inicios = np.arange(res.t_rr[0], res.t_rr[-1] - duracion / 2, duracion)
+        for k, t0 in enumerate(inicios):
+            sel = (res.t_rr >= t0) & (res.t_rr < t0 + duracion)
+            f, p = periodograma_lomb(res.t_rr[sel], res.rr[sel])
+            ax.semilogy(f, p * 1e6, color=color, alpha=0.3 + 0.7 * k / max(len(inicios) - 1, 1),
+                        label=f"minuto {k + 1}")
+        for f0 in (BANDAS["LF"][0], BANDAS["HF"][0], BANDAS["HF"][1]):
+            ax.axvline(f0, color="k", ls=":", lw=0.6)
+        reg = res.registro
+        ax.set(title=f"{reg.voluntario} - {reg.condicion.replace('_', ' ')}, por minuto",
+               xlabel="Frecuencia (Hz)", ylabel="DEP (ms²/Hz)", xlim=(0, F_MAX))
+        ax.legend(loc="upper right", ncol=3)
     fig.tight_layout()
     return fig

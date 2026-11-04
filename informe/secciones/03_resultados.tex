@@ -20,34 +20,94 @@ La figura~\ref{fig:acond_antes_despues} compara \SI{10}{\second} de cada registr
   \label{fig:acond_espectro_antes_despues}
 \end{figure}
 
-% Plantilla de figura (las figuras las genera guardar_figura() en informe/figuras/)
-% \begin{figure}[htbp]
-%   \centering
-%   \includegraphics[width=\textwidth]{nombre_figura}
-%   \caption{...}
-%   \label{fig:nombre_figura}
-% \end{figure}
-
 \subsection{Detección de latidos}
 \label{sec:res-deteccion}
 % Responde: ítem 6 (detección)
-\pendiente{Etapas de Pan-Tompkins sobre un registro y detecciones en los cuatro registros.}
+
+La figura~\ref{fig:pt_etapas} muestra cada etapa del detector sobre \SI{6}{\second} del registro de reposo. El pasabanda deja una señal centrada en cero en la que las ondas P y T quedan muy atenuadas; la derivada convierte cada QRS en un par de lóbulos de signo opuesto, y el cuadrado, en dos picos angostos y positivos. La integración funde esos picos en un único pulso por latido, que supera holgadamente el umbral, mientras que entre latidos la señal integrada queda prácticamente en cero. El pico R ubicado sobre la señal acondicionada está a unos \SI{20}{\milli\second} del máximo del pulso integrado, muy por dentro de la ventana de búsqueda de \SI{\pm100}{\milli\second}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{pt_etapas}
+  \caption{Etapas del algoritmo de Pan-Tompkins sobre \SI{6}{\second} del registro de reposo de V1. En la señal integrada se marcan el umbral de detección ($0{,}2 \times$ percentil 99) y los QRS detectados; en la señal de entrada, los picos R ubicados.}
+  \label{fig:pt_etapas}
+\end{figure}
+
+Para elegir el umbral, corrimos el detector con umbrales relativos entre 0,05 y 0,9. En el registro de reposo se detectan los mismos 80 latidos con cualquier umbral entre 0,10 y 0,30; con 0,05 aparece una detección falsa, y por encima de 0,35 se empiezan a perder latidos. En el registro post ejercicio la cantidad de detecciones forma una meseta entre 0,15 y 0,25 (374 a 375 latidos), y en ese rango el tacograma resultante es exactamente el mismo. Con 0,10 aparecen tres detecciones más, todas dentro de tramos saturados que el tacograma excluye; con 0,05 ya pasan detecciones falsas que generan 18 intervalos atípicos. El umbral elegido, 0,2, queda en el centro de la meseta de ambos registros.
+
+La tabla~\ref{tab:deteccion} resume la detección. De los 79 intervalos posibles del registro de reposo se excluye uno, que toca el primer segundo del registro; en el post ejercicio se excluyen 15 de 374, por el inicio y por los seis tramos saturados largos. Ninguno de los intervalos restantes resultó atípico, lo que indica que no quedaron latidos perdidos ni detecciones falsas en las zonas válidas. El intervalo más corto del registro post ejercicio es de \SI{400}{\milli\second}, el doble del período refractario, de modo que este no limita la detección aun a \SI{150}{lpm}. La figura~\ref{fig:deteccion} muestra las detecciones en un tramo de cada registro. En el post ejercicio se eligió un tramo con una saturación: el latido que cae dentro de ella no se detecta, y por eso se excluye el intervalo completo que lo contiene.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Detección de latidos e intervalos RR usados en cada registro.}
+  \label{tab:deteccion}
+  \begin{tabular}{@{}lrrrrr@{}}
+    \toprule
+    Registro & Duración (s) & Latidos & RR posibles & RR en zona válida & RR atípicos \\
+    \midrule
+    V1 reposo         & \num{57.6}  &  80 &  79 &  78 & 0 \\
+    V1 post ejercicio & \num{173.2} & 375 & 374 & 359 & 0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{deteccion_picos}
+  \caption{Picos R detectados (círculos) sobre la señal acondicionada, en \SI{8}{\second} de cada registro. En el registro post ejercicio, el sombreado marca un tramo saturado y su margen, excluidos del análisis: el latido que cae dentro no se detecta y el intervalo que lo contiene no se usa.}
+  \label{fig:deteccion}
+\end{figure}
 
 \subsection{Tacogramas}
 \label{sec:res-tacograma}
 % Responde: ítems 6a y 6b
-\pendiente{Ítem 6a: variación de la frecuencia cardíaca en cada registro.}
 
-\pendiente{Ítem 6b: comparación entre voluntarios.}
+La figura~\ref{fig:tacogramas} muestra los tacogramas y la frecuencia cardíaca instantánea de los dos registros, con el tiempo medido desde el inicio de cada uno, y la tabla~\ref{tab:tacograma} resume sus índices.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{tacogramas}
+  \caption{Arriba: tacogramas de V1 en reposo y post ejercicio. Abajo: frecuencia cardíaca instantánea (trazo fino) y su media móvil de \SI{10}{\second} (trazo grueso). El tiempo se mide desde el inicio de cada registro; los huecos corresponden a intervalos excluidos.}
+  \label{fig:tacogramas}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Índices del tacograma de cada registro. FC inicial y final: media de los primeros y de los últimos \SI{10}{\second}. Pendiente: recta ajustada a la frecuencia cardíaca instantánea. Entre paréntesis, el SDNN después de quitar la tendencia polinómica de grado 2.}
+  \label{tab:tacograma}
+  \begin{tabular}{@{}lrr@{}}
+    \toprule
+    & V1 reposo & V1 post ejercicio \\
+    \midrule
+    Intervalos RR usados          & 78 & 359 \\
+    Duración del tacograma (s)    & 55 & 171 \\
+    FC media (lpm)                & \num{84.2} & \num{130.9} \\
+    FC instantánea mín.--máx. (lpm) & \numrange{61}{104} & \numrange{115}{150} \\
+    FC inicial / final (lpm)      & \num{82.9} / \num{80.2} & \num{145.7} / \num{120.1} \\
+    Pendiente de la FC (lpm/min)  & \num{2.9} & \num{-10.4} \\
+    RR medio (ms)                 & 712 & 458 \\
+    SDNN (ms)                     & 82 (82) & 32 (12) \\
+    RMSSD (ms)                    & \num{47.9} & \num{8.6} \\
+    pNN50 (\%)                    & \num{23.4} & 0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Ítem 6a: variación de la frecuencia cardíaca en cada registro.}
+En \textbf{reposo}, la frecuencia cardíaca media es de \SI{84}{lpm} y no tiene una tendencia definida: la media de los primeros y de los últimos \SI{10}{\second} difiere en menos de \SI{3}{lpm}, y la pendiente ajustada, de \SI{2.9}{lpm/min}, es chica frente a las oscilaciones del registro. Lo que domina es la variación alrededor de la media, que es grande: la frecuencia instantánea recorre de 61 a \SI{104}{lpm}. En el tacograma se distinguen dos componentes. Hay unas tres oscilaciones lentas y amplias, con un período de unos \SI{16}{\second}, en las que el RR va de unos 600 a \SI{980}{\milli\second}, y sobre ellas una ondulación más rápida, con un período de unos \SI{5}{\second} (siete u ocho latidos). La variabilidad latido a latido es alta: RMSSD de \SI{48}{\milli\second} y un \SI{23}{\percent} de diferencias sucesivas mayores a \SI{50}{\milli\second}.
+
+En el registro \textbf{post ejercicio}, la frecuencia cardíaca empieza en unos \SI{146}{lpm}, se mantiene en esa meseta durante unos \SI{20}{\second} y después baja en forma sostenida hasta unos \SI{120}{lpm} al final del registro, \SI{26}{lpm} menos en tres minutos. La caída no es uniforme: la pendiente es de \SI{-14.5}{lpm/min} en el primer minuto (media de \SI{141}{lpm}), de \SI{-1.2}{lpm/min} en el segundo (\SI{128}{lpm}) y de \SI{-6.0}{lpm/min} en el tercero (\SI{121}{lpm}). Superpuestas a esa tendencia, las fluctuaciones son mucho menores que en reposo. El RMSSD baja a \SI{8.6}{\milli\second}, 5,6 veces menos que en reposo, y no hay ninguna diferencia sucesiva mayor a \SI{50}{\milli\second}. El SDNN, de \SI{32}{\milli\second}, está dominado por la tendencia: sin ella queda en \SI{12}{\milli\second}, siete veces menos que en reposo. La reducción no se explica solo porque los RR son más cortos: relativa al RR medio, la variabilidad sin tendencia pasa del \SI{11.5}{\percent} en reposo al \SI{2.6}{\percent} post ejercicio.
+
+\paragraph{Ítem 6b: comparación entre voluntarios.}
+Se registró un solo voluntario, por lo que no fue posible comparar la evolución de la frecuencia cardíaca entre sujetos. El procesamiento está preparado para un segundo voluntario: bastaría con agregar sus archivos a la lista de registros para que aparezca en las figuras y tablas con línea discontinua.
 
 \subsection{Análisis espectral}
 \label{sec:res-lomb}
 % Responde: ítems 7a y 7b
-% Valores calculados con fs = 500 Hz y detectar_picos_r(..., umbral_relativo=0.1).
-% Con el umbral por defecto de M2 (0,3), el detector pierde cerca de un tercio de
-% los latidos del registro post ejercicio y los índices de esta sección no valen.
+% Valores generados por main.py (informe/figuras/tabla_lomb.csv): fs = 500 Hz,
+% umbral de M2 = 0,2 x percentil 99 de la integrada.
 
-La figura~\ref{fig:lomb_periodogramas} muestra los periodogramas de Lomb de los dos registros de V1, y la tabla~\ref{tab:lomb} resume los índices espectrales. En el registro post ejercicio se descartaron 2 de 361 intervalos RR por atípicos (dos latidos no detectados); en el de reposo no se descartó ninguno.
+La figura~\ref{fig:lomb_periodogramas} muestra los periodogramas de Lomb de los dos registros de V1, y la tabla~\ref{tab:lomb} resume los índices espectrales. Como ninguno de los dos tacogramas tiene intervalos atípicos, el periodograma usa todos los intervalos válidos: 78 en reposo y 359 post ejercicio.
 
 \begin{figure}[htbp]
   \centering
@@ -78,7 +138,16 @@ La figura~\ref{fig:lomb_periodogramas} muestra los periodogramas de Lomb de los 
 \paragraph{Ítem 7a: reposo frente a post ejercicio.}
 La diferencia más marcada está en la potencia total. Después del ejercicio, la potencia LF cae de \SI{4870}{\milli\second\squared} a \SI{48}{\milli\second\squared} y la HF, de \SI{1029}{\milli\second\squared} a \SI{21}{\milli\second\squared}: la variabilidad en ambas bandas se reduce entre 50 y 100 veces, mientras la frecuencia cardíaca media sube de 84 a \SI{131}{lpm}. En la figura~\ref{fig:lomb_periodogramas}, el espectro de reposo tiene picos definidos, el mayor en \SI{0.064}{\hertz}, dentro de LF, y otro en \SI{0.18}{\hertz}, dentro de HF, que corresponde a unas 11 respiraciones por minuto. El espectro post ejercicio, en cambio, tiene una escala unas 30 veces menor y, por encima de \SI{0.04}{\hertz}, no muestra picos dominantes: la potencia se reparte en muchos picos chicos, salvo uno leve cerca de \SI{0.2}{\hertz}. Por debajo de \SI{0.04}{\hertz}, en la banda VLF, queda una potencia de \SI{53}{\milli\second\squared}, comparable a la suma de LF y HF. Corresponde a la tendencia lenta de la recuperación que el polinomio no terminó de quitar. Parte de esta caída se debe a que, con RR más cortos, las mismas variaciones relativas producen variaciones absolutas menores, por lo que conviene comparar también las unidades normalizadas.
 
-En el registro post ejercicio completo, la potencia se reparte entre las bandas de forma parecida al reposo ($\mathrm{LF_{nu}}$ de \SI{69}{\percent} frente a \SI{83}{\percent}), pero el análisis por minuto muestra que ese promedio mezcla etapas distintas de la recuperación. En el primer minuto, con la frecuencia cardíaca en \SI{141}{lpm}, la banda HF prácticamente desaparece (\SI{4.2}{\milli\second\squared}, el \SI{7}{\percent} de LF + HF) y el cociente LF/HF llega a 13. El pico de HF se corre a \SI{0.36}{\hertz}, unas 22 respiraciones por minuto, lo que es compatible con la respiración agitada posterior al esfuerzo (no se registró la respiración, así que no se puede confirmar). En los minutos 2 y 3, mientras la frecuencia cardíaca baja a 128 y \SI{121}{lpm}, la potencia HF reaparece, el pico respiratorio vuelve a \SIrange{0.19}{0.21}{\hertz} y el cociente LF/HF queda entre 0,9 y 1,5. Este patrón coincide con lo que se espera de la retirada vagal durante el ejercicio y su reactivación gradual en la recuperación; la comparación con la teoría se desarrolla en la sección~\ref{sec:discusion}.
+En el registro post ejercicio completo, la potencia se reparte entre las bandas de forma parecida al reposo ($\mathrm{LF_{nu}}$ de \SI{69}{\percent} frente a \SI{83}{\percent}), pero el análisis por minuto (figura~\ref{fig:lomb_ventanas}) muestra que ese promedio mezcla etapas distintas de la recuperación.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{lomb_ventanas_post}
+  \caption{Periodograma de Lomb de cada minuto del registro post ejercicio de V1, en escala logarítmica (más oscuro, más tarde en la recuperación). Las líneas punteadas marcan los límites de las bandas LF y HF.}
+  \label{fig:lomb_ventanas}
+\end{figure}
+
+ En el primer minuto, con la frecuencia cardíaca en \SI{141}{lpm}, la banda HF prácticamente desaparece (\SI{4.2}{\milli\second\squared}, el \SI{7}{\percent} de LF + HF) y el cociente LF/HF llega a 13. El pico de HF se corre a \SI{0.36}{\hertz}, unas 22 respiraciones por minuto, lo que es compatible con la respiración agitada posterior al esfuerzo (no se registró la respiración, así que no se puede confirmar). En los minutos 2 y 3, mientras la frecuencia cardíaca baja a 128 y \SI{121}{lpm}, la potencia HF reaparece, el pico respiratorio vuelve a \SIrange{0.19}{0.21}{\hertz} y el cociente LF/HF queda entre 0,9 y 1,5. Este patrón coincide con lo que se espera de la retirada vagal durante el ejercicio y su reactivación gradual en la recuperación; la comparación con la teoría se desarrolla en la sección~\ref{sec:discusion}.
 
 El cociente LF/HF del reposo (4,7) es alto para un sujeto en reposo. Está dominado por la oscilación de \SI{0.064}{\hertz}, con un período de unos \SI{16}{\second}, que en un registro de \SI{55}{\second} completa apenas tres ciclos y medio. Como el registro es más corto que los \SI{2}{\minute} recomendados para LF, ese valor es poco confiable: unas pocas oscilaciones lentas, por ejemplo por una respiración profunda o por hablar durante el registro, alcanzan para inflarlo.
 

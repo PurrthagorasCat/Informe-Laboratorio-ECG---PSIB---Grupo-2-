@@ -22,6 +22,17 @@ LISTA_DE_REGISTROS = CARPETA_DATOS / "lista_de_registros.csv"
 VOLUNTARIOS = ("V1", "V2")
 CONDICIONES = ("reposo", "post_ejercicio")
 
+# Formato del archivo que exporta la interfaz (ítem 1)
+COLUMNA_SENAL = "Sample"   # encabezado de la única columna
+UNIDADES = "V"             # tensión a la salida del módulo AD8232
+
+# Frecuencia de muestreo (ítem 2). El archivo no la guarda: sale del firmware
+# del Arduino (Timer1 en modo CTC, 16 MHz / (64 · (1 + OCR1A)) con OCR1A = 499)
+# y es consistente con la duración de los registros: 28 800 muestras = 57,6 s
+# (protocolo: 1 min) y 86 600 muestras = 173,2 s (protocolo: 3 min).
+# Justificación completa en el informe, sección 2.2.3.
+FS_REGISTRO = 500.0        # Hz
+
 
 @dataclass
 class Registro:
@@ -46,14 +57,24 @@ class Registro:
 def cargar_registro(ruta):
     """Lee un archivo tal como lo exporta la interfaz de adquisición.
 
-    PENDIENTE (M0):
-      - [ ] Identificar el formato del archivo exportado (ítem 1).
-      - [ ] Identificar columnas, separador, encabezado y unidades.
-      - [ ] Determinar la frecuencia de muestreo y dejar la justificación
-            en el cuaderno carga_de_datos.ipynb (ítem 2).
-      - [ ] Devolver un Registro con `ecg` y `fs`.
+    Formato (ítem 1, informe sección 2.2.2): CSV de una sola columna con el
+    encabezado "Sample" y una muestra por fila. Cada valor es la tensión a la
+    salida del AD8232 en voltios (V = 5 n / 1023, redondeada a 10 mV).
+    El archivo no guarda la base de tiempo: fs es FS_REGISTRO (ítem 2).
     """
-    raise NotImplementedError("M0: falta programar cargar_registro()")
+    ruta = Path(ruta)
+    tabla = pd.read_csv(ruta)
+    columna = COLUMNA_SENAL if COLUMNA_SENAL in tabla.columns else tabla.columns[0]
+    ecg = pd.to_numeric(tabla[columna], errors="coerce").to_numpy(dtype=float)
+
+    # Filas vacías o no numéricas (por ejemplo, una última línea cortada si la
+    # grabación se interrumpió): se avisa y se descartan.
+    malas = ~np.isfinite(ecg)
+    if malas.any():
+        warnings.warn(f"{ruta.name}: se descartan {malas.sum()} filas no numéricas")
+        ecg = ecg[~malas]
+
+    return Registro(ecg=ecg, fs=FS_REGISTRO, archivo=ruta.name, unidades=UNIDADES)
 
 
 def leer_lista_de_registros():

@@ -1,7 +1,11 @@
 """Junta los módulos 1 a 4 en orden sobre un registro.
 
-Ya está terminado: no hace falta tocarlo para programar los módulos.
-Con `hasta=` se corre sólo hasta la etapa que ya esté programada, por ejemplo
+    M1 acondicionar()       señal acondicionada + máscara de muestras válidas
+    M2 detectar_picos_r()   picos R sobre la señal acondicionada
+    M3 intervalos_rr()      tacograma, sin los intervalos que tocan zonas inválidas
+    M4 periodograma_lomb()  periodograma del tacograma
+
+Con `hasta=` se corre sólo hasta una etapa, por ejemplo
 procesar(reg, hasta="pan_tompkins").
 """
 
@@ -24,6 +28,7 @@ class Resultado:
     """Todo lo que se obtiene de un registro. Se usa así: res.picos_r, res.rr..."""
     registro: Registro
     ecg_acondicionado: np.ndarray = None
+    valida: np.ndarray = None          # True en las muestras aptas (M1, mascara_valida)
     picos_r: np.ndarray = None
     t_rr: np.ndarray = None
     rr: np.ndarray = None
@@ -38,12 +43,13 @@ def procesar(reg, hasta="lomb"):
     res = Resultado(registro=reg)
 
     res.ecg_acondicionado = acondicionamiento.acondicionar(reg.ecg, reg.fs)
+    res.valida = acondicionamiento.mascara_valida(reg.ecg, reg.fs)
     if ultima < 1:
         return res
     res.picos_r = pan_tompkins.detectar_picos_r(res.ecg_acondicionado, reg.fs)
     if ultima < 2:
         return res
-    res.t_rr, res.rr = tacograma.intervalos_rr(res.picos_r, reg.fs)
+    res.t_rr, res.rr = tacograma.intervalos_rr(res.picos_r, reg.fs, valida=res.valida)
     if ultima < 3:
         return res
     res.f, res.p = periodograma_lomb.periodograma_lomb(res.t_rr, res.rr)
@@ -51,5 +57,5 @@ def procesar(reg, hasta="lomb"):
 
 
 def procesar_todos(hasta="lomb"):
-    """Procesa los cuatro registros de la lista."""
+    """Procesa todos los registros de datos/lista_de_registros.csv."""
     return [procesar(reg, hasta=hasta) for reg in carga_de_datos.cargar_todos()]

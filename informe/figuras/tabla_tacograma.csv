@@ -1,0 +1,3 @@
+,N_RR,atipicos,duracion_s,FC_media_lpm,FC_min_lpm,FC_max_lpm,FC_inicio_lpm,FC_fin_lpm,pendiente_FC_lpm_min,RR_medio_ms,SDNN_ms,RMSSD_ms,pNN50_%
+V1_reposo,78,0,54.77,84.24,61.22,103.8,82.89,80.15,2.937,712.3,81.9,47.92,23.38
+V1_post_ejercicio,359,0,171,130.9,114.5,150,145.7,120.1,-10.42,458.4,32.01,8.613,0

@@ -1,7 +1,9 @@
 \section{Introducción}
 \label{sec:introduccion}
 
-\pendiente{Objetivo del trabajo y organización del informe.}
+El objetivo de este trabajo es adquirir el electrocardiograma de un voluntario con un sistema de bajo costo, en reposo y después de una actividad física intensa, y estudiar cómo cambia la variabilidad de su frecuencia cardíaca entre ambos estados. Para eso hay que resolver una cadena completa de procesamiento: entender qué guarda el sistema de adquisición y a qué frecuencia muestrea, acondicionar la señal, detectar cada latido, construir la serie de intervalos entre latidos (tacograma) y estimar su contenido espectral.
+
+El informe se organiza de la siguiente manera. En esta sección se resumen los fundamentos del electrocardiograma y sus derivaciones, los formatos en que se almacena y las bases fisiológicas de la variabilidad de la frecuencia cardíaca. La sección~\ref{sec:metodos} describe el protocolo, el sistema de adquisición y cada etapa del procesamiento. La sección~\ref{sec:resultados} presenta los resultados del acondicionamiento, la detección de latidos, los tacogramas y los periodogramas, que se discuten frente a la teoría en la sección~\ref{sec:discusion}. Las conclusiones se resumen en la sección~\ref{sec:conclusiones}. Todo el procesamiento está implementado en Python; el programa \texttt{main.py} del repositorio del grupo lo corre de punta a punta y genera las figuras y tablas de este informe.
 
 \subsection{Electrocardiograma y derivaciones}
 \label{sec:derivaciones}
@@ -48,4 +50,20 @@ Frente a estos formatos, el archivo CSV de este experimento (sección~\ref{sec:f
 \subsection{Variabilidad de la frecuencia cardíaca}
 \label{sec:hrv}
 % Base teórica para los ítems 6, 7 y 8
-\pendiente{Marco teórico de la VFC necesario para interpretar el tacograma y el periodograma; bandas de análisis con su fuente.}
+
+El corazón late con un ritmo propio, marcado por las células marcapasos del nodo sinusal, pero ese ritmo está modulado en forma continua por el sistema nervioso autónomo. La rama parasimpática, a través del nervio vago, reduce la frecuencia cardíaca y actúa muy rápido: su efecto aparece y desaparece en menos de un segundo, de modo que puede cambiar la duración de un latido al siguiente. La rama simpática la aumenta, pero con una dinámica más lenta, de varios segundos. Por eso el intervalo entre latidos no es constante ni siquiera en reposo, y sus fluctuaciones, la variabilidad de la frecuencia cardíaca (VFC), reflejan la actividad de ambas ramas y de los reflejos que las controlan \parencite{taskforce1996,shaffer2017}.
+
+La serie de intervalos entre picos R consecutivos (intervalos RR) en función del tiempo se llama \textbf{tacograma}. Sobre ella se calculan índices en el dominio del tiempo y de la frecuencia. Entre los primeros, la \textcite{taskforce1996} define el desvío estándar de los intervalos (SDNN), que mide la variabilidad total; la raíz cuadrática media de las diferencias entre intervalos sucesivos (RMSSD) y el porcentaje de diferencias sucesivas mayores a \SI{50}{\milli\second} (pNN50). Estos dos últimos miden la variabilidad de un latido al siguiente, que solo la rama vagal es capaz de producir, y por eso se usan como índices del tono vagal \parencite{shaffer2017}.
+
+En el dominio de la frecuencia, el espectro del tacograma se divide en bandas \parencite{taskforce1996}:
+\begin{itemize}
+  \item \textbf{HF} (alta frecuencia, \SIrange{0.15}{0.4}{\hertz}): corresponde a la arritmia sinusal respiratoria, el aumento de la frecuencia cardíaca durante la inspiración y su disminución durante la espiración. Está mediada casi por completo por el vago, y la frecuencia de su pico coincide con la frecuencia respiratoria.
+  \item \textbf{LF} (baja frecuencia, \SIrange{0.04}{0.15}{\hertz}): incluye las oscilaciones de unos \SI{10}{\second} de período ligadas al barorreflejo. Recibe aportes de las dos ramas, por lo que no es un índice simpático puro.
+  \item \textbf{VLF} (muy baja frecuencia, por debajo de \SI{0.04}{\hertz}): mecanismos más lentos (termorregulación, sistema renina-angiotensina, tendencias). No se puede estimar en registros de pocos minutos.
+\end{itemize}
+El cociente LF/HF se usó durante mucho tiempo como medida del balance simpático-vagal. Esa interpretación es discutida: como la banda LF también tiene aporte vagal y ninguna de las dos bandas es independiente de la frecuencia cardíaca, el cociente no mide directamente el balance entre ambas ramas \parencite{billman2013}. Por eso conviene interpretarlo junto con las potencias absolutas y las unidades normalizadas.
+
+La VFC depende además de la propia frecuencia cardíaca. Cuando la frecuencia aumenta, los intervalos RR se acortan y la misma modulación autonómica produce variaciones absolutas menores, por lo que todos los índices de variabilidad tienden a bajar \parencite{sacha2014}.
+
+\paragraph{Ejercicio y recuperación.}
+Al comenzar el ejercicio, la frecuencia cardíaca sube primero por la retirada del tono vagal y después, a intensidades mayores, por la activación simpática y las catecolaminas circulantes. Durante un esfuerzo intenso el control vagal es mínimo y la VFC se reduce mucho, sobre todo en la banda HF. Al terminar el ejercicio el proceso se invierte, pero con dos velocidades: la reactivación vagal es rápida y explica la caída de la frecuencia cardíaca en el primer minuto de recuperación, mientras que la retirada simpática y la eliminación de las catecolaminas son más lentas y mantienen la frecuencia elevada durante varios minutos \parencite{imai1994,michael2017}. Por eso se espera que, inmediatamente después del ejercicio, la frecuencia cardíaca esté alta y la VFC deprimida, y que la variabilidad, en particular la de la banda HF, se recupere en forma progresiva mientras la frecuencia baja. La respiración, que sigue agitada al principio de la recuperación, desplaza además el pico HF hacia frecuencias más altas.
