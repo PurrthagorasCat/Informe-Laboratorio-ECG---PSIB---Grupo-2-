@@ -104,13 +104,6 @@ La tabla~\ref{tab:pantompkins} resume los parámetros. La derivada es $y[n] = \t
   \end{tabular}
 \end{table}
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.8\textwidth]{pt_etapas}
-  \caption{Etapas del algoritmo de Pan-Tompkins sobre \SI{6}{\second} del registro de reposo de V1. En la señal integrada se marcan el umbral de detección ($0{,}2 \times$ percentil 99) y los QRS detectados; en la señal de entrada, los picos R ubicados.}
-  \label{fig:pt_etapas}
-\end{figure}
-
 \paragraph{Barrido del umbral.}
 Corrimos el detector con umbrales relativos entre 0,05 y 0,9. En reposo, con 0,05 aparece una detección falsa y por encima de 0,35 se empiezan a perder latidos. En el registro post ejercicio hay una meseta entre 0,15 y 0,25 (374 a 375 latidos). Con 0,10 aparecen tres detecciones más, todas dentro de tramos saturados que el tacograma excluye; con 0,05 pasan detecciones falsas que generan 18 intervalos atípicos. El valor 0,2 queda en el centro de la meseta de ambos registros.
 
@@ -122,6 +115,29 @@ Se usó un ECG sintético de picos conocidos, a 60 y \SI{120}{lpm}, con ruido bl
 
 \paragraph{Índices del tacograma.}
 La pendiente de la tabla~\ref{tab:tacograma} es la de la recta ajustada por cuadrados mínimos a la frecuencia instantánea. El criterio de atípicos del \SI{30}{\percent} detecta latidos perdidos, que duplican el RR, y detecciones falsas, que lo parten en dos, pero sigue los cambios lentos de la recuperación. Con \SI{20}{\percent} se marcaban como atípicos dos intervalos reales del reposo, en las crestas de una oscilación lenta. En el registro post ejercicio, revisar solo los extremos de cada intervalo dejaba pasar dos intervalos que contenían un latido perdido.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Detección e índices del tacograma. FC inicial y final: media de los primeros y últimos \SI{10}{\second}. Entre paréntesis, el SDNN sin la tendencia polinómica de grado 2.}
+  \label{tab:tacograma}
+  \small
+  \begin{tabular}{@{}lrr@{}}
+    \toprule
+    & V1 reposo & V1 post ejercicio \\
+    \midrule
+    Duración del registro / del tacograma (s) & \num{57.6} / 55 & \num{173.2} / 171 \\
+    Latidos / RR posibles / RR usados & 80 / 79 / 78 & 375 / 374 / 359 \\
+    FC media (lpm)                & \num{84.2} & \num{130.9} \\
+    FC instantánea mín.--máx. (lpm) & \numrange{61}{104} & \numrange{115}{150} \\
+    FC inicial / final (lpm)      & \num{82.9} / \num{80.2} & \num{145.7} / \num{120.1} \\
+    Pendiente de la FC (lpm/min)  & \num{2.9} & \num{-10.4} \\
+    RR medio (ms)                 & 712 & 458 \\
+    SDNN (ms)                     & 82 (82) & 32 (12) \\
+    RMSSD (ms)                    & \num{47.9} & \num{8.6} \\
+    pNN50 (\%)                    & \num{23.4} & 0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \paragraph{Periodograma de Lomb.}
 Para una serie $x_n$ de media nula, tomada en los instantes $t_n$, la potencia en $\omega = 2\pi f$ es
@@ -138,6 +154,25 @@ donde $\tau$ hace que los ajustes del seno y del coseno sean independientes. Si 
 
 \paragraph{Grilla y normalización.}
 La resolución es $1/T$; la grilla cuatro veces más fina ubica mejor los picos, pero no agrega resolución. El límite de \SI{0.5}{\hertz} cubre HF con margen y queda por debajo de la mitad de la frecuencia media de latidos en todos los registros (más de \SI{0.7}{\hertz} a \SI{84}{lpm}). La densidad unilateral es $p(f) = 2P/\bar f_s$, con $\bar f_s = N/T$, de modo que el área bajo $p$ es la varianza del tacograma (teorema de Parseval). También se calcula $\mathrm{HF_{nu}} = \mathrm{HF}/(\mathrm{LF}+\mathrm{HF})$. El polinomio de grado 2 solo sigue variaciones más lentas que la banda LF. Cada ventana de \SI{1}{\minute} tiene su propio tratamiento previo y su propia grilla.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Índices espectrales. $N$: RR usados; $T$: duración; $f_\mathrm{HF}$: pico en HF. Las tres últimas filas son ventanas de \SI{1}{\minute} del registro post ejercicio (la última dura \SI{51}{\second}).}
+  \label{tab:lomb}
+  \small
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{@{}lrrrrrrrr@{}}
+    \toprule
+    Registro & $N$ & $T$ (s) & FC (lpm) & LF (\si{\milli\second\squared}) & HF (\si{\milli\second\squared}) & LF/HF & $\mathrm{LF_{nu}}$ (\%) & $f_\mathrm{HF}$ (Hz) \\
+    \midrule
+    V1 reposo              &  78 &  55 &  84 & 4870 & 1029 & \num{4.7} & 83 & \num{0.18} \\
+    V1 post, completo      & 359 & 171 & 131 &   48 &   21 & \num{2.2} & 69 & \num{0.19} \\
+    \quad minuto 1         & 140 &  60 & 141 &   56 & \num{4.2} & \num{13.3} & 93 & \num{0.36} \\
+    \quad minuto 2         & 126 &  60 & 128 &   44 &   47 & \num{0.9} & 48 & \num{0.19} \\
+    \quad minuto 3         &  93 &  51 & 121 &   23 &   16 & \num{1.5} & 59 & \num{0.21} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \paragraph{Validación.}
 La ecuación~\eqref{eq:lomb} está implementada con NumPy en \texttt{periodograma\_lomb.py}. Se la validó con un tacograma sintético de \SI{180}{\second} a \SI{70}{lpm}, cuyo RR oscila un \SI{5}{\percent} a \SI{0.2}{\hertz}. El pico quedó en \SI{0.200}{\hertz} y el área coincidió con la varianza con un error del \SI{0.5}{\percent}. El resultado también coincidió, salvo errores de redondeo, con la función \texttt{lombscargle} de SciPy.

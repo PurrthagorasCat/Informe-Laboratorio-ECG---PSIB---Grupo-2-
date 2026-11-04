@@ -3,43 +3,32 @@
 
 \subsection{Protocolo experimental}
 \label{sec:protocolo}
-Se registró a un voluntario (V1). Se limpió la piel con alcohol y se colocaron tres electrodos en el torso \parencite{sparkfun_guia}: RA y LA debajo de cada clavícula y RL (referencia) en el abdomen, por encima de la cadera derecha. Se registró aproximadamente \SI{1}{\minute} en reposo; luego V1 realizó una actividad física demandante, hasta estar agitado, e inmediatamente después se registraron unos \SI{3}{\minute} de recuperación. No se registró un segundo voluntario (ver sección~\ref{sec:discusion}).
+Se registró a un voluntario. Se limpió la piel con alcohol y se colocaron tres electrodos en el torso \parencite{sparkfun_guia}: RA y LA debajo de cada clavícula y RL (referencia) en el abdomen, por encima de la cadera derecha. Se registró \SI{1}{\minute} en reposo; luego el sujeto pedaleó en bicicleta a un ritmo exigente hasta estar agitado e inmediatamente después se registraron \SI{3}{\minute} de recuperación.
 
 \subsection{Sistema de adquisición}
 \label{sec:adquisicion}
-El módulo AD8232 de SparkFun amplifica y filtra la señal; un Arduino UNO la digitaliza y la envía por el puerto serie a una interfaz en Python, que la guarda en un archivo \parencite{tassara_ecg}.
+El módulo AD8232 de SparkFun amplifica y filtra la señal; un Arduino UNO la digitaliza y la envía por el puerto serie a una interfaz en Python, que la guarda en un archivo.
 
 \subsubsection{Resolución de la placa AD8232}
 \label{sec:resolucion}
 % Responde: ítem 3a
-El AD8232 es un front-end analógico sin conversor, por lo que no tiene una resolución en bits: se describe por su ganancia (1100 en este módulo), su banda de paso (cerca de \SIrange{0.5}{40}{\hertz}) y su ruido (\SI{14}{\micro\volt} pico a pico en la entrada) \parencite{analog_ad8232,sparkfun_hw}. La resolución la fija la digitalización: 10 bits sobre \SI{5}{\volt} dan \SI{4.9}{\milli\volt} por paso. Como la interfaz redondea a dos decimales, la resolución real del archivo es de \SI{10}{\milli\volt}, unos \SI{9}{\micro\volt} en los electrodos, unas cien veces menos que un QRS (anexo~\ref{anx:resolucion}).
+El AD8232 es un front-end analógico sin conversor, por lo que no tiene una resolución en bits, sino que se describe por su ganancia (1100 en este módulo), su banda de paso (\SIrange{0.5}{40}{\hertz}) y su ruido (\SI{14}{\micro\volt} pico a pico en la entrada) \parencite{analog_ad8232,sparkfun_hw}. La resolución la fija la digitalización, por ejemplo, 10 bits sobre \SI{5}{\volt} dan \SI{4.9}{\milli\volt} por paso. Como la interfaz redondea a dos decimales, la resolución real del archivo es de \SI{10}{\milli\volt}, unos \SI{9}{\micro\volt} en los electrodos, unas cien veces menos que un QRS.
 
 \subsubsection{Formato del registro}
 \label{sec:formato}
 % Responde: ítem 1 (primera parte)
-Cada registro es un CSV de una sola columna, con el encabezado \texttt{Sample} y una muestra por fila: la tensión a la salida del módulo en voltios, calculada como $V = 5\,n/1023$ a partir de la cuenta $n$ del conversor \parencite{tassara_ecg}. A diferencia de los formatos de la sección~\ref{sec:formatos}, no guarda tiempo, frecuencia de muestreo, unidades, ganancia, derivación ni sujeto. Toda esa información tuvimos que obtenerla por fuera del archivo.
-
-\subsubsection{Frecuencia de muestreo}
-\label{sec:fs}
-% Responde: ítem 2
-Se deduce del firmware y de la cantidad de muestras. El Timer1 del Arduino dispara una lectura en cada interrupción, con reloj de \SI{16}{\mega\hertz} y divisor 64:
-\begin{equation}
-  f_s = \frac{f_\text{clk}}{N\,(1 + \texttt{OCR1A})} = \frac{\SI{16}{\mega\hertz}}{64 \cdot 500} = \SI{500}{\hertz}.
-  \label{eq:fs}
-\end{equation}
-El firmware trae \texttt{OCR1A} en 999 (\SI{250}{\hertz}) y, comentado, en 499 (\SI{500}{\hertz}) \parencite{tassara_ecg}. Los registros muestran que se usó el segundo valor: sus \num{28800} y \num{86600} muestras equivaldrían a \SI{115}{\second} y \SI{346}{\second} a \SI{250}{\hertz}, casi el doble de lo que duraron, y equivalen a \SI{57.6}{\second} y \SI{173.2}{\second} a \SI{500}{\hertz}.
-
-Hay un matiz: a 9600 baudios el puerto serie transmite solo 480 muestras por segundo, menos de las 500 que se toman, y entre paquetes consecutivos de 100 muestras se pierden unas 4 (\SI{8}{\milli\second}). Lo comprobamos: el salto entre muestras es, en promedio, entre 4,2 y 4,6 veces mayor en el borde entre paquetes. Usamos $f_s = \SI{500}{\hertz}$, la separación real dentro de cada paquete, por lo que el eje de tiempo queda comprimido un \SI{4}{\percent}: la frecuencia cardíaca y las del espectro resultan un \SI{4}{\percent} más altas. Ese error es el mismo en todos los registros y no cambia las comparaciones, pero cada RR tiene además una incertidumbre de hasta \SI{8}{\milli\second}. La frecuencia es adecuada: permite ubicar cada pico con \SI{2}{\milli\second} de resolución, y ya con \SI{250}{\hertz} los índices de variabilidad concuerdan con los obtenidos a \SI{500}{\hertz} \parencite{kwon2018}.
+Cada registro es un CSV de una sola columna, con el encabezado \texttt{Sample} y una muestra por fila: la tensión a la salida del módulo está en voltios, calculada como $V = 5\,n/1023$ a partir de la cuenta $n$ del conversor. No guarda tiempo, frecuencia de muestreo, unidades, ganancia, derivación ni sujeto.
+Por otro lado, según el código del Arduino proporcionado por la cátedra, la frecuencia de muestreo es $f_s = \SI{500}{\hertz}$.
 
 \subsection{Acondicionamiento de la señal}
 \label{sec:met-acondicionamiento}
 % Responde: ítems 4 y 5
-La señal necesita acondicionamiento, porque contiene componentes de la propia cadena de adquisición (los artefactos fisiológicos quedan fuera, como pide la consigna):
+La señal necesita acondicionamiento, porque contiene componentes de la adquisición:
 \begin{itemize}
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
   \item \textbf{Nivel de continua:} la salida está montada sobre \SI{1.65}{\volt}.
   \item \textbf{Deriva de la línea de base:} el potencial electrodo-piel cambia lentamente; aparece por debajo de \SI{1}{\hertz} y supera \SI{1}{\volt} en el registro post ejercicio.
-  \item \textbf{Interferencia de línea:} los \SI{50}{\hertz} podrían acoplarse, pero el espectro no muestra ese pico (anexo~\ref{anx:acond}).
+  \item \textbf{Interferencia de línea:} los \SI{50}{\hertz} podrían acoplarse, pero el espectro no muestra ese pico.
   \item \textbf{Cuantización:} el redondeo a \SI{10}{\milli\volt} deja escalones visibles en las ondas P y T (figura~\ref{fig:acond_detalles}c), pequeños frente al QRS.
   \item \textbf{Saturación:} en el registro post ejercicio la salida llega a \SI{0}{\volt} y \SI{3.3}{\volt}, con tramos de hasta \SI{0.35}{\second} (figura~\ref{fig:acond_detalles}b). El de reposo no satura.
   \item \textbf{Discontinuidad al inicio:} el primer paquete guardado se tomó antes de iniciar la grabación, así que el comienzo del archivo no es continuo con el resto (figura~\ref{fig:acond_detalles}a).
@@ -52,14 +41,14 @@ La señal necesita acondicionamiento, porque contiene componentes de la propia c
   \label{fig:acond_detalles}
 \end{figure}
 
-Como el resultado final son los instantes de los latidos, los filtros no deben desplazar la señal. Las etapas son: (1) reemplazar por una recta los tramos saturados de más de \SI{0.1}{\second}; (2) restar la mediana; (3) aplicar un pasaaltos Butterworth de orden 2 con corte en \SI{0.5}{\hertz}, ida y vuelta (\texttt{sosfiltfilt}, fase cero); (4) marcar como inválidos el primer segundo y los tramos saturados con \SI{\pm0.2}{\second} de margen, sin borrarlos. No se aplicó notch ni pasabajos: no hay interferencia de red y el módulo ya limita la banda. Los picos R no se desplazan más de una muestra, salvo en las puntas recortadas (anexo~\ref{anx:acond}).
+Como el resultado final son los instantes de los latidos, los filtros no deben desplazar la señal. Las etapas son: (1) reemplazar por una recta los tramos saturados de más de \SI{0.1}{\second}; (2) restar la mediana; (3) aplicar un pasaaltos Butterworth de orden 2 con corte en \SI{0.5}{\hertz}, ida y vuelta (\texttt{sosfiltfilt}, fase cero); (4) marcar como inválidos el primer segundo y los tramos saturados con \SI{\pm0.2}{\second} de margen, sin borrarlos. No se aplicó notch ya que no se visualizó interferencia de red en el espectro de frecuencias.
 
 \subsection{Detección de latidos: algoritmo de Pan-Tompkins}
 \label{sec:met-pantompkins}
 % Responde: ítem 6 (método)
-El algoritmo de \textcite{pan1985} busca las pendientes grandes y concentradas del QRS. Aplicamos un pasabanda de 5 a \SI{15}{\hertz}, una derivada de cinco puntos, el cuadrado y una integración con ventana móvil de \SI{150}{\milli\second}. Un máximo de la señal integrada es un QRS si supera un umbral y está a más de \SI{200}{\milli\second} del anterior. El pico R se ubica como el extremo de la señal acondicionada dentro de \SI{\pm100}{\milli\second}.
+El algoritmo de Pan y Tompkins busca las pendientes grandes y concentradas del QRS. Aplicamos un pasabanda de 5 a \SI{15}{\hertz}, una derivada de cinco puntos, el cuadrado y una integración con ventana móvil de \SI{150}{\milli\second}. Se consideró que un máximo de la señal integrada es un QRS si supera un umbral y está a más de \SI{200}{\milli\second} del pico anterior. Luego, el pico R se ubica como el extremo de la señal acondicionada dentro de \SI{\pm100}{\milli\second}.
 
-Nos apartamos del artículo en tres puntos: ninguna etapa introduce retardo, porque el análisis es posterior a la grabación; usamos un único umbral fijo en lugar de umbrales adaptativos, y ese umbral es 0,2 veces el percentil 99 de la señal integrada, no de su máximo. Con el máximo, un artefacto de saturación a los \SI{47}{\second} del registro post ejercicio elevaba tanto el umbral que, con una fracción de 0,3, se detectaban 253 latidos de unos 375. El valor 0,2 surge de un barrido del umbral, y la validación con un ECG sintético dio una sensibilidad y un valor predictivo positivo del \SI{100}{\percent} (anexo~\ref{anx:pt}).
+Usamos un único umbral fijo de 0,2 veces el percentil 99 de la señal integrada (no de su máximo). Con el máximo, un artefacto de saturación a los \SI{47}{\second} del registro post ejercicio elevaba tanto el umbral que, con una fracción de 0,3, se detectaban 253 latidos de unos 375. El valor 0,2 surgió de hacer un barrido previo del umbral.
 
 \subsection{Tacograma}
 \label{sec:met-tacograma}
@@ -69,8 +58,8 @@ Los intervalos son $\mathrm{RR}_i = t_{i+1} - t_i$, ubicados en el instante del 
 \subsection{Periodograma de Lomb}
 \label{sec:met-lomb}
 % Responde: ítem 7 (método)
-El tacograma no está muestreado uniformemente: la separación entre muestras es el propio RR, y además tiene huecos. Remuestrearlo atenúa las componentes rápidas y obliga a inventar valores. El periodograma de Lomb evita ese paso, porque ajusta por cuadrados mínimos un seno y un coseno en los instantes reales de los latidos \parencite{lomb1976} (ecuación en el anexo~\ref{anx:lomb}), y tolera la falta de latidos \parencite{laguna1998}.
+El tacograma no está muestreado uniformemente, ya que la separación entre muestras es el propio RR, y además tiene huecos por los latidos ectópicos y/o artefactos descartados de la muestra. Para analizar su espectro frecuencial habría que remuestrearlo, pero eso atenúa las componentes rápidas y obliga a inventar valores. El periodograma de Lomb evita ese paso, porque ajusta por cuadrados mínimos un seno y un coseno en los instantes reales de los latidos, y tolera la falta de latidos.
 
-Antes de calcularlo se quitan los RR atípicos y se resta un polinomio de grado 2, que elimina la media y la tendencia de la recuperación, para que no contamine LF por fugas espectrales. Se evalúa de $1/(4T)$ a \SI{0.5}{\hertz}, con paso $1/(4T)$, siendo $T$ la duración del tacograma. La potencia se escala como densidad espectral para que el área bajo la curva sea la varianza, y se integra en las bandas LF y HF de la \textcite{taskforce1996}, junto con el cociente LF/HF y las unidades normalizadas $\mathrm{LF_{nu}} = \mathrm{LF}/(\mathrm{LF}+\mathrm{HF})$.
+Antes de calcularlo se quitan los RR atípicos y se resta un polinomio de grado 2, que elimina la media y la tendencia de la recuperación, para que no contamine LF. Se evalúa de $1/(4T)$ a \SI{0.5}{\hertz}, con paso $1/(4T)$, siendo $T$ la duración del tacograma. La potencia se escala como densidad espectral para que el área bajo la curva sea la varianza, y se integra en las bandas LF y HF de la \textcite{taskforce1996}, junto con el cociente LF/HF y las unidades normalizadas $\mathrm{LF_{nu}} = \mathrm{LF}/(\mathrm{LF}+\mathrm{HF})$.
 
 La misma norma pide al menos \SI{1}{\minute} para HF y \SI{2}{\minute} para LF, por lo que los valores de LF del reposo y de las ventanas de \SI{1}{\minute} son solo orientativos. Como el registro post ejercicio no es estacionario, además de analizarlo completo se lo dividió en esas ventanas consecutivas.

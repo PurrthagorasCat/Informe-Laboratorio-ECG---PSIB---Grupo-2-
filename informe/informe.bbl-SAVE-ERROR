@@ -1,0 +1,1599 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/apasortcite//global/global/global}
+    \entry{malmivuo1995}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=4b6069415d285c1eb6703f9c6077d1c0}{%
+           family={Malmivuo},
+           familyi={M\bibinitperiod},
+           given={Jaakko},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cf5fa3490cd9cac02d357ed7c50f4c3f}{%
+           family={Plonsey},
+           familyi={P\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{c8f699d7a7100ee3810f2f668c697cbe}
+      \strng{fullhash}{c8f699d7a7100ee3810f2f668c697cbe}
+      \strng{fullhashraw}{c8f699d7a7100ee3810f2f668c697cbe}
+      \strng{bibnamehash}{c8f699d7a7100ee3810f2f668c697cbe}
+      \strng{authorbibnamehash}{c8f699d7a7100ee3810f2f668c697cbe}
+      \strng{authornamehash}{c8f699d7a7100ee3810f2f668c697cbe}
+      \strng{authorfullhash}{c8f699d7a7100ee3810f2f668c697cbe}
+      \strng{authorfullhashraw}{c8f699d7a7100ee3810f2f668c697cbe}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Bioelectromagnetism: Principles and applications of bioelectric and biomagnetic fields}
+      \field{year}{1995}
+    \endentry
+    \entry{kligfield2007}{article}{}{}
+      \name{author}{13}{}{%
+        {{un=0,uniquepart=base,hash=a7ad41ce4a1a17d93ff2879d9d046518}{%
+           family={Kligfield},
+           familyi={K\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=34b8f61e6c6898625db603cfee01d8b3}{%
+           family={Gettes},
+           familyi={G\bibinitperiod},
+           given={Leonard\bibnamedelima S.},
+           giveni={L\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fe8a5a4c52526701df4f8986dfff3bd7}{%
+           family={Bailey},
+           familyi={B\bibinitperiod},
+           given={James\bibnamedelima J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6a3acc733fd071301c22dff6ab8d618f}{%
+           family={Childers},
+           familyi={C\bibinitperiod},
+           given={Rory},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=60a2832df6c4c87dc21dcff02a47c65c}{%
+           family={Deal},
+           familyi={D\bibinitperiod},
+           given={Barbara\bibnamedelima J.},
+           giveni={B\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b6003c3c33a630436115c5dc2c4ef282}{%
+           family={Hancock},
+           familyi={H\bibinitperiod},
+           given={E.\bibnamedelimi William},
+           giveni={E\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f7e768232de06fa58127b7368eaaa780}{%
+           family={Herpen},
+           familyi={H\bibinitperiod},
+           given={Gerard},
+           giveni={G\bibinitperiod},
+           givenun=0,
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=96ca4ec62effb254f33754337cf088e9}{%
+           family={Kors},
+           familyi={K\bibinitperiod},
+           given={Jan\bibnamedelima A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3d2fb9b04a4459efdfa71527ffa43200}{%
+           family={Macfarlane},
+           familyi={M\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f50cb42bb0ef23c6474e8ea89f7960c9}{%
+           family={Mirvis},
+           familyi={M\bibinitperiod},
+           given={David\bibnamedelima M.},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6141beff600947b68aa82e80f02dbd7e}{%
+           family={Pahlm},
+           familyi={P\bibinitperiod},
+           given={Olle},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c32a243497540e57cc2f8606c4de4c85}{%
+           family={Rautaharju},
+           familyi={R\bibinitperiod},
+           given={Pentti},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c18cfd3524327ffd0ddf08ca6905d798}{%
+           family={Wagner},
+           familyi={W\bibinitperiod},
+           given={Galen\bibnamedelima S.},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{93be278196f465d8096f4d4220a393c6}
+      \strng{fullhash}{a0baa97987b97e4618b5ee560b46188d}
+      \strng{fullhashraw}{a0baa97987b97e4618b5ee560b46188d}
+      \strng{bibnamehash}{a0baa97987b97e4618b5ee560b46188d}
+      \strng{authorbibnamehash}{a0baa97987b97e4618b5ee560b46188d}
+      \strng{authornamehash}{93be278196f465d8096f4d4220a393c6}
+      \strng{authorfullhash}{a0baa97987b97e4618b5ee560b46188d}
+      \strng{authorfullhashraw}{a0baa97987b97e4618b5ee560b46188d}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Circulation}
+      \field{number}{10}
+      \field{title}{Recommendations for the standardization and interpretation of the electrocardiogram: Part {I}: The electrocardiogram and its technology}
+      \field{volume}{115}
+      \field{year}{2007}
+      \field{pages}{1306\bibrangedash 1324}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1161/CIRCULATIONAHA.106.180200
+      \endverb
+    \endentry
+    \entry{wagner2014}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=c18cfd3524327ffd0ddf08ca6905d798}{%
+           family={Wagner},
+           familyi={W\bibinitperiod},
+           given={Galen\bibnamedelima S.},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3d3de4a6e5f77d6254ea630328d4277d}{%
+           family={Strauss},
+           familyi={S\bibinitperiod},
+           given={David\bibnamedelima G.},
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wolters Kluwer Health}%
+      }
+      \strng{namehash}{c5af0ce46fe71b5d53fa55276156a061}
+      \strng{fullhash}{c5af0ce46fe71b5d53fa55276156a061}
+      \strng{fullhashraw}{c5af0ce46fe71b5d53fa55276156a061}
+      \strng{bibnamehash}{c5af0ce46fe71b5d53fa55276156a061}
+      \strng{authorbibnamehash}{c5af0ce46fe71b5d53fa55276156a061}
+      \strng{authornamehash}{c5af0ce46fe71b5d53fa55276156a061}
+      \strng{authorfullhash}{c5af0ce46fe71b5d53fa55276156a061}
+      \strng{authorfullhashraw}{c5af0ce46fe71b5d53fa55276156a061}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{12}
+      \field{title}{Marriott's practical electrocardiography}
+      \field{year}{2014}
+    \endentry
+    \entry{goldberger2000}{article}{}{}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=c99be12ffae540b5ba4cb3a23ee3ec0a}{%
+           family={Goldberger},
+           familyi={G\bibinitperiod},
+           given={Ary\bibnamedelima L.},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=22c61ac7a4c1cfb66b48ed8f90dd69d7}{%
+           family={Amaral},
+           familyi={A\bibinitperiod},
+           given={Luis\bibnamedelimb A.\bibnamedelimi N.},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6b2678a928f4aaa1dbcc238adf866993}{%
+           family={Glass},
+           familyi={G\bibinitperiod},
+           given={Leon},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bb1b55fa34693d71ca9e1104f846fa42}{%
+           family={Hausdorff},
+           familyi={H\bibinitperiod},
+           given={Jeffrey\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b0f592c3910ad2fd1d9791d16e601ce3}{%
+           family={Ivanov},
+           familyi={I\bibinitperiod},
+           given={Plamen\bibnamedelima Ch.},
+           giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2193bac90baddb616fc4dcd2f366de81}{%
+           family={Mark},
+           familyi={M\bibinitperiod},
+           given={Roger\bibnamedelima G.},
+           giveni={R\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5222afca7b17d3624464c48bdb21e705}{%
+           family={Mietus},
+           familyi={M\bibinitperiod},
+           given={Joseph\bibnamedelima E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=71ab5dbee9c717c687e1b2c142bce563}{%
+           family={Moody},
+           familyi={M\bibinitperiod},
+           given={George\bibnamedelima B.},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=07ec0b651afc3688b2dc4aecaa9f4fba}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={Chung-Kang},
+           giveni={C\bibinithyphendelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5f5c56c0c8f34aa567709e10df5afd57}{%
+           family={Stanley},
+           familyi={S\bibinitperiod},
+           given={H.\bibnamedelimi Eugene},
+           giveni={H\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ac33f54eb3663cac88ca522e0018a750}
+      \strng{fullhash}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
+      \strng{fullhashraw}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
+      \strng{bibnamehash}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
+      \strng{authorbibnamehash}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
+      \strng{authornamehash}{ac33f54eb3663cac88ca522e0018a750}
+      \strng{authorfullhash}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
+      \strng{authorfullhashraw}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Circulation}
+      \field{number}{23}
+      \field{title}{{PhysioBank}, {PhysioToolkit}, and {PhysioNet}: Components of a new research resource for complex physiologic signals}
+      \field{volume}{101}
+      \field{year}{2000}
+      \field{pages}{e215\bibrangedash e220}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1161/01.CIR.101.23.e215
+      \endverb
+    \endentry
+    \entry{kemp2003}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b1b92670f4ed756a73c71585175cfebf}{%
+           family={Kemp},
+           familyi={K\bibinitperiod},
+           given={Bob},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d5a5ed6fca8b8af3fc54919bfaff590a}{%
+           family={Olivan},
+           familyi={O\bibinitperiod},
+           given={Jesus},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ba56f461cd24fdc08af56d80f58d279d}
+      \strng{fullhash}{ba56f461cd24fdc08af56d80f58d279d}
+      \strng{fullhashraw}{ba56f461cd24fdc08af56d80f58d279d}
+      \strng{bibnamehash}{ba56f461cd24fdc08af56d80f58d279d}
+      \strng{authorbibnamehash}{ba56f461cd24fdc08af56d80f58d279d}
+      \strng{authornamehash}{ba56f461cd24fdc08af56d80f58d279d}
+      \strng{authorfullhash}{ba56f461cd24fdc08af56d80f58d279d}
+      \strng{authorfullhashraw}{ba56f461cd24fdc08af56d80f58d279d}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Clinical Neurophysiology}
+      \field{number}{9}
+      \field{title}{European data format `plus' ({EDF+}), an {EDF} alike standard format for the exchange of physiological data}
+      \field{volume}{114}
+      \field{year}{2003}
+      \field{pages}{1755\bibrangedash 1761}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1016/S1388-2457(03)00123-8
+      \endverb
+    \endentry
+    \entry{imai1994}{article}{}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=6391051be1a85c0588a8e952e27860df}{%
+           family={Imai},
+           familyi={I\bibinitperiod},
+           given={Katsuhiko},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dd98a96e13e1a50830e3b8d92fc390a2}{%
+           family={Sato},
+           familyi={S\bibinitperiod},
+           given={Hideyuki},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f59749a09f05663c3e5936269fa78c68}{%
+           family={Hori},
+           familyi={H\bibinitperiod},
+           given={Masatsugu},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8e60b259db4286a9c95fe90f1277f951}{%
+           family={Kusuoka},
+           familyi={K\bibinitperiod},
+           given={Hideo},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=653250f2602b09afc929f0ffe567576e}{%
+           family={Ozaki},
+           familyi={O\bibinitperiod},
+           given={Hitoshi},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=87a9bc190f6919be572c3f78eb8d4c06}{%
+           family={Yokoyama},
+           familyi={Y\bibinitperiod},
+           given={Hiroshi},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=23a272a2b53900edc6d13d226c6ceac8}{%
+           family={Takeda},
+           familyi={T\bibinitperiod},
+           given={Hiroshi},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=85efdf29d9581ba459d18b5b7fd3d7c9}{%
+           family={Inoue},
+           familyi={I\bibinitperiod},
+           given={Michitoshi},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ae6416f66a4e5e816d6c6416a533cb05}{%
+           family={Kamada},
+           familyi={K\bibinitperiod},
+           given={Takenobu},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c219422d39ecdf02d948e18f8c021c0d}
+      \strng{fullhash}{45b7372a9066b63a61d12865c21c4431}
+      \strng{fullhashraw}{45b7372a9066b63a61d12865c21c4431}
+      \strng{bibnamehash}{45b7372a9066b63a61d12865c21c4431}
+      \strng{authorbibnamehash}{45b7372a9066b63a61d12865c21c4431}
+      \strng{authornamehash}{c219422d39ecdf02d948e18f8c021c0d}
+      \strng{authorfullhash}{45b7372a9066b63a61d12865c21c4431}
+      \strng{authorfullhashraw}{45b7372a9066b63a61d12865c21c4431}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the American College of Cardiology}
+      \field{number}{6}
+      \field{title}{Vagally mediated heart rate recovery after exercise is accelerated in athletes but blunted in patients with chronic heart failure}
+      \field{volume}{24}
+      \field{year}{1994}
+      \field{pages}{1529\bibrangedash 1535}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1016/0735-1097(94)90150-3
+      \endverb
+    \endentry
+    \entry{michael2017}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=3d447acba1bba96edce3b726eab0fec0}{%
+           family={Michael},
+           familyi={M\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3f22d45c5e5e4a1b6b1a33caf0110d32}{%
+           family={Graham},
+           familyi={G\bibinitperiod},
+           given={Kenneth\bibnamedelima S.},
+           giveni={K\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ed851669eb78fa46b042985eaec6c26a}{%
+           family={Davis},
+           familyi={D\bibinitperiod},
+           given={Glen\bibnamedelima M.},
+           giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6083e99a51c09ffac061a4e471594d6b}
+      \strng{fullhash}{bbbb40701260c694b9c28d07d4013ce0}
+      \strng{fullhashraw}{bbbb40701260c694b9c28d07d4013ce0}
+      \strng{bibnamehash}{bbbb40701260c694b9c28d07d4013ce0}
+      \strng{authorbibnamehash}{bbbb40701260c694b9c28d07d4013ce0}
+      \strng{authornamehash}{6083e99a51c09ffac061a4e471594d6b}
+      \strng{authorfullhash}{bbbb40701260c694b9c28d07d4013ce0}
+      \strng{authorfullhashraw}{bbbb40701260c694b9c28d07d4013ce0}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Physiology}
+      \field{title}{Cardiac autonomic responses during exercise and post-exercise recovery using heart rate variability and systolic time intervals: A review}
+      \field{volume}{8}
+      \field{year}{2017}
+      \field{pages}{301}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3389/fphys.2017.00301
+      \endverb
+    \endentry
+    \entry{sparkfun_guia}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9e35b5f4c8cbe2dda7c8b041ef261f70}{%
+           family={{SparkFun Electronics}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{fullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{fullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{bibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorbibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authornamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorfullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorfullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \field{extraname}{1}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{extradate}{1}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{AD8232} heart rate monitor hookup guide}
+      \field{urlday}{28}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide/all
+      \endverb
+      \verb{url}
+      \verb https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide/all
+      \endverb
+    \endentry
+    \entry{analog_ad8232}{manual}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a12ff886a2379a9ee6efaa9acfb54df4}{%
+           family={{Analog Devices}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{fullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{fullhashraw}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{bibnamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authorbibnamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authornamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authorfullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authorfullhashraw}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{AD8232}: Single-lead, heart rate monitor front end}
+      \field{titleaddon}{Hoja de datos, Rev. D}
+      \field{urlday}{28}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.analog.com/media/en/technical-documentation/data-sheets/ad8232.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.analog.com/media/en/technical-documentation/data-sheets/ad8232.pdf
+      \endverb
+    \endentry
+    \entry{sparkfun_hw}{software}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9e35b5f4c8cbe2dda7c8b041ef261f70}{%
+           family={{SparkFun Electronics}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{fullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{fullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{bibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorbibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authornamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorfullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorfullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \field{extraname}{2}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{extradate}{2}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{AD8232} heart rate monitor: Archivos de hardware}
+      \field{urlday}{28}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/sparkfun/AD8232_Heart_Rate_Monitor
+      \endverb
+      \verb{url}
+      \verb https://github.com/sparkfun/AD8232_Heart_Rate_Monitor
+      \endverb
+    \endentry
+    \entry{taskforce1996}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=e3af9d001e56b1a42ee6871255e2643b}{%
+           family={{Task Force of the European Society of Cardiology and the North American Society of Pacing and Electrophysiology}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \name{shortauthor}{1}{}{%
+        {{un=0,uniquepart=base,hash=e9f84ac59071e97d436446c20da501f7}{%
+           family={{Task Force}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{e9f84ac59071e97d436446c20da501f7}
+      \strng{fullhash}{e3af9d001e56b1a42ee6871255e2643b}
+      \strng{fullhashraw}{e3af9d001e56b1a42ee6871255e2643b}
+      \strng{bibnamehash}{e9f84ac59071e97d436446c20da501f7}
+      \strng{authorbibnamehash}{e3af9d001e56b1a42ee6871255e2643b}
+      \strng{authornamehash}{e3af9d001e56b1a42ee6871255e2643b}
+      \strng{authorfullhash}{e3af9d001e56b1a42ee6871255e2643b}
+      \strng{authorfullhashraw}{e3af9d001e56b1a42ee6871255e2643b}
+      \strng{shortauthorbibnamehash}{e9f84ac59071e97d436446c20da501f7}
+      \strng{shortauthornamehash}{e9f84ac59071e97d436446c20da501f7}
+      \strng{shortauthorfullhash}{e9f84ac59071e97d436446c20da501f7}
+      \strng{shortauthorfullhashraw}{e9f84ac59071e97d436446c20da501f7}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{shortauthor}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Circulation}
+      \field{number}{5}
+      \field{title}{Heart rate variability: Standards of measurement, physiological interpretation and clinical use}
+      \field{volume}{93}
+      \field{year}{1996}
+      \field{pages}{1043\bibrangedash 1065}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1161/01.CIR.93.5.1043
+      \endverb
+    \endentry
+    \entry{shaffer2017}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=6ff0487233565cc4878a5aba967f2bb8}{%
+           family={Shaffer},
+           familyi={S\bibinitperiod},
+           given={Fred},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=59ad43f8a005074c7f23b92bd6ad1b02}{%
+           family={Ginsberg},
+           familyi={G\bibinitperiod},
+           given={J.\bibnamedelimi P.},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \strng{fullhash}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \strng{fullhashraw}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \strng{bibnamehash}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \strng{authorbibnamehash}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \strng{authornamehash}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \strng{authorfullhash}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \strng{authorfullhashraw}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Public Health}
+      \field{title}{An overview of heart rate variability metrics and norms}
+      \field{volume}{5}
+      \field{year}{2017}
+      \field{pages}{258}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3389/fpubh.2017.00258
+      \endverb
+    \endentry
+    \entry{sacha2014}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7fb97221eb92bdeaedda677e2b6e0838}{%
+           family={Sacha},
+           familyi={S\bibinitperiod},
+           given={Jerzy},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7fb97221eb92bdeaedda677e2b6e0838}
+      \strng{fullhash}{7fb97221eb92bdeaedda677e2b6e0838}
+      \strng{fullhashraw}{7fb97221eb92bdeaedda677e2b6e0838}
+      \strng{bibnamehash}{7fb97221eb92bdeaedda677e2b6e0838}
+      \strng{authorbibnamehash}{7fb97221eb92bdeaedda677e2b6e0838}
+      \strng{authornamehash}{7fb97221eb92bdeaedda677e2b6e0838}
+      \strng{authorfullhash}{7fb97221eb92bdeaedda677e2b6e0838}
+      \strng{authorfullhashraw}{7fb97221eb92bdeaedda677e2b6e0838}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Noninvasive Electrocardiology}
+      \field{number}{3}
+      \field{title}{Interaction between heart rate and heart rate variability}
+      \field{volume}{19}
+      \field{year}{2014}
+      \field{pages}{207\bibrangedash 216}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1111/anec.12148
+      \endverb
+    \endentry
+    \entry{billman2013}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5bbd9b8828bb9219249ee2a37a53e1eb}{%
+           family={Billman},
+           familyi={B\bibinitperiod},
+           given={George\bibnamedelima E.},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{fullhash}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{fullhashraw}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{bibnamehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{authorbibnamehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{authornamehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{authorfullhash}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{authorfullhashraw}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Physiology}
+      \field{title}{The {LF/HF} ratio does not accurately measure cardiac sympatho-vagal balance}
+      \field{volume}{4}
+      \field{year}{2013}
+      \field{pages}{26}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3389/fphys.2013.00026
+      \endverb
+    \endentry
+    \entry{bond2011}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=d2b2ec69c4ebf06faa8c3e7056f3f2ce}{%
+           family={Bond},
+           familyi={B\bibinitperiod},
+           given={Raymond\bibnamedelima R.},
+           giveni={R\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c8d48732ffee3e097199b898a95b32da}{%
+           family={Finlay},
+           familyi={F\bibinitperiod},
+           given={Dewar\bibnamedelima D.},
+           giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=39fdee8ff26c7e3b6d79d11e8fad617d}{%
+           family={Nugent},
+           familyi={N\bibinitperiod},
+           given={Chris\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2926c286833249698fb3868bdab55324}{%
+           family={Moore},
+           familyi={M\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9f8feace03eb4c3fafe26abbb9270bae}
+      \strng{fullhash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{fullhashraw}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{bibnamehash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{authorbibnamehash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{authornamehash}{9f8feace03eb4c3fafe26abbb9270bae}
+      \strng{authorfullhash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{authorfullhashraw}{0b160e90f6ec3315d0a83b4965bce667}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Medical Informatics}
+      \field{number}{10}
+      \field{title}{A review of {ECG} storage formats}
+      \field{volume}{80}
+      \field{year}{2011}
+      \field{pages}{681\bibrangedash 697}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/j.ijmedinf.2011.06.008
+      \endverb
+    \endentry
+    \entry{pan1985}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ccdc3e3d241b1ce26d7c7d2405695bca}{%
+           family={Pan},
+           familyi={P\bibinitperiod},
+           given={Jiapu},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eb83740709bd91915efe2912ce4ea048}{%
+           family={Tompkins},
+           familyi={T\bibinitperiod},
+           given={Willis\bibnamedelima J.},
+           giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5e252c476d27bcdedcda3919fec475d6}
+      \strng{fullhash}{5e252c476d27bcdedcda3919fec475d6}
+      \strng{fullhashraw}{5e252c476d27bcdedcda3919fec475d6}
+      \strng{bibnamehash}{5e252c476d27bcdedcda3919fec475d6}
+      \strng{authorbibnamehash}{5e252c476d27bcdedcda3919fec475d6}
+      \strng{authornamehash}{5e252c476d27bcdedcda3919fec475d6}
+      \strng{authorfullhash}{5e252c476d27bcdedcda3919fec475d6}
+      \strng{authorfullhashraw}{5e252c476d27bcdedcda3919fec475d6}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Biomedical Engineering}
+      \field{number}{3}
+      \field{title}{A real-time {QRS} detection algorithm}
+      \field{volume}{BME-32}
+      \field{year}{1985}
+      \field{pages}{230\bibrangedash 236}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/TBME.1985.325532
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{none/global//global/global/global}
+    \entry{malmivuo1995}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=4b6069415d285c1eb6703f9c6077d1c0}{%
+           family={Malmivuo},
+           familyi={M\bibinitperiod},
+           given={Jaakko},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cf5fa3490cd9cac02d357ed7c50f4c3f}{%
+           family={Plonsey},
+           familyi={P\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{c8f699d7a7100ee3810f2f668c697cbe}
+      \strng{fullhash}{c8f699d7a7100ee3810f2f668c697cbe}
+      \strng{fullhashraw}{c8f699d7a7100ee3810f2f668c697cbe}
+      \strng{bibnamehash}{c8f699d7a7100ee3810f2f668c697cbe}
+      \strng{authorbibnamehash}{c8f699d7a7100ee3810f2f668c697cbe}
+      \strng{authornamehash}{c8f699d7a7100ee3810f2f668c697cbe}
+      \strng{authorfullhash}{c8f699d7a7100ee3810f2f668c697cbe}
+      \strng{authorfullhashraw}{c8f699d7a7100ee3810f2f668c697cbe}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Bioelectromagnetism: Principles and applications of bioelectric and biomagnetic fields}
+      \field{year}{1995}
+    \endentry
+    \entry{kligfield2007}{article}{}{}
+      \name{author}{13}{}{%
+        {{un=0,uniquepart=base,hash=a7ad41ce4a1a17d93ff2879d9d046518}{%
+           family={Kligfield},
+           familyi={K\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=34b8f61e6c6898625db603cfee01d8b3}{%
+           family={Gettes},
+           familyi={G\bibinitperiod},
+           given={Leonard\bibnamedelima S.},
+           giveni={L\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fe8a5a4c52526701df4f8986dfff3bd7}{%
+           family={Bailey},
+           familyi={B\bibinitperiod},
+           given={James\bibnamedelima J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6a3acc733fd071301c22dff6ab8d618f}{%
+           family={Childers},
+           familyi={C\bibinitperiod},
+           given={Rory},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=60a2832df6c4c87dc21dcff02a47c65c}{%
+           family={Deal},
+           familyi={D\bibinitperiod},
+           given={Barbara\bibnamedelima J.},
+           giveni={B\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b6003c3c33a630436115c5dc2c4ef282}{%
+           family={Hancock},
+           familyi={H\bibinitperiod},
+           given={E.\bibnamedelimi William},
+           giveni={E\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f7e768232de06fa58127b7368eaaa780}{%
+           family={Herpen},
+           familyi={H\bibinitperiod},
+           given={Gerard},
+           giveni={G\bibinitperiod},
+           givenun=0,
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=96ca4ec62effb254f33754337cf088e9}{%
+           family={Kors},
+           familyi={K\bibinitperiod},
+           given={Jan\bibnamedelima A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3d2fb9b04a4459efdfa71527ffa43200}{%
+           family={Macfarlane},
+           familyi={M\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f50cb42bb0ef23c6474e8ea89f7960c9}{%
+           family={Mirvis},
+           familyi={M\bibinitperiod},
+           given={David\bibnamedelima M.},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6141beff600947b68aa82e80f02dbd7e}{%
+           family={Pahlm},
+           familyi={P\bibinitperiod},
+           given={Olle},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c32a243497540e57cc2f8606c4de4c85}{%
+           family={Rautaharju},
+           familyi={R\bibinitperiod},
+           given={Pentti},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c18cfd3524327ffd0ddf08ca6905d798}{%
+           family={Wagner},
+           familyi={W\bibinitperiod},
+           given={Galen\bibnamedelima S.},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{93be278196f465d8096f4d4220a393c6}
+      \strng{fullhash}{a0baa97987b97e4618b5ee560b46188d}
+      \strng{fullhashraw}{a0baa97987b97e4618b5ee560b46188d}
+      \strng{bibnamehash}{a0baa97987b97e4618b5ee560b46188d}
+      \strng{authorbibnamehash}{a0baa97987b97e4618b5ee560b46188d}
+      \strng{authornamehash}{93be278196f465d8096f4d4220a393c6}
+      \strng{authorfullhash}{a0baa97987b97e4618b5ee560b46188d}
+      \strng{authorfullhashraw}{a0baa97987b97e4618b5ee560b46188d}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Circulation}
+      \field{number}{10}
+      \field{title}{Recommendations for the standardization and interpretation of the electrocardiogram: Part {I}: The electrocardiogram and its technology}
+      \field{volume}{115}
+      \field{year}{2007}
+      \field{pages}{1306\bibrangedash 1324}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1161/CIRCULATIONAHA.106.180200
+      \endverb
+    \endentry
+    \entry{wagner2014}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=c18cfd3524327ffd0ddf08ca6905d798}{%
+           family={Wagner},
+           familyi={W\bibinitperiod},
+           given={Galen\bibnamedelima S.},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3d3de4a6e5f77d6254ea630328d4277d}{%
+           family={Strauss},
+           familyi={S\bibinitperiod},
+           given={David\bibnamedelima G.},
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wolters Kluwer Health}%
+      }
+      \strng{namehash}{c5af0ce46fe71b5d53fa55276156a061}
+      \strng{fullhash}{c5af0ce46fe71b5d53fa55276156a061}
+      \strng{fullhashraw}{c5af0ce46fe71b5d53fa55276156a061}
+      \strng{bibnamehash}{c5af0ce46fe71b5d53fa55276156a061}
+      \strng{authorbibnamehash}{c5af0ce46fe71b5d53fa55276156a061}
+      \strng{authornamehash}{c5af0ce46fe71b5d53fa55276156a061}
+      \strng{authorfullhash}{c5af0ce46fe71b5d53fa55276156a061}
+      \strng{authorfullhashraw}{c5af0ce46fe71b5d53fa55276156a061}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{12}
+      \field{title}{Marriott's practical electrocardiography}
+      \field{year}{2014}
+    \endentry
+    \entry{goldberger2000}{article}{}{}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=c99be12ffae540b5ba4cb3a23ee3ec0a}{%
+           family={Goldberger},
+           familyi={G\bibinitperiod},
+           given={Ary\bibnamedelima L.},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=22c61ac7a4c1cfb66b48ed8f90dd69d7}{%
+           family={Amaral},
+           familyi={A\bibinitperiod},
+           given={Luis\bibnamedelimb A.\bibnamedelimi N.},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6b2678a928f4aaa1dbcc238adf866993}{%
+           family={Glass},
+           familyi={G\bibinitperiod},
+           given={Leon},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bb1b55fa34693d71ca9e1104f846fa42}{%
+           family={Hausdorff},
+           familyi={H\bibinitperiod},
+           given={Jeffrey\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b0f592c3910ad2fd1d9791d16e601ce3}{%
+           family={Ivanov},
+           familyi={I\bibinitperiod},
+           given={Plamen\bibnamedelima Ch.},
+           giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2193bac90baddb616fc4dcd2f366de81}{%
+           family={Mark},
+           familyi={M\bibinitperiod},
+           given={Roger\bibnamedelima G.},
+           giveni={R\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5222afca7b17d3624464c48bdb21e705}{%
+           family={Mietus},
+           familyi={M\bibinitperiod},
+           given={Joseph\bibnamedelima E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=71ab5dbee9c717c687e1b2c142bce563}{%
+           family={Moody},
+           familyi={M\bibinitperiod},
+           given={George\bibnamedelima B.},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=07ec0b651afc3688b2dc4aecaa9f4fba}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={Chung-Kang},
+           giveni={C\bibinithyphendelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5f5c56c0c8f34aa567709e10df5afd57}{%
+           family={Stanley},
+           familyi={S\bibinitperiod},
+           given={H.\bibnamedelimi Eugene},
+           giveni={H\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ac33f54eb3663cac88ca522e0018a750}
+      \strng{fullhash}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
+      \strng{fullhashraw}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
+      \strng{bibnamehash}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
+      \strng{authorbibnamehash}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
+      \strng{authornamehash}{ac33f54eb3663cac88ca522e0018a750}
+      \strng{authorfullhash}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
+      \strng{authorfullhashraw}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Circulation}
+      \field{number}{23}
+      \field{title}{{PhysioBank}, {PhysioToolkit}, and {PhysioNet}: Components of a new research resource for complex physiologic signals}
+      \field{volume}{101}
+      \field{year}{2000}
+      \field{pages}{e215\bibrangedash e220}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1161/01.CIR.101.23.e215
+      \endverb
+    \endentry
+    \entry{kemp2003}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b1b92670f4ed756a73c71585175cfebf}{%
+           family={Kemp},
+           familyi={K\bibinitperiod},
+           given={Bob},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d5a5ed6fca8b8af3fc54919bfaff590a}{%
+           family={Olivan},
+           familyi={O\bibinitperiod},
+           given={Jesus},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ba56f461cd24fdc08af56d80f58d279d}
+      \strng{fullhash}{ba56f461cd24fdc08af56d80f58d279d}
+      \strng{fullhashraw}{ba56f461cd24fdc08af56d80f58d279d}
+      \strng{bibnamehash}{ba56f461cd24fdc08af56d80f58d279d}
+      \strng{authorbibnamehash}{ba56f461cd24fdc08af56d80f58d279d}
+      \strng{authornamehash}{ba56f461cd24fdc08af56d80f58d279d}
+      \strng{authorfullhash}{ba56f461cd24fdc08af56d80f58d279d}
+      \strng{authorfullhashraw}{ba56f461cd24fdc08af56d80f58d279d}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Clinical Neurophysiology}
+      \field{number}{9}
+      \field{title}{European data format `plus' ({EDF+}), an {EDF} alike standard format for the exchange of physiological data}
+      \field{volume}{114}
+      \field{year}{2003}
+      \field{pages}{1755\bibrangedash 1761}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1016/S1388-2457(03)00123-8
+      \endverb
+    \endentry
+    \entry{imai1994}{article}{}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=6391051be1a85c0588a8e952e27860df}{%
+           family={Imai},
+           familyi={I\bibinitperiod},
+           given={Katsuhiko},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dd98a96e13e1a50830e3b8d92fc390a2}{%
+           family={Sato},
+           familyi={S\bibinitperiod},
+           given={Hideyuki},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f59749a09f05663c3e5936269fa78c68}{%
+           family={Hori},
+           familyi={H\bibinitperiod},
+           given={Masatsugu},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8e60b259db4286a9c95fe90f1277f951}{%
+           family={Kusuoka},
+           familyi={K\bibinitperiod},
+           given={Hideo},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=653250f2602b09afc929f0ffe567576e}{%
+           family={Ozaki},
+           familyi={O\bibinitperiod},
+           given={Hitoshi},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=87a9bc190f6919be572c3f78eb8d4c06}{%
+           family={Yokoyama},
+           familyi={Y\bibinitperiod},
+           given={Hiroshi},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=23a272a2b53900edc6d13d226c6ceac8}{%
+           family={Takeda},
+           familyi={T\bibinitperiod},
+           given={Hiroshi},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=85efdf29d9581ba459d18b5b7fd3d7c9}{%
+           family={Inoue},
+           familyi={I\bibinitperiod},
+           given={Michitoshi},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ae6416f66a4e5e816d6c6416a533cb05}{%
+           family={Kamada},
+           familyi={K\bibinitperiod},
+           given={Takenobu},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c219422d39ecdf02d948e18f8c021c0d}
+      \strng{fullhash}{45b7372a9066b63a61d12865c21c4431}
+      \strng{fullhashraw}{45b7372a9066b63a61d12865c21c4431}
+      \strng{bibnamehash}{45b7372a9066b63a61d12865c21c4431}
+      \strng{authorbibnamehash}{45b7372a9066b63a61d12865c21c4431}
+      \strng{authornamehash}{c219422d39ecdf02d948e18f8c021c0d}
+      \strng{authorfullhash}{45b7372a9066b63a61d12865c21c4431}
+      \strng{authorfullhashraw}{45b7372a9066b63a61d12865c21c4431}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the American College of Cardiology}
+      \field{number}{6}
+      \field{title}{Vagally mediated heart rate recovery after exercise is accelerated in athletes but blunted in patients with chronic heart failure}
+      \field{volume}{24}
+      \field{year}{1994}
+      \field{pages}{1529\bibrangedash 1535}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1016/0735-1097(94)90150-3
+      \endverb
+    \endentry
+    \entry{michael2017}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=3d447acba1bba96edce3b726eab0fec0}{%
+           family={Michael},
+           familyi={M\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3f22d45c5e5e4a1b6b1a33caf0110d32}{%
+           family={Graham},
+           familyi={G\bibinitperiod},
+           given={Kenneth\bibnamedelima S.},
+           giveni={K\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ed851669eb78fa46b042985eaec6c26a}{%
+           family={Davis},
+           familyi={D\bibinitperiod},
+           given={Glen\bibnamedelima M.},
+           giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6083e99a51c09ffac061a4e471594d6b}
+      \strng{fullhash}{bbbb40701260c694b9c28d07d4013ce0}
+      \strng{fullhashraw}{bbbb40701260c694b9c28d07d4013ce0}
+      \strng{bibnamehash}{bbbb40701260c694b9c28d07d4013ce0}
+      \strng{authorbibnamehash}{bbbb40701260c694b9c28d07d4013ce0}
+      \strng{authornamehash}{6083e99a51c09ffac061a4e471594d6b}
+      \strng{authorfullhash}{bbbb40701260c694b9c28d07d4013ce0}
+      \strng{authorfullhashraw}{bbbb40701260c694b9c28d07d4013ce0}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Physiology}
+      \field{title}{Cardiac autonomic responses during exercise and post-exercise recovery using heart rate variability and systolic time intervals: A review}
+      \field{volume}{8}
+      \field{year}{2017}
+      \field{pages}{301}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3389/fphys.2017.00301
+      \endverb
+    \endentry
+    \entry{sparkfun_guia}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9e35b5f4c8cbe2dda7c8b041ef261f70}{%
+           family={{SparkFun Electronics}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{fullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{fullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{bibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorbibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authornamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorfullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorfullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \field{extraname}{1}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{extradate}{1}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{AD8232} heart rate monitor hookup guide}
+      \field{urlday}{28}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide/all
+      \endverb
+      \verb{url}
+      \verb https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide/all
+      \endverb
+    \endentry
+    \entry{analog_ad8232}{manual}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a12ff886a2379a9ee6efaa9acfb54df4}{%
+           family={{Analog Devices}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{fullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{fullhashraw}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{bibnamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authorbibnamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authornamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authorfullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authorfullhashraw}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{AD8232}: Single-lead, heart rate monitor front end}
+      \field{titleaddon}{Hoja de datos, Rev. D}
+      \field{urlday}{28}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.analog.com/media/en/technical-documentation/data-sheets/ad8232.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.analog.com/media/en/technical-documentation/data-sheets/ad8232.pdf
+      \endverb
+    \endentry
+    \entry{sparkfun_hw}{software}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9e35b5f4c8cbe2dda7c8b041ef261f70}{%
+           family={{SparkFun Electronics}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{fullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{fullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{bibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorbibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authornamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorfullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorfullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \field{extraname}{2}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{extradate}{2}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{AD8232} heart rate monitor: Archivos de hardware}
+      \field{urlday}{28}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/sparkfun/AD8232_Heart_Rate_Monitor
+      \endverb
+      \verb{url}
+      \verb https://github.com/sparkfun/AD8232_Heart_Rate_Monitor
+      \endverb
+    \endentry
+    \entry{taskforce1996}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=e3af9d001e56b1a42ee6871255e2643b}{%
+           family={{Task Force of the European Society of Cardiology and the North American Society of Pacing and Electrophysiology}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \name{shortauthor}{1}{}{%
+        {{un=0,uniquepart=base,hash=e9f84ac59071e97d436446c20da501f7}{%
+           family={{Task Force}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{e9f84ac59071e97d436446c20da501f7}
+      \strng{fullhash}{e3af9d001e56b1a42ee6871255e2643b}
+      \strng{fullhashraw}{e3af9d001e56b1a42ee6871255e2643b}
+      \strng{bibnamehash}{e9f84ac59071e97d436446c20da501f7}
+      \strng{authorbibnamehash}{e3af9d001e56b1a42ee6871255e2643b}
+      \strng{authornamehash}{e3af9d001e56b1a42ee6871255e2643b}
+      \strng{authorfullhash}{e3af9d001e56b1a42ee6871255e2643b}
+      \strng{authorfullhashraw}{e3af9d001e56b1a42ee6871255e2643b}
+      \strng{shortauthorbibnamehash}{e9f84ac59071e97d436446c20da501f7}
+      \strng{shortauthornamehash}{e9f84ac59071e97d436446c20da501f7}
+      \strng{shortauthorfullhash}{e9f84ac59071e97d436446c20da501f7}
+      \strng{shortauthorfullhashraw}{e9f84ac59071e97d436446c20da501f7}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{shortauthor}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Circulation}
+      \field{number}{5}
+      \field{title}{Heart rate variability: Standards of measurement, physiological interpretation and clinical use}
+      \field{volume}{93}
+      \field{year}{1996}
+      \field{pages}{1043\bibrangedash 1065}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1161/01.CIR.93.5.1043
+      \endverb
+    \endentry
+    \entry{shaffer2017}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=6ff0487233565cc4878a5aba967f2bb8}{%
+           family={Shaffer},
+           familyi={S\bibinitperiod},
+           given={Fred},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=59ad43f8a005074c7f23b92bd6ad1b02}{%
+           family={Ginsberg},
+           familyi={G\bibinitperiod},
+           given={J.\bibnamedelimi P.},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \strng{fullhash}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \strng{fullhashraw}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \strng{bibnamehash}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \strng{authorbibnamehash}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \strng{authornamehash}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \strng{authorfullhash}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \strng{authorfullhashraw}{9ec90d5aa53156124d0eb2cc16bf47d3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Public Health}
+      \field{title}{An overview of heart rate variability metrics and norms}
+      \field{volume}{5}
+      \field{year}{2017}
+      \field{pages}{258}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3389/fpubh.2017.00258
+      \endverb
+    \endentry
+    \entry{sacha2014}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7fb97221eb92bdeaedda677e2b6e0838}{%
+           family={Sacha},
+           familyi={S\bibinitperiod},
+           given={Jerzy},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7fb97221eb92bdeaedda677e2b6e0838}
+      \strng{fullhash}{7fb97221eb92bdeaedda677e2b6e0838}
+      \strng{fullhashraw}{7fb97221eb92bdeaedda677e2b6e0838}
+      \strng{bibnamehash}{7fb97221eb92bdeaedda677e2b6e0838}
+      \strng{authorbibnamehash}{7fb97221eb92bdeaedda677e2b6e0838}
+      \strng{authornamehash}{7fb97221eb92bdeaedda677e2b6e0838}
+      \strng{authorfullhash}{7fb97221eb92bdeaedda677e2b6e0838}
+      \strng{authorfullhashraw}{7fb97221eb92bdeaedda677e2b6e0838}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Noninvasive Electrocardiology}
+      \field{number}{3}
+      \field{title}{Interaction between heart rate and heart rate variability}
+      \field{volume}{19}
+      \field{year}{2014}
+      \field{pages}{207\bibrangedash 216}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1111/anec.12148
+      \endverb
+    \endentry
+    \entry{billman2013}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5bbd9b8828bb9219249ee2a37a53e1eb}{%
+           family={Billman},
+           familyi={B\bibinitperiod},
+           given={George\bibnamedelima E.},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{fullhash}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{fullhashraw}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{bibnamehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{authorbibnamehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{authornamehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{authorfullhash}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{authorfullhashraw}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Physiology}
+      \field{title}{The {LF/HF} ratio does not accurately measure cardiac sympatho-vagal balance}
+      \field{volume}{4}
+      \field{year}{2013}
+      \field{pages}{26}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3389/fphys.2013.00026
+      \endverb
+    \endentry
+    \entry{bond2011}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=d2b2ec69c4ebf06faa8c3e7056f3f2ce}{%
+           family={Bond},
+           familyi={B\bibinitperiod},
+           given={Raymond\bibnamedelima R.},
+           giveni={R\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c8d48732ffee3e097199b898a95b32da}{%
+           family={Finlay},
+           familyi={F\bibinitperiod},
+           given={Dewar\bibnamedelima D.},
+           giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=39fdee8ff26c7e3b6d79d11e8fad617d}{%
+           family={Nugent},
+           familyi={N\bibinitperiod},
+           given={Chris\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2926c286833249698fb3868bdab55324}{%
+           family={Moore},
+           familyi={M\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9f8feace03eb4c3fafe26abbb9270bae}
+      \strng{fullhash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{fullhashraw}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{bibnamehash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{authorbibnamehash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{authornamehash}{9f8feace03eb4c3fafe26abbb9270bae}
+      \strng{authorfullhash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{authorfullhashraw}{0b160e90f6ec3315d0a83b4965bce667}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Medical Informatics}
+      \field{number}{10}
+      \field{title}{A review of {ECG} storage formats}
+      \field{volume}{80}
+      \field{year}{2011}
+      \field{pages}{681\bibrangedash 697}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/j.ijmedinf.2011.06.008
+      \endverb
+    \endentry
+    \entry{pan1985}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ccdc3e3d241b1ce26d7c7d2405695bca}{%
+           family={Pan},
+           familyi={P\bibinitperiod},
+           given={Jiapu},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eb83740709bd91915efe2912ce4ea048}{%
+           family={Tompkins},
+           familyi={T\bibinitperiod},
+           given={Willis\bibnamedelima J.},
+           giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5e252c476d27bcdedcda3919fec475d6}
+      \strng{fullhash}{5e252c476d27bcdedcda3919fec475d6}
+      \strng{fullhashraw}{5e252c476d27bcdedcda3919fec475d6}
+      \strng{bibnamehash}{5e252c476d27bcdedcda3919fec475d6}
+      \strng{authorbibnamehash}{5e252c476d27bcdedcda3919fec475d6}
+      \strng{authornamehash}{5e252c476d27bcdedcda3919fec475d6}
+      \strng{authorfullhash}{5e252c476d27bcdedcda3919fec475d6}
+      \strng{authorfullhashraw}{5e252c476d27bcdedcda3919fec475d6}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Biomedical Engineering}
+      \field{number}{3}
+      \field{title}{A real-time {QRS} detection algorithm}
+      \field{volume}{BME-32}
+      \field{year}{1985}
+      \field{pages}{230\bibrangedash 236}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/TBME.1985.325532
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
