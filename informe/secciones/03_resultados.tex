@@ -16,7 +16,7 @@ La figura~\ref{fig:acond_antes_despues} muestra diez segundos de cada registro, 
 \subsection{Detección de latidos}
 \label{sec:res-deteccion}
 % Responde: ítem 6 (detección)
-La figura~\ref{fig:pt_etapas} muestra la salida de cada etapa del algoritmo sobre seis segundos del registro de reposo: la integración deja un único pulso por latido, que supera holgadamente el umbral. En reposo se detectaron 80 latidos, los mismos con cualquier umbral entre 0,10 y 0,30. En el registro post ejercicio se detectaron 375, y el tacograma es idéntico entre 0,15 y 0,25. De los intervalos posibles se excluyen 1 de 79 y 15 de 374 por tocar zonas inválidas, y ninguno de los restantes resultó atípico (tabla~\ref{tab:tacograma}, anexo~\ref{anx:lomb}). La figura~\ref{fig:deteccion} marca los picos R detectados sobre un tramo de la señal acondicionada de cada registro: todos los latidos quedan marcados, salvo, en el registro post ejercicio, el que cae dentro de un tramo saturado.
+La figura~\ref{fig:pt_etapas} muestra la salida de cada etapa del algoritmo sobre seis segundos del registro de reposo: la integración deja un único pulso por latido, que supera holgadamente el umbral. En reposo se detectaron 80 latidos, los mismos con cualquier umbral entre 0,10 y 0,30. En el registro post ejercicio se detectaron 375, y el tacograma es idéntico entre 0,15 y 0,25. De los intervalos posibles se excluyen 1 de 79 y 15 de 374 por tocar zonas inválidas, y ninguno de los restantes resultó atípico (tabla~\ref{tab:tacograma}). La figura~\ref{fig:deteccion} marca los picos R detectados sobre un tramo de la señal acondicionada de cada registro: todos los latidos quedan marcados, salvo, en el registro post ejercicio, el que cae dentro de un tramo saturado.
 
 \begin{figure}[!ht]
   \centering
@@ -35,7 +35,7 @@ La figura~\ref{fig:pt_etapas} muestra la salida de cada etapa del algoritmo sobr
 \subsection{Tacogramas}
 \label{sec:res-tacograma}
 % Responde: ítems 6a y 6b
-La figura~\ref{fig:tacogramas} muestra, para cada registro, el tacograma (cada intervalo RR en el instante del latido que lo cierra) y, debajo, la frecuencia cardíaca instantánea con su media móvil de \SI{10}{\second}. La tabla~\ref{tab:tacograma} (anexo~\ref{anx:lomb}) resume sus índices.
+La figura~\ref{fig:tacogramas} muestra, para cada registro, el tacograma (cada intervalo RR en el instante del latido que lo cierra) y, debajo, la frecuencia cardíaca instantánea con su media móvil de \SI{10}{\second}. La tabla~\ref{tab:tacograma} resume sus índices.
 
 \begin{figure}[!ht]
   \centering
@@ -43,6 +43,29 @@ La figura~\ref{fig:tacogramas} muestra, para cada registro, el tacograma (cada i
   \caption{Tacogramas (arriba) y frecuencia cardíaca instantánea con su media móvil de \SI{10}{\second} (abajo). Los huecos corresponden a intervalos excluidos.}
   \label{fig:tacogramas}
 \end{figure}
+
+\begin{table}[!ht]
+  \centering
+  \caption{Detección e índices del tacograma. FC inicial y final: media de los primeros y últimos \SI{10}{\second}. Entre paréntesis, el SDNN sin la tendencia polinómica de grado 2.}
+  \label{tab:tacograma}
+  \small
+  \begin{tabular}{@{}lrr@{}}
+    \toprule
+    & V1 reposo & V1 post ejercicio \\
+    \midrule
+    Duración del registro / del tacograma (s) & \num{57.6} / 55 & \num{173.2} / 171 \\
+    Latidos / RR posibles / RR usados & 80 / 79 / 78 & 375 / 374 / 359 \\
+    FC media (lpm)                & \num{84.2} & \num{130.9} \\
+    FC instantánea mín.--máx. (lpm) & \numrange{61}{104} & \numrange{115}{150} \\
+    FC inicial / final (lpm)      & \num{82.9} / \num{80.2} & \num{145.7} / \num{120.1} \\
+    Pendiente de la FC (lpm/min)  & \num{2.9} & \num{-10.4} \\
+    RR medio (ms)                 & 712 & 458 \\
+    SDNN (ms)                     & 82 (82) & 32 (12) \\
+    RMSSD (ms)                    & \num{47.9} & \num{8.6} \\
+    pNN50 (\%)                    & \num{23.4} & 0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \paragraph{Variación de la frecuencia cardíaca.}
 En reposo, la media es de \SI{84}{lpm}. Domina la oscilación alrededor de la media (de 61 a \SI{104}{lpm}). En el registro \textbf{post ejercicio}, la frecuencia empieza en unos \SI{146}{lpm}, se mantiene unos \SI{20}{\second} y baja hasta unos \SI{120}{lpm}. La caída no es uniforme: \SI{-14.5}{lpm/min} en el primer minuto, \SI{-1.2}{lpm/min} en el segundo y \SI{-6.0}{lpm/min} en el tercero. Las fluctuaciones son mucho menores que en reposo: el RMSSD baja 5,6 veces, y el SDNN, 7 veces.

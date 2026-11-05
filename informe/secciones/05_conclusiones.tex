@@ -1,0 +1,6 @@
+\section{Conclusiones}
+\label{sec:conclusiones}
+
+El sistema de adquisición guarda el ECG en un CSV mínimo, sin base de tiempo ni metadatos, por lo que la frecuencia de muestreo, \SI{500}{\hertz}, se obtuvo del código del Arduino provisto por la cátedra. La señal necesitó acondicionamiento: el que aplicamos elimina el nivel de continua y la deriva de la línea de base y marca los tramos inválidos, sin correr ningún pico R más de una muestra. Sobre esa señal, el detector de Pan-Tompkins con un umbral referido al percentil 99 no dejó intervalos atípicos entre los válidos.
+
+Después del ejercicio, la frecuencia cardíaca media pasó de 84 a \SI{131}{lpm}, y durante los tres minutos de recuperación bajó de 146 a \SI{120}{lpm}, sin volver al valor de reposo. La variabilidad se redujo de forma marcada: el RMSSD cayó más de cinco veces, y las potencias LF y HF, entre 50 y 100 veces. HF casi desapareció en el primer minuto y volvió a aparecer en los siguientes. Estos resultados son consistentes con una retirada vagal con el ejercicio y su reactivación gradual en la recuperación. Dado lo corto de los registros, los índices vagales, como el RMSSD y HF, resultan más confiables que LF y el cociente LF/HF. Registros más largos, más voluntarios y el registro simultáneo de la respiración permitirían confirmar estas conclusiones.
