@@ -35,7 +35,7 @@ La figura~\ref{fig:pt_etapas} muestra la salida de cada etapa del algoritmo sobr
 \subsection{Tacogramas}
 \label{sec:res-tacograma}
 % Responde: ítems 6a y 6b
-La figura~\ref{fig:tacogramas} muestra, para cada registro, el tacograma (cada intervalo RR en el instante del latido que lo cierra) y, debajo, la frecuencia cardíaca instantánea con su media móvil de \SI{10}{\second}. La tabla~\ref{tab:tacograma} resume sus índices.
+La figura~\ref{fig:tacogramas} muestra el tacograma de cada registro (cada intervalo RR) y la frecuencia cardíaca instantánea con su media móvil de \SI{10}{\second}. La tabla~\ref{tab:tacograma} resume sus índices.
 
 \begin{figure}[!ht]
   \centering
@@ -46,7 +46,7 @@ La figura~\ref{fig:tacogramas} muestra, para cada registro, el tacograma (cada i
 
 \begin{table}[!ht]
   \centering
-  \caption{Detección e índices del tacograma. FC inicial y final: media de los primeros y últimos \SI{10}{\second}. Entre paréntesis, el SDNN sin la tendencia polinómica de grado 2.}
+  \caption{Índices del tacograma. Entre paréntesis, el SDNN sin la tendencia polinómica de grado 2.}
   \label{tab:tacograma}
   \small
   \begin{tabular}{@{}lrr@{}}
@@ -86,7 +86,7 @@ En reposo, la media es de \SI{84}{lpm}. Domina la oscilación alrededor de la me
 La figura~\ref{fig:lomb_periodogramas} muestra el periodograma de Lomb de cada registro completo, con las bandas LF y HF sombreadas, y la tabla~\ref{tab:lomb} (anexo~\ref{anx:lomb}) reúne la potencia de cada banda, también para cada minuto del registro post ejercicio. Después del ejercicio, LF cae de \SI{4870}{\milli\second\squared} a \SI{48}{\milli\second\squared} y HF, de \SI{1029}{\milli\second\squared} a \SI{21}{\milli\second\squared}: entre 50 y 100 veces. Parte de esa caída se debe a que, con RR más cortos, las mismas variaciones relativas dan variaciones absolutas menores. El espectro de reposo tiene picos definidos en \SI{0.064}{\hertz} (LF) y \SI{0.18}{\hertz} (HF, unas 11 respiraciones por minuto). El post ejercicio no muestra picos dominantes por encima de \SI{0.04}{\hertz}, salvo uno leve cerca de \SI{0.2}{\hertz}. Por debajo de \SI{0.04}{\hertz} queda una potencia de \SI{53}{\milli\second\squared}, que podría deberse a la componente lenta de la recuperación que el polinomio no llegó a quitar.
 
 \paragraph{Evolución por minuto.}
-El registro post ejercicio completo reparte la potencia de forma parecida al reposo ($\mathrm{LF_{nu}}$ de \SI{69}{\percent} frente a \SI{83}{\percent}), pero ese promedio mezcla etapas distintas, que se ven en los periodogramas de cada minuto (figura~\ref{fig:lomb_ventanas}). En el primer minuto, HF casi desaparece (\SI{4.2}{\milli\second\squared}), LF/HF llega a 13 y el pico de HF se corre a \SI{0.36}{\hertz}, unas 22 respiraciones por minuto. En los minutos 2 y 3, HF reaparece, su pico vuelve a \SIrange{0.19}{0.21}{\hertz} y LF/HF queda entre 0,9 y 1,5.
+El registro post ejercicio reparte la potencia de forma parecida al reposo ($\mathrm{LF_{nu}}$ de \SI{69}{\percent} frente a \SI{83}{\percent}), pero ese promedio mezcla etapas distintas, que se ven en los periodogramas de cada minuto (figura~\ref{fig:lomb_ventanas}). En el primer minuto, HF casi desaparece (\SI{4.2}{\milli\second\squared}), LF/HF llega a 13 y el pico de HF se corre a \SI{0.36}{\hertz}, unas 22 respiraciones por minuto. En los minutos 2 y 3, HF reaparece, su pico vuelve a \SIrange{0.19}{0.21}{\hertz} y LF/HF queda entre 0,9 y 1,5.
 
 \begin{figure}[!ht]
   \centering
