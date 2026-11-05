@@ -8,7 +8,7 @@ La figura~\ref{fig:acond_crudo} muestra los registros crudos completos, y la fig
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{acond_crudo_completo}
-  \caption{Registros crudos de V1 en reposo y post ejercicio. La línea punteada marca \SI{1.65}{\volt}.}
+  \caption{Registros crudos en reposo y post ejercicio. La línea punteada marca \SI{1.65}{\volt}.}
   \label{fig:acond_crudo}
 \end{figure}
 
@@ -46,7 +46,7 @@ Para una serie $x_n$ de media nula, tomada en los instantes $t_n$, la potencia e
 donde $\tau$ hace que los ajustes del seno y del coseno sean independientes. Si las muestras son equiespaciadas, $P$ coincide con el periodograma clásico.
 
 \paragraph{Grilla y normalización.}
-La resolución es $1/T$; la grilla cuatro veces más fina ubica mejor los picos, pero no agrega resolución. El límite de \SI{0.5}{\hertz} cubre HF con margen y queda por debajo de la mitad de la frecuencia media de latidos en todos los registros (más de \SI{0.7}{\hertz} a \SI{84}{lpm}). La densidad unilateral es $p(f) = 2P/\bar f_s$, con $\bar f_s = N/T$, de modo que el área bajo $p$ es la varianza del tacograma (teorema de Parseval). También se calcula $\mathrm{HF_{nu}} = \mathrm{HF}/(\mathrm{LF}+\mathrm{HF})$. El polinomio de grado 2 solo sigue variaciones más lentas que la banda LF. Cada ventana de \SI{1}{\minute} tiene su propio tratamiento previo y su propia grilla.
+La resolución es $1/T$; la grilla cuatro veces más fina ubica mejor los picos, pero no agrega resolución. El límite de \SI{0.5}{\hertz} cubre HF con margen y queda por debajo de la mitad de la frecuencia media de latidos en todos los registros (más de \SI{0.7}{\hertz} a \SI{84}{lpm}). La densidad unilateral es $p(f) = 2P/\bar f_s$, con $\bar f_s = N/T$, de modo que el área bajo $p$ es la varianza del tacograma (teorema de Parseval). El polinomio de grado 2 solo sigue variaciones más lentas que la banda LF. Cada ventana de \SI{1}{\minute} tiene su propio tratamiento previo y su propia grilla.
 
 \begin{table}[htbp]
   \centering
@@ -56,10 +56,10 @@ La resolución es $1/T$; la grilla cuatro veces más fina ubica mejor los picos,
   \setlength{\tabcolsep}{4pt}
   \begin{tabular}{@{}lrrrrrrrr@{}}
     \toprule
-    Registro & $N$ & $T$ (ss) & FC (lpm) & LF (\si{\milli\second\squared}) & HF (\si{\milli\second\squared}) & LF/HF & $\mathrm{LF_{nu}}$ (\%) & $f_\mathrm{HF}$ (Hz) \\
+    Registro & $N$ & $T$ (s) & FC (lpm) & LF (\si{\milli\second\squared}) & HF (\si{\milli\second\squared}) & LF/HF & $\mathrm{LF_{nu}}$ (\%) & $f_\mathrm{HF}$ (Hz) \\
     \midrule
-    V1 reposo              &  78 &  55 &  84 & 4870 & 1029 & \num{4.7} & 83 & \num{0.18} \\
-    V1 post, completo      & 359 & 171 & 131 &   48 &   21 & \num{2.2} & 69 & \num{0.19} \\
+    Reposo                 &  78 &  55 &  84 & 4870 & 1029 & \num{4.7} & 83 & \num{0.18} \\
+    Post ejercicio, completo & 359 & 171 & 131 &   48 &   21 & \num{2.2} & 69 & \num{0.19} \\
     \quad minuto 1         & 140 &  60 & 141 &   56 & \num{4.2} & \num{13.3} & 93 & \num{0.36} \\
     \quad minuto 2         & 126 &  60 & 128 &   44 &   47 & \num{0.9} & 48 & \num{0.19} \\
     \quad minuto 3         &  93 &  51 & 121 &   23 &   16 & \num{1.5} & 59 & \num{0.21} \\

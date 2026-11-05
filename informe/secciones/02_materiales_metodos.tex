@@ -3,7 +3,7 @@
 
 \subsection{Protocolo experimental}
 \label{sec:protocolo}
-Se registró a un voluntario. Se limpió la piel con alcohol y se colocaron tres electrodos en el torso \parencite{sparkfun_guia}: RA y LA debajo de cada clavícula y RL (referencia del amplificador, no forma parte de la derivación) en el abdomen, por encima de la cadera derecha. Se registró \SI{1}{\minute} en reposo; luego el sujeto pedaleó en bicicleta a un ritmo exigente hasta estar agitado e inmediatamente después se registraron \SI{3}{\minute} de recuperación.
+Se registró a un voluntario. Se limpió la piel con alcohol y se colocaron tres electrodos en el torso \parencite{sparkfun_guia}: RA y LA debajo de cada clavícula y RL (referencia del amplificador, no forma parte de la derivación) en el abdomen, por encima de la cadera derecha. Se registró \SI{1}{\minute} en reposo; luego el sujeto pedaleó en bicicleta a un ritmo exigente hasta estar agitado y, pasados unos segundos, se registraron \SI{3}{\minute} de recuperación.
 
 \subsection{Sistema de adquisición}
 \label{sec:adquisicion}
@@ -27,7 +27,7 @@ La señal necesita acondicionamiento, porque contiene componentes de la adquisic
 \begin{itemize}
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
   \item \textbf{Nivel de continua:} la salida está montada sobre \SI{1.65}{\volt}.
-  \item \textbf{Deriva de la línea de base:} el potencial electrodo-piel cambia lentamente; aparece por debajo de \SI{1}{\hertz} y supera \SI{1}{\volt} en el registro post ejercicio.
+  \item \textbf{Deriva de la línea de base:} el potencial electrodo-piel cambia lentamente; aparece por debajo de \SI{0.5}{\hertz} y supera \SI{1}{\volt} en el registro post ejercicio.
   \item \textbf{Interferencia de línea:} los \SI{50}{\hertz} podrían acoplarse, pero el espectro no muestra ese pico.
   \item \textbf{Cuantización:} el redondeo a \SI{10}{\milli\volt} deja escalones visibles en las ondas P y T (figura~\ref{fig:acond_detalles}c), pequeños frente al QRS.
   \item \textbf{Saturación:} en el registro post ejercicio la salida llega a \SI{0}{\volt} y \SI{3.3}{\volt}, con tramos de hasta \SI{0.35}{\second} (figura~\ref{fig:acond_detalles}b). El de reposo no satura.
@@ -37,7 +37,7 @@ La señal necesita acondicionamiento, porque contiene componentes de la adquisic
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=\textwidth]{acond_detalles}
-  \caption{Defectos del registro. (a) Primer segundo del registro post ejercicio, que se descarta (sombreado). (b) Tramo saturado en \SI{0}{\volt} del registro post ejercicio (sombreado). (c) Onda T del registro en reposo, con los escalones de \SI{10}{\milli\volt} del redondeo.}
+  \caption{Defectos del registro: (a) inicio descartado y (b) tramo saturado del registro post ejercicio (sombreados); (c) escalones de \SI{10}{\milli\volt} en una onda T de reposo.}
   \label{fig:acond_detalles}
 \end{figure}
 
@@ -58,7 +58,7 @@ Los intervalos son $\mathrm{RR}_i = t_{i+1} - t_i$, ubicados en el instante del 
 \subsection{Periodograma de Lomb}
 \label{sec:met-lomb}
 % Responde: ítem 7 (método)
-El tacograma no está muestreado uniformemente, ya que la separación entre muestras es el propio RR, y además tiene huecos por los latidos ectópicos y/o artefactos descartados de la muestra. Para analizar su espectro frecuencial habría que remuestrearlo, pero eso atenúa las componentes rápidas y obliga a inventar valores. El periodograma de Lomb evita ese paso, porque ajusta por cuadrados mínimos un seno y un coseno en los instantes reales de los latidos, y tolera la falta de latidos.
+El tacograma no está muestreado uniformemente, ya que la separación entre muestras es el propio RR, y además tiene huecos por los intervalos descartados. Para analizar su espectro frecuencial habría que remuestrearlo, pero eso atenúa las componentes rápidas y obliga a inventar valores. El periodograma de Lomb evita ese paso, porque ajusta por cuadrados mínimos un seno y un coseno en los instantes reales de los latidos, y tolera la falta de latidos.
 
 Antes de calcularlo se quitan los RR atípicos y se resta un polinomio de grado 2, que elimina la media y la tendencia de la recuperación, para que no contamine LF. Se evalúa de $1/(4T)$ a \SI{0.5}{\hertz}, con paso $1/(4T)$, siendo $T$ la duración del tacograma. La potencia se escala como densidad espectral para que el área bajo la curva sea la varianza, y se integra en las bandas LF y HF de la \textcite{taskforce1996}, junto con el cociente LF/HF y las unidades normalizadas $\mathrm{LF_{nu}} = \mathrm{LF}/(\mathrm{LF}+\mathrm{HF})$.
 
