@@ -3,7 +3,7 @@
 
 \subsection{Protocolo experimental}
 \label{sec:protocolo}
-Se registró a un voluntario. Se limpió la piel con alcohol y se colocaron tres electrodos en el torso \parencite{sparkfun_guia}: RA y LA debajo de cada clavícula y RL (referencia) en el abdomen, por encima de la cadera derecha. Se registró \SI{1}{\minute} en reposo; luego el sujeto pedaleó en bicicleta a un ritmo exigente hasta estar agitado e inmediatamente después se registraron \SI{3}{\minute} de recuperación.
+Se registró a un voluntario. Se limpió la piel con alcohol y se colocaron tres electrodos en el torso \parencite{sparkfun_guia}: RA y LA debajo de cada clavícula y RL (referencia del amplificador, no forma parte de la derivación) en el abdomen, por encima de la cadera derecha. Se registró \SI{1}{\minute} en reposo; luego el sujeto pedaleó en bicicleta a un ritmo exigente hasta estar agitado e inmediatamente después se registraron \SI{3}{\minute} de recuperación.
 
 \subsection{Sistema de adquisición}
 \label{sec:adquisicion}
@@ -12,13 +12,13 @@ El módulo AD8232 de SparkFun amplifica y filtra la señal; un Arduino UNO la di
 \subsubsection{Resolución de la placa AD8232}
 \label{sec:resolucion}
 % Responde: ítem 3a
-El AD8232 es un front-end analógico sin conversor, por lo que no tiene una resolución en bits, sino que se describe por su ganancia (1100 en este módulo), su banda de paso (\SIrange{0.5}{40}{\hertz}) y su ruido (\SI{14}{\micro\volt} pico a pico en la entrada) \parencite{analog_ad8232,sparkfun_hw}. La resolución la fija la digitalización, por ejemplo, 10 bits sobre \SI{5}{\volt} dan \SI{4.9}{\milli\volt} por paso. Como la interfaz redondea a dos decimales, la resolución real del archivo es de \SI{10}{\milli\volt}, unos \SI{9}{\micro\volt} en los electrodos, unas cien veces menos que un QRS.
+El AD8232 es un front-end analógico sin conversor, por lo que no tiene una resolución en bits, sino que se describe por su ganancia (1100 en este módulo), su banda de paso (\SIrange{0.5}{40}{\hertz}) y su ruido (\SI{14}{\micro\volt} pico a pico en la entrada) \parencite{analog_ad8232,sparkfun_hw}. La resolución la fija la digitalización, por ejemplo, 10 bits sobre \SI{5}{\volt} dan \SI{4.9}{\milli\volt} por paso; como la salida no supera \SI{3.3}{\volt}, se usan unos 675 de los 1024 niveles. Como la interfaz redondea a dos decimales, la resolución real del archivo es de \SI{10}{\milli\volt}, unos \SI{9}{\micro\volt} en los electrodos, unas cien veces menos que un QRS.
 
 \subsubsection{Formato del registro}
 \label{sec:formato}
 % Responde: ítem 1 (primera parte)
-Cada registro es un CSV de una sola columna, con el encabezado \texttt{Sample} y una muestra por fila: la tensión a la salida del módulo está en voltios, calculada como $V = 5\,n/1023$ a partir de la cuenta $n$ del conversor. No guarda tiempo, frecuencia de muestreo, unidades, ganancia, derivación ni sujeto.
-Por otro lado, según el código del Arduino proporcionado por la cátedra, la frecuencia de muestreo es $f_s = \SI{500}{\hertz}$.
+Cada registro es un CSV de una sola columna, con el encabezado \texttt{Sample} y una muestra por fila: la tensión a la salida del módulo está en voltios, calculada como $V = 5\,n/1023$ a partir de la cuenta $n$ del conversor. Como supone una referencia exacta de \SI{5}{\volt}, la amplitud absoluta es aproximada. No guarda tiempo, frecuencia de muestreo, unidades, ganancia, derivación ni sujeto.
+Por otro lado, según el código del Arduino proporcionado por la cátedra, la frecuencia de muestreo es $f_s = \SI{500}{\hertz}$. Las muestras se envían en paquetes de 100, y como enviar un paquete tarda algo más que llenar el siguiente, se pierden unos \SI{8}{\milli\second} entre paquetes (tasa media de 480 muestras por segundo).
 
 \subsection{Acondicionamiento de la señal}
 \label{sec:met-acondicionamiento}
@@ -41,14 +41,14 @@ La señal necesita acondicionamiento, porque contiene componentes de la adquisic
   \label{fig:acond_detalles}
 \end{figure}
 
-Como el resultado final son los instantes de los latidos, los filtros no deben desplazar la señal. Las etapas son: (1) reemplazar por una recta los tramos saturados de más de \SI{0.1}{\second}; (2) restar la mediana; (3) aplicar un pasaaltos Butterworth de orden 2 con corte en \SI{0.5}{\hertz}, ida y vuelta (\texttt{sosfiltfilt}, fase cero); (4) marcar como inválidos el primer segundo y los tramos saturados con \SI{\pm0.2}{\second} de margen, sin borrarlos. No se aplicó notch ya que no se visualizó interferencia de red en el espectro de frecuencias.
+Como el resultado final son los instantes de los latidos, los filtros no deben desplazar la señal. Las etapas son: (1) reemplazar por una recta los tramos saturados de más de \SI{0.1}{\second}, porque la meseta y sus escalones harían oscilar al pasaaltos; (2) restar la mediana, menos sensible que la media a los tramos saturados; (3) aplicar un pasaaltos Butterworth de orden 2 con corte en \SI{0.5}{\hertz}, por debajo de la frecuencia cardíaca y sin afectar al QRS, ida y vuelta (\texttt{sosfiltfilt}, fase cero y orden efectivo 4); (4) marcar como inválidos el primer segundo y los tramos saturados con \SI{\pm0.2}{\second} de margen, sin borrarlos, lo que excluye el \SI{1.7}{\percent} del reposo y el \SI{2.7}{\percent} del post ejercicio. Comprobamos que el filtrado no corrió ningún pico R más de una muestra. No se aplicó notch ya que no se visualizó interferencia de red en el espectro (figura~\ref{fig:acond_espectro_crudo}, anexo~\ref{anx:acond}).
 
 \subsection{Detección de latidos: algoritmo de Pan-Tompkins}
 \label{sec:met-pantompkins}
 % Responde: ítem 6 (método)
-El algoritmo de Pan y Tompkins busca las pendientes grandes y concentradas del QRS. Aplicamos un pasabanda de 5 a \SI{15}{\hertz}, una derivada de cinco puntos, el cuadrado y una integración con ventana móvil de \SI{150}{\milli\second}. Se consideró que un máximo de la señal integrada es un QRS si supera un umbral y está a más de \SI{200}{\milli\second} del pico anterior. Luego, el pico R se ubica como el extremo de la señal acondicionada dentro de \SI{\pm100}{\milli\second}.
+El algoritmo de Pan y Tompkins busca las pendientes grandes y concentradas del QRS. Aplicamos un pasabanda Butterworth de orden 2 de 5 a \SI{15}{\hertz} (ida y vuelta), una derivada centrada de cinco puntos, el cuadrado y una integración con ventana rectangular centrada de \SI{150}{\milli\second}. Con ventanas más cortas el QRS queda partido en varios picos, y con ventanas más largas el pulso se mezcla con la onda T. Se consideró que un máximo de la señal integrada es un QRS si supera un umbral y está a más de \SI{200}{\milli\second} del pico anterior (equivale a \SI{300}{lpm}, muy por encima de lo registrado). Luego, el pico R se ubica como el extremo de la señal acondicionada dentro de \SI{\pm100}{\milli\second}, según la polaridad del registro.
 
-Usamos un único umbral fijo de 0,2 veces el percentil 99 de la señal integrada (no de su máximo). Con el máximo, un artefacto de saturación a los \SI{47}{\second} del registro post ejercicio elevaba tanto el umbral que, con una fracción de 0,3, se detectaban 253 latidos de unos 375. El valor 0,2 surgió de hacer un barrido previo del umbral.
+Usamos un único umbral fijo de 0,2 veces el percentil 99 de la señal integrada (no de su máximo). Con el máximo, un artefacto de saturación a los \SI{47}{\second} del registro post ejercicio elevaba tanto el umbral que, con una fracción de 0,3, se detectaban 253 latidos de unos 375; el artefacto ocupa menos del \SI{1}{\percent} de las muestras, así que no altera el percentil 99. Para elegir la fracción la barrimos entre 0,05 y 0,9: con valores bajos aparecen detecciones falsas y con valores altos se pierden latidos, y 0,2 queda en el centro del rango en que la detección no cambia en ambos registros (sección~\ref{sec:res-deteccion}).
 
 \subsection{Tacograma}
 \label{sec:met-tacograma}

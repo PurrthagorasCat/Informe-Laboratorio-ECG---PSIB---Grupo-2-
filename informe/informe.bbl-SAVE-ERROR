@@ -164,6 +164,40 @@
       \verb 10.1161/CIRCULATIONAHA.106.180200
       \endverb
     \endentry
+    \entry{sparkfun_guia}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9e35b5f4c8cbe2dda7c8b041ef261f70}{%
+           family={{SparkFun Electronics}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{fullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{fullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{bibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorbibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authornamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorfullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorfullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \field{extraname}{1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{extradate}{1}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{AD8232} heart rate monitor hookup guide}
+      \field{urlday}{28}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide/all
+      \endverb
+      \verb{url}
+      \verb https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide/all
+      \endverb
+    \endentry
     \entry{wagner2014}{book}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=c18cfd3524327ffd0ddf08ca6905d798}{%
@@ -190,8 +224,8 @@
       \strng{authornamehash}{c5af0ce46fe71b5d53fa55276156a061}
       \strng{authorfullhash}{c5af0ce46fe71b5d53fa55276156a061}
       \strng{authorfullhashraw}{c5af0ce46fe71b5d53fa55276156a061}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -200,6 +234,59 @@
       \field{edition}{12}
       \field{title}{Marriott's practical electrocardiography}
       \field{year}{2014}
+    \endentry
+    \entry{bond2011}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=d2b2ec69c4ebf06faa8c3e7056f3f2ce}{%
+           family={Bond},
+           familyi={B\bibinitperiod},
+           given={Raymond\bibnamedelima R.},
+           giveni={R\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c8d48732ffee3e097199b898a95b32da}{%
+           family={Finlay},
+           familyi={F\bibinitperiod},
+           given={Dewar\bibnamedelima D.},
+           giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=39fdee8ff26c7e3b6d79d11e8fad617d}{%
+           family={Nugent},
+           familyi={N\bibinitperiod},
+           given={Chris\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2926c286833249698fb3868bdab55324}{%
+           family={Moore},
+           familyi={M\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9f8feace03eb4c3fafe26abbb9270bae}
+      \strng{fullhash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{fullhashraw}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{bibnamehash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{authorbibnamehash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{authornamehash}{9f8feace03eb4c3fafe26abbb9270bae}
+      \strng{authorfullhash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{authorfullhashraw}{0b160e90f6ec3315d0a83b4965bce667}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Medical Informatics}
+      \field{number}{10}
+      \field{title}{A review of {ECG} storage formats}
+      \field{volume}{80}
+      \field{year}{2011}
+      \field{pages}{681\bibrangedash 697}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/j.ijmedinf.2011.06.008
+      \endverb
     \endentry
     \entry{goldberger2000}{article}{}{}
       \name{author}{10}{}{%
@@ -272,8 +359,8 @@
       \strng{authornamehash}{ac33f54eb3663cac88ca522e0018a750}
       \strng{authorfullhash}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
       \strng{authorfullhashraw}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -313,8 +400,8 @@
       \strng{authornamehash}{ba56f461cd24fdc08af56d80f58d279d}
       \strng{authorfullhash}{ba56f461cd24fdc08af56d80f58d279d}
       \strng{authorfullhashraw}{ba56f461cd24fdc08af56d80f58d279d}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -396,8 +483,8 @@
       \strng{authornamehash}{c219422d39ecdf02d948e18f8c021c0d}
       \strng{authorfullhash}{45b7372a9066b63a61d12865c21c4431}
       \strng{authorfullhashraw}{45b7372a9066b63a61d12865c21c4431}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -443,8 +530,8 @@
       \strng{authornamehash}{6083e99a51c09ffac061a4e471594d6b}
       \strng{authorfullhash}{bbbb40701260c694b9c28d07d4013ce0}
       \strng{authorfullhashraw}{bbbb40701260c694b9c28d07d4013ce0}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -458,40 +545,6 @@
       \range{pages}{1}
       \verb{doi}
       \verb 10.3389/fphys.2017.00301
-      \endverb
-    \endentry
-    \entry{sparkfun_guia}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=9e35b5f4c8cbe2dda7c8b041ef261f70}{%
-           family={{SparkFun Electronics}},
-           familyi={S\bibinitperiod}}}%
-      }
-      \strng{namehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \strng{fullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \strng{fullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \strng{bibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \strng{authorbibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \strng{authornamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \strng{authorfullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \strng{authorfullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \field{extraname}{1}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
-      \field{extradate}{1}
-      \field{labeldatesource}{nodate}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{{AD8232} heart rate monitor hookup guide}
-      \field{urlday}{28}
-      \field{urlmonth}{10}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide/all
-      \endverb
-      \verb{url}
-      \verb https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide/all
       \endverb
     \endentry
     \entry{analog_ad8232}{manual}{}{}
@@ -508,8 +561,8 @@
       \strng{authornamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
       \strng{authorfullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
       \strng{authorfullhashraw}{a12ff886a2379a9ee6efaa9acfb54df4}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeldatesource}{nodate}
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
@@ -542,8 +595,8 @@
       \strng{authorfullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
       \strng{authorfullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
       \field{extraname}{2}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{extradate}{2}
       \field{labeldatesource}{nodate}
       \true{uniqueprimaryauthor}
@@ -584,8 +637,8 @@
       \strng{shortauthornamehash}{e9f84ac59071e97d436446c20da501f7}
       \strng{shortauthorfullhash}{e9f84ac59071e97d436446c20da501f7}
       \strng{shortauthorfullhashraw}{e9f84ac59071e97d436446c20da501f7}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -677,23 +730,35 @@
       \verb 10.1111/anec.12148
       \endverb
     \endentry
-    \entry{billman2013}{article}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=5bbd9b8828bb9219249ee2a37a53e1eb}{%
-           family={Billman},
+    \entry{nunan2010}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=b25eb85979b06766d838bd0c1e84470c}{%
+           family={Nunan},
+           familyi={N\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c958a4f540613dd0487bf3ae8f339975}{%
+           family={Sandercock},
+           familyi={S\bibinitperiod},
+           given={Gavin\bibnamedelimb R.\bibnamedelimi H.},
+           giveni={G\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e3daed6a00c0a236bb3f07ff2f49a87c}{%
+           family={Brodie},
            familyi={B\bibinitperiod},
-           given={George\bibnamedelima E.},
-           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod},
+           given={David\bibnamedelima A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
-      \strng{fullhash}{5bbd9b8828bb9219249ee2a37a53e1eb}
-      \strng{fullhashraw}{5bbd9b8828bb9219249ee2a37a53e1eb}
-      \strng{bibnamehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
-      \strng{authorbibnamehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
-      \strng{authornamehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
-      \strng{authorfullhash}{5bbd9b8828bb9219249ee2a37a53e1eb}
-      \strng{authorfullhashraw}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{namehash}{a3e74df39c6c29b0aaf87e2d2aed3f28}
+      \strng{fullhash}{c170f5756e4ce21daf6567fbead9ad10}
+      \strng{fullhashraw}{c170f5756e4ce21daf6567fbead9ad10}
+      \strng{bibnamehash}{c170f5756e4ce21daf6567fbead9ad10}
+      \strng{authorbibnamehash}{c170f5756e4ce21daf6567fbead9ad10}
+      \strng{authornamehash}{a3e74df39c6c29b0aaf87e2d2aed3f28}
+      \strng{authorfullhash}{c170f5756e4ce21daf6567fbead9ad10}
+      \strng{authorfullhashraw}{c170f5756e4ce21daf6567fbead9ad10}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{extradatescope}{labelyear}
@@ -701,108 +766,15 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Frontiers in Physiology}
-      \field{title}{The {LF/HF} ratio does not accurately measure cardiac sympatho-vagal balance}
-      \field{volume}{4}
-      \field{year}{2013}
-      \field{pages}{26}
-      \range{pages}{1}
+      \field{journaltitle}{Pacing and Clinical Electrophysiology}
+      \field{number}{11}
+      \field{title}{A quantitative systematic review of normal values for short-term heart rate variability in healthy adults}
+      \field{volume}{33}
+      \field{year}{2010}
+      \field{pages}{1407\bibrangedash 1417}
+      \range{pages}{11}
       \verb{doi}
-      \verb 10.3389/fphys.2013.00026
-      \endverb
-    \endentry
-    \entry{bond2011}{article}{}{}
-      \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=d2b2ec69c4ebf06faa8c3e7056f3f2ce}{%
-           family={Bond},
-           familyi={B\bibinitperiod},
-           given={Raymond\bibnamedelima R.},
-           giveni={R\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c8d48732ffee3e097199b898a95b32da}{%
-           family={Finlay},
-           familyi={F\bibinitperiod},
-           given={Dewar\bibnamedelima D.},
-           giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=39fdee8ff26c7e3b6d79d11e8fad617d}{%
-           family={Nugent},
-           familyi={N\bibinitperiod},
-           given={Chris\bibnamedelima D.},
-           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2926c286833249698fb3868bdab55324}{%
-           family={Moore},
-           familyi={M\bibinitperiod},
-           given={George},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{9f8feace03eb4c3fafe26abbb9270bae}
-      \strng{fullhash}{0b160e90f6ec3315d0a83b4965bce667}
-      \strng{fullhashraw}{0b160e90f6ec3315d0a83b4965bce667}
-      \strng{bibnamehash}{0b160e90f6ec3315d0a83b4965bce667}
-      \strng{authorbibnamehash}{0b160e90f6ec3315d0a83b4965bce667}
-      \strng{authornamehash}{9f8feace03eb4c3fafe26abbb9270bae}
-      \strng{authorfullhash}{0b160e90f6ec3315d0a83b4965bce667}
-      \strng{authorfullhashraw}{0b160e90f6ec3315d0a83b4965bce667}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{International Journal of Medical Informatics}
-      \field{number}{10}
-      \field{title}{A review of {ECG} storage formats}
-      \field{volume}{80}
-      \field{year}{2011}
-      \field{pages}{681\bibrangedash 697}
-      \range{pages}{17}
-      \verb{doi}
-      \verb 10.1016/j.ijmedinf.2011.06.008
-      \endverb
-    \endentry
-    \entry{pan1985}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=ccdc3e3d241b1ce26d7c7d2405695bca}{%
-           family={Pan},
-           familyi={P\bibinitperiod},
-           given={Jiapu},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=eb83740709bd91915efe2912ce4ea048}{%
-           family={Tompkins},
-           familyi={T\bibinitperiod},
-           given={Willis\bibnamedelima J.},
-           giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{5e252c476d27bcdedcda3919fec475d6}
-      \strng{fullhash}{5e252c476d27bcdedcda3919fec475d6}
-      \strng{fullhashraw}{5e252c476d27bcdedcda3919fec475d6}
-      \strng{bibnamehash}{5e252c476d27bcdedcda3919fec475d6}
-      \strng{authorbibnamehash}{5e252c476d27bcdedcda3919fec475d6}
-      \strng{authornamehash}{5e252c476d27bcdedcda3919fec475d6}
-      \strng{authorfullhash}{5e252c476d27bcdedcda3919fec475d6}
-      \strng{authorfullhashraw}{5e252c476d27bcdedcda3919fec475d6}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Biomedical Engineering}
-      \field{number}{3}
-      \field{title}{A real-time {QRS} detection algorithm}
-      \field{volume}{BME-32}
-      \field{year}{1985}
-      \field{pages}{230\bibrangedash 236}
-      \range{pages}{7}
-      \verb{doi}
-      \verb 10.1109/TBME.1985.325532
+      \verb 10.1111/j.1540-8159.2010.02841.x
       \endverb
     \endentry
   \enddatalist
@@ -952,6 +924,40 @@
       \verb 10.1161/CIRCULATIONAHA.106.180200
       \endverb
     \endentry
+    \entry{sparkfun_guia}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9e35b5f4c8cbe2dda7c8b041ef261f70}{%
+           family={{SparkFun Electronics}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{fullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{fullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{bibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorbibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authornamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorfullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \strng{authorfullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
+      \field{extraname}{1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{extradate}{1}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{AD8232} heart rate monitor hookup guide}
+      \field{urlday}{28}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide/all
+      \endverb
+      \verb{url}
+      \verb https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide/all
+      \endverb
+    \endentry
     \entry{wagner2014}{book}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=c18cfd3524327ffd0ddf08ca6905d798}{%
@@ -978,8 +984,8 @@
       \strng{authornamehash}{c5af0ce46fe71b5d53fa55276156a061}
       \strng{authorfullhash}{c5af0ce46fe71b5d53fa55276156a061}
       \strng{authorfullhashraw}{c5af0ce46fe71b5d53fa55276156a061}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -988,6 +994,59 @@
       \field{edition}{12}
       \field{title}{Marriott's practical electrocardiography}
       \field{year}{2014}
+    \endentry
+    \entry{bond2011}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=d2b2ec69c4ebf06faa8c3e7056f3f2ce}{%
+           family={Bond},
+           familyi={B\bibinitperiod},
+           given={Raymond\bibnamedelima R.},
+           giveni={R\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c8d48732ffee3e097199b898a95b32da}{%
+           family={Finlay},
+           familyi={F\bibinitperiod},
+           given={Dewar\bibnamedelima D.},
+           giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=39fdee8ff26c7e3b6d79d11e8fad617d}{%
+           family={Nugent},
+           familyi={N\bibinitperiod},
+           given={Chris\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2926c286833249698fb3868bdab55324}{%
+           family={Moore},
+           familyi={M\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9f8feace03eb4c3fafe26abbb9270bae}
+      \strng{fullhash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{fullhashraw}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{bibnamehash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{authorbibnamehash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{authornamehash}{9f8feace03eb4c3fafe26abbb9270bae}
+      \strng{authorfullhash}{0b160e90f6ec3315d0a83b4965bce667}
+      \strng{authorfullhashraw}{0b160e90f6ec3315d0a83b4965bce667}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Medical Informatics}
+      \field{number}{10}
+      \field{title}{A review of {ECG} storage formats}
+      \field{volume}{80}
+      \field{year}{2011}
+      \field{pages}{681\bibrangedash 697}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/j.ijmedinf.2011.06.008
+      \endverb
     \endentry
     \entry{goldberger2000}{article}{}{}
       \name{author}{10}{}{%
@@ -1060,8 +1119,8 @@
       \strng{authornamehash}{ac33f54eb3663cac88ca522e0018a750}
       \strng{authorfullhash}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
       \strng{authorfullhashraw}{99ff5ab6ac3f9e1b8b06c69e0c579fee}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -1101,8 +1160,8 @@
       \strng{authornamehash}{ba56f461cd24fdc08af56d80f58d279d}
       \strng{authorfullhash}{ba56f461cd24fdc08af56d80f58d279d}
       \strng{authorfullhashraw}{ba56f461cd24fdc08af56d80f58d279d}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -1184,8 +1243,8 @@
       \strng{authornamehash}{c219422d39ecdf02d948e18f8c021c0d}
       \strng{authorfullhash}{45b7372a9066b63a61d12865c21c4431}
       \strng{authorfullhashraw}{45b7372a9066b63a61d12865c21c4431}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -1231,8 +1290,8 @@
       \strng{authornamehash}{6083e99a51c09ffac061a4e471594d6b}
       \strng{authorfullhash}{bbbb40701260c694b9c28d07d4013ce0}
       \strng{authorfullhashraw}{bbbb40701260c694b9c28d07d4013ce0}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -1246,40 +1305,6 @@
       \range{pages}{1}
       \verb{doi}
       \verb 10.3389/fphys.2017.00301
-      \endverb
-    \endentry
-    \entry{sparkfun_guia}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=9e35b5f4c8cbe2dda7c8b041ef261f70}{%
-           family={{SparkFun Electronics}},
-           familyi={S\bibinitperiod}}}%
-      }
-      \strng{namehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \strng{fullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \strng{fullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \strng{bibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \strng{authorbibnamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \strng{authornamehash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \strng{authorfullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \strng{authorfullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
-      \field{extraname}{1}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
-      \field{extradate}{1}
-      \field{labeldatesource}{nodate}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{{AD8232} heart rate monitor hookup guide}
-      \field{urlday}{28}
-      \field{urlmonth}{10}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide/all
-      \endverb
-      \verb{url}
-      \verb https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide/all
       \endverb
     \endentry
     \entry{analog_ad8232}{manual}{}{}
@@ -1296,8 +1321,8 @@
       \strng{authornamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
       \strng{authorfullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
       \strng{authorfullhashraw}{a12ff886a2379a9ee6efaa9acfb54df4}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeldatesource}{nodate}
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
@@ -1330,8 +1355,8 @@
       \strng{authorfullhash}{9e35b5f4c8cbe2dda7c8b041ef261f70}
       \strng{authorfullhashraw}{9e35b5f4c8cbe2dda7c8b041ef261f70}
       \field{extraname}{2}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{extradate}{2}
       \field{labeldatesource}{nodate}
       \true{uniqueprimaryauthor}
@@ -1372,8 +1397,8 @@
       \strng{shortauthornamehash}{e9f84ac59071e97d436446c20da501f7}
       \strng{shortauthorfullhash}{e9f84ac59071e97d436446c20da501f7}
       \strng{shortauthorfullhashraw}{e9f84ac59071e97d436446c20da501f7}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -1465,23 +1490,35 @@
       \verb 10.1111/anec.12148
       \endverb
     \endentry
-    \entry{billman2013}{article}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=5bbd9b8828bb9219249ee2a37a53e1eb}{%
-           family={Billman},
+    \entry{nunan2010}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=b25eb85979b06766d838bd0c1e84470c}{%
+           family={Nunan},
+           familyi={N\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c958a4f540613dd0487bf3ae8f339975}{%
+           family={Sandercock},
+           familyi={S\bibinitperiod},
+           given={Gavin\bibnamedelimb R.\bibnamedelimi H.},
+           giveni={G\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e3daed6a00c0a236bb3f07ff2f49a87c}{%
+           family={Brodie},
            familyi={B\bibinitperiod},
-           given={George\bibnamedelima E.},
-           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod},
+           given={David\bibnamedelima A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
-      \strng{fullhash}{5bbd9b8828bb9219249ee2a37a53e1eb}
-      \strng{fullhashraw}{5bbd9b8828bb9219249ee2a37a53e1eb}
-      \strng{bibnamehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
-      \strng{authorbibnamehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
-      \strng{authornamehash}{5bbd9b8828bb9219249ee2a37a53e1eb}
-      \strng{authorfullhash}{5bbd9b8828bb9219249ee2a37a53e1eb}
-      \strng{authorfullhashraw}{5bbd9b8828bb9219249ee2a37a53e1eb}
+      \strng{namehash}{a3e74df39c6c29b0aaf87e2d2aed3f28}
+      \strng{fullhash}{c170f5756e4ce21daf6567fbead9ad10}
+      \strng{fullhashraw}{c170f5756e4ce21daf6567fbead9ad10}
+      \strng{bibnamehash}{c170f5756e4ce21daf6567fbead9ad10}
+      \strng{authorbibnamehash}{c170f5756e4ce21daf6567fbead9ad10}
+      \strng{authornamehash}{a3e74df39c6c29b0aaf87e2d2aed3f28}
+      \strng{authorfullhash}{c170f5756e4ce21daf6567fbead9ad10}
+      \strng{authorfullhashraw}{c170f5756e4ce21daf6567fbead9ad10}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{extradatescope}{labelyear}
@@ -1489,108 +1526,15 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Frontiers in Physiology}
-      \field{title}{The {LF/HF} ratio does not accurately measure cardiac sympatho-vagal balance}
-      \field{volume}{4}
-      \field{year}{2013}
-      \field{pages}{26}
-      \range{pages}{1}
+      \field{journaltitle}{Pacing and Clinical Electrophysiology}
+      \field{number}{11}
+      \field{title}{A quantitative systematic review of normal values for short-term heart rate variability in healthy adults}
+      \field{volume}{33}
+      \field{year}{2010}
+      \field{pages}{1407\bibrangedash 1417}
+      \range{pages}{11}
       \verb{doi}
-      \verb 10.3389/fphys.2013.00026
-      \endverb
-    \endentry
-    \entry{bond2011}{article}{}{}
-      \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=d2b2ec69c4ebf06faa8c3e7056f3f2ce}{%
-           family={Bond},
-           familyi={B\bibinitperiod},
-           given={Raymond\bibnamedelima R.},
-           giveni={R\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c8d48732ffee3e097199b898a95b32da}{%
-           family={Finlay},
-           familyi={F\bibinitperiod},
-           given={Dewar\bibnamedelima D.},
-           giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=39fdee8ff26c7e3b6d79d11e8fad617d}{%
-           family={Nugent},
-           familyi={N\bibinitperiod},
-           given={Chris\bibnamedelima D.},
-           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2926c286833249698fb3868bdab55324}{%
-           family={Moore},
-           familyi={M\bibinitperiod},
-           given={George},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{9f8feace03eb4c3fafe26abbb9270bae}
-      \strng{fullhash}{0b160e90f6ec3315d0a83b4965bce667}
-      \strng{fullhashraw}{0b160e90f6ec3315d0a83b4965bce667}
-      \strng{bibnamehash}{0b160e90f6ec3315d0a83b4965bce667}
-      \strng{authorbibnamehash}{0b160e90f6ec3315d0a83b4965bce667}
-      \strng{authornamehash}{9f8feace03eb4c3fafe26abbb9270bae}
-      \strng{authorfullhash}{0b160e90f6ec3315d0a83b4965bce667}
-      \strng{authorfullhashraw}{0b160e90f6ec3315d0a83b4965bce667}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{International Journal of Medical Informatics}
-      \field{number}{10}
-      \field{title}{A review of {ECG} storage formats}
-      \field{volume}{80}
-      \field{year}{2011}
-      \field{pages}{681\bibrangedash 697}
-      \range{pages}{17}
-      \verb{doi}
-      \verb 10.1016/j.ijmedinf.2011.06.008
-      \endverb
-    \endentry
-    \entry{pan1985}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=ccdc3e3d241b1ce26d7c7d2405695bca}{%
-           family={Pan},
-           familyi={P\bibinitperiod},
-           given={Jiapu},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=eb83740709bd91915efe2912ce4ea048}{%
-           family={Tompkins},
-           familyi={T\bibinitperiod},
-           given={Willis\bibnamedelima J.},
-           giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{5e252c476d27bcdedcda3919fec475d6}
-      \strng{fullhash}{5e252c476d27bcdedcda3919fec475d6}
-      \strng{fullhashraw}{5e252c476d27bcdedcda3919fec475d6}
-      \strng{bibnamehash}{5e252c476d27bcdedcda3919fec475d6}
-      \strng{authorbibnamehash}{5e252c476d27bcdedcda3919fec475d6}
-      \strng{authornamehash}{5e252c476d27bcdedcda3919fec475d6}
-      \strng{authorfullhash}{5e252c476d27bcdedcda3919fec475d6}
-      \strng{authorfullhashraw}{5e252c476d27bcdedcda3919fec475d6}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Biomedical Engineering}
-      \field{number}{3}
-      \field{title}{A real-time {QRS} detection algorithm}
-      \field{volume}{BME-32}
-      \field{year}{1985}
-      \field{pages}{230\bibrangedash 236}
-      \range{pages}{7}
-      \verb{doi}
-      \verb 10.1109/TBME.1985.325532
+      \verb 10.1111/j.1540-8159.2010.02841.x
       \endverb
     \endentry
   \enddatalist

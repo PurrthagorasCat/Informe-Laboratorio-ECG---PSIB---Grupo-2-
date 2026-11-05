@@ -1,44 +1,9 @@
 \appendix
 
-\section{Complementos sobre derivaciones y formatos}
-\label{anx:formatos}
-
-\paragraph{Electrodos y derivaciones.}
-Los miembros forman, con sus electrodos RA, LA y LL, la base de las demás derivaciones: los tres promediados forman el terminal central de Wilson, referencia de las precordiales, y combinados de a dos dan la referencia de las aumentadas. El electrodo de la pierna derecha (RL) no forma parte de ninguna derivación: sirve de referencia del amplificador o, con pierna derecha activa, recibe una señal que reduce la tensión de modo común. La configuración de Mason-Likar, usada en pruebas de esfuerzo, lleva los electrodos al torso y por eso el trazado deja de ser equivalente a uno estándar \parencite{kligfield2007}. Las derivaciones del plano frontal miden I $=$ LA$-$RA, II $=$ LL$-$RA y III $=$ LL$-$LA; las aumentadas miden cada miembro respecto del promedio de los otros dos, y juntas forman el sistema hexaxial, con seis direcciones separadas \ang{30}. Nuestra ubicación en el torso da más amplitud y menos contaminación muscular \parencite{sparkfun_guia}.
-
-\paragraph{Formatos de almacenamiento.}
-\textcite{bond2011} distinguen estándares abiertos, formatos propietarios y formatos de investigación:
-\begin{itemize}
-  \item \textbf{SCP-ECG} (norma europea EN~1064, adoptada luego como ISO~11073-91064): binario y compacto, para ECG de reposo, con secciones para los datos del paciente y del equipo, la señal (con compresión opcional) y las mediciones e interpretación automáticas.
-  \item \textbf{HL7 aECG}: XML que la FDA de Estados Unidos adoptó para recibir los ECG de los ensayos clínicos.
-  \item \textbf{DICOM Waveform}: extensión del estándar de imágenes médicas que permite archivar el ECG con los demás estudios del paciente en los sistemas PACS.
-  \item \textbf{ISHNE}: binario, para registros Holter de larga duración.
-  \item \textbf{WFDB} (PhysioNet): encabezado en texto (frecuencia de muestreo, ganancia, resolución del conversor y nombre de cada derivación), archivo binario con las muestras y anotaciones con la posición y el tipo de cada latido \parencite{goldberger2000}.
-  \item \textbf{EDF/EDF+}: formato general para señales fisiológicas multicanal, cuyo encabezado guarda para cada canal la frecuencia de muestreo y los rangos físico y digital; EDF+ agrega anotaciones \parencite{kemp2003}.
-\end{itemize}
-
-\section{Complementos sobre la adquisición}
-\label{anx:resolucion}
-
-\paragraph{Placa AD8232.}
-El circuito integra un amplificador de instrumentación, un operacional, el amplificador de pierna derecha activa y la detección de electrodo suelto \parencite{analog_ad8232}. El amplificador de instrumentación tiene ganancia fija de 100 y un rechazo de modo común de al menos \SI{80}{\decibel} entre continua y \SI{60}{\hertz}. Tolera potenciales de contacto de hasta \SI{\pm300}{\milli\volt}, y su ruido referido a la entrada es de \SI{14}{\micro\volt} pico a pico entre \SI{0.5}{\hertz} y \SI{40}{\hertz}. En el módulo de SparkFun, la etapa de salida tiene ganancia 11 y forma un pasabajos de dos polos; la red de bloqueo de continua forma un pasaaltos, también de dos polos. Simulamos la respuesta con los valores del esquemático \parencite{sparkfun_hw} y obtuvimos una banda de paso a \SI{-3}{\decibel} de \SI{0.4}{\hertz} a \SI{44}{\hertz}, que coincide con la configuración de monitor cardíaco de la hoja de datos. La placa se alimenta con \SI{3.3}{\volt} y referencia su salida a \SI{1.65}{\volt}.
-
-\paragraph{Cuantización.}
-El conversor del Arduino es de 10 bits y usa de referencia la alimentación de \SI{5}{\volt}: un paso vale $\SI{5}{\volt}/1024 \approx \SI{4.9}{\milli\volt}$, que dividido por la ganancia equivale a \SI{4.4}{\micro\volt} en los electrodos. Como la salida no supera \SI{3.3}{\volt}, se usan unos 675 de los 1024 niveles, algo más de 9 bits efectivos. La interfaz redondea a dos decimales: la resolución del archivo es de \SI{10}{\milli\volt} a la salida, unos \SI{9}{\micro\volt} en la entrada, del orden del ruido del amplificador.
-
-\paragraph{Conversión a voltios.}
-La fórmula $V = 5\,n/1023$ supone que la referencia es exactamente \SI{5}{\volt}, cuando depende de la tensión del puerto USB. Esto puede introducir un error de algunos puntos porcentuales en la amplitud absoluta, que no afecta la detección de latidos ni los intervalos RR. Los valores del registro de reposo están entre \SI{1.28}{\volt} y \SI{3.03}{\volt}, y los del post ejercicio recorren todo el rango, de \SI{0}{\volt} a \SI{3.3}{\volt}.
-
-\paragraph{Transmisión y frecuencia de muestreo.}
-Las muestras se acumulan en paquetes de 100 (\SI{0.2}{\second}), que se envían en binario, con dos bytes por muestra, cuando la interfaz los pide. A 9600 baudios y 10 bits por byte se transmiten 960 bytes por segundo. Mientras se envía un paquete, el Arduino llena el siguiente, pero el envío tarda \SI{0.208}{\second} y el paquete se completa en \SI{0.2}{\second}, así que el firmware deja de guardar muestras unos \SI{8}{\milli\second}. El mayor salto en el borde entre paquetes no aparece si se agrupan las muestras en bloques de otro tamaño. Esto explica también la cantidad de muestras: \num{28800} en \SI{1}{\minute} y \num{86600} en \SI{3}{\minute} dan una tasa media de 480 muestras por segundo, justo lo que permite el enlace.
-
-La frecuencia de Nyquist es \SI{250}{\hertz}. A esa frecuencia el pasabajos del módulo atenúa unos \SI{30}{\decibel} y el ECG tiene muy poca energía por encima de \SI{40}{\hertz}, de modo que el solapamiento es despreciable. La variable \texttt{sampling\_rate} de la interfaz vale \SI{100}{\hertz}, pero solo se usa para la frecuencia cardíaca que muestra en pantalla. Ese valor no coincide con el firmware, por lo que esa estimación no es confiable.
-
 \section{Complementos sobre el acondicionamiento}
 \label{anx:acond}
 
-\paragraph{Defectos del registro.}
-La figura~\ref{fig:acond_crudo} muestra los registros completos. La deriva aparece en el espectro (figura~\ref{fig:acond_espectro_crudo}) como potencia por debajo de \SI{0.5}{\hertz}, unas 75 veces mayor post ejercicio que en reposo. El pasaaltos del módulo atenúa esa deriva, pero no la elimina, y tarda en estabilizarse después de una saturación. La interferencia de \SI{50}{\hertz} se acopla al cuerpo y a los cables, y el pasabajos del módulo apenas la atenúa unos \SI{4}{\decibel}, pero la densidad espectral en \SI{50}{\hertz} es igual o menor que la de las frecuencias vecinas. La saturación equivale a unos \SI{1.5}{\milli\volt} en la entrada. El firmware no lee las salidas LO+ y LO$-$, por lo que un electrodo suelto no queda marcado: solo se reconoce como un tramo plano. En cuanto al inicio, el Arduino llena su primer paquete antes de la grabación y queda esperando el pedido; si se graba más de una vez sin desconectar, pueden acumularse dos paquetes viejos. En el registro post ejercicio se ven \SI{0.1}{\second} saturados al comienzo y saltos a los \SI{0.1}{\second} y a los \SI{0.3}{\second}.
+La figura~\ref{fig:acond_crudo} muestra los registros crudos completos, y la figura~\ref{fig:acond_espectro_crudo}, sus espectros. La deriva aparece como potencia por debajo de \SI{0.5}{\hertz}, unas 75 veces mayor post ejercicio que en reposo; el pasaaltos del módulo la atenúa, pero no la elimina. En \SI{50}{\hertz} no hay un pico por encima de las frecuencias vecinas. La figura~\ref{fig:acond_espectro_antes_despues} compara los espectros antes y después del acondicionamiento. El firmware no lee las salidas de electrodo suelto (LO+ y LO$-$), así que un electrodo suelto solo se reconocería como un tramo plano.
 
 \begin{figure}[htbp]
   \centering
@@ -54,61 +19,12 @@ La figura~\ref{fig:acond_crudo} muestra los registros completos. La deriva apare
   \label{fig:acond_espectro_crudo}
 \end{figure}
 
-\paragraph{Etapas.}
-La tabla~\ref{tab:acond} resume los parámetros. Los tramos saturados se reemplazan porque la meseta y sus escalones harían oscilar al pasaaltos; las puntas de onda R recortadas duran pocas muestras y no se tocan, para no mover el pico. La mediana es menos sensible que la media a los tramos saturados. El corte de \SI{0.5}{\hertz} queda por debajo de la frecuencia cardíaca y deja pasar el QRS, cuya energía está entre 5 y \SI{15}{\hertz} \parencite{pan1985}. El filtrado ida y vuelta tiene fase nula y módulo igual al cuadrado del filtro original. Lo comprobamos sobre 80 picos R en reposo y 372 post ejercicio: el corrimiento mediano es nulo y en ningún pico supera una muestra, salvo en las puntas recortadas, donde la posición del máximo no está definida. La máscara excluye el \SI{1.7}{\percent} del registro de reposo y el \SI{2.7}{\percent} del post ejercicio. La figura~\ref{fig:acond_espectro_antes_despues} compara los espectros; entre 0,25 y \SI{0.5}{\hertz} la potencia cae entre 20 y 30 veces. El Pan-Tompkins tiene su propio pasabanda, pero el acondicionamiento sigue siendo necesario para inspeccionar la morfología y graficar los registros.
-
-\begin{table}[htbp]
-  \centering
-  \caption{Etapas de acondicionamiento y sus parámetros.}
-  \label{tab:acond}
-  \begin{tabular}{@{}p{3.8cm}p{3.6cm}p{7.6cm}@{}}
-    \toprule
-    Etapa & Defecto que corrige & Parámetros \\
-    \midrule
-    Interpolación de saturaciones & Saturación & Tramos $\geq \SI{0.1}{\second}$ a menos del \SI{1}{\percent} del rango de los extremos \\
-    Resta de la mediana & Nivel de continua & --- \\
-    Pasaaltos Butterworth & Deriva de la línea de base & $f_c = \SI{0.5}{\hertz}$, orden 2, fase cero (orden 4 efectivo) \\
-    Máscara de muestras válidas & Inicio y saturación & Primer \SI{1}{\second}; tramos saturados $\pm\SI{0.2}{\second}$ \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{acond_espectro_antes_despues}
   \caption{Densidad espectral de 0 a \SI{5}{\hertz} de los registros crudos (trazo claro) y acondicionados (trazo oscuro). La línea punteada marca el corte del pasaaltos.}
   \label{fig:acond_espectro_antes_despues}
 \end{figure}
-
-\section{Complementos sobre Pan-Tompkins}
-\label{anx:pt}
-
-\paragraph{Etapas.}
-La tabla~\ref{tab:pantompkins} resume los parámetros. La derivada es $y[n] = \tfrac{f_s}{8}\,(x[n+2] + 2x[n+1] - 2x[n-1] - x[n-2])$. Con ventanas de integración más cortas que \SI{150}{\milli\second} el QRS sigue partido en varios picos, y con ventanas más largas el pulso se mezcla con la onda T. El período refractario de \SI{200}{\milli\second} equivale a \SI{300}{lpm}; el RR más corto del registro post ejercicio es de \SI{400}{\milli\second}, así que no limita la detección. Antes de ubicar el pico se decide la polaridad del registro, comparando cuánto sube y cuánto baja la señal respecto de su mediana. El pico R queda a unos \SI{20}{\milli\second} del máximo del pulso integrado. Un artefacto como el de los \SI{47}{\second} dura unos \SI{150}{\milli\second}, menos del \SI{1}{\percent} de las muestras, y por eso no modifica el percentil 99.
-
-\begin{table}[htbp]
-  \centering
-  \caption{Etapas del detector de Pan-Tompkins y sus parámetros.}
-  \label{tab:pantompkins}
-  \begin{tabular}{@{}p{4.2cm}p{10.6cm}@{}}
-    \toprule
-    Etapa & Parámetros \\
-    \midrule
-    Pasabanda & Butterworth de orden 2, \SIrange{5}{15}{\hertz}, ida y vuelta (fase cero) \\
-    Derivada & Cinco puntos, centrada \\
-    Cuadrado & --- \\
-    Integración & Ventana rectangular centrada de \SI{150}{\milli\second} \\
-    Decisión & Umbral $= 0{,}2 \times$ percentil 99 de la integrada; período refractario de \SI{200}{\milli\second} \\
-    Ubicación del R & Extremo de la señal acondicionada en \SI{\pm100}{\milli\second}, con detección de polaridad \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\paragraph{Barrido del umbral.}
-Corrimos el detector con umbrales relativos entre 0,05 y 0,9. En reposo, con 0,05 aparece una detección falsa y por encima de 0,35 se empiezan a perder latidos. En el registro post ejercicio hay una meseta entre 0,15 y 0,25 (374 a 375 latidos). Con 0,10 aparecen tres detecciones más, todas dentro de tramos saturados que el tacograma excluye; con 0,05 pasan detecciones falsas que generan 18 intervalos atípicos. El valor 0,2 queda en el centro de la meseta de ambos registros.
-
-\paragraph{Validación.}
-Se usó un ECG sintético de picos conocidos, a 60 y \SI{120}{lpm}, con ruido blanco agregado. El error de ubicación fue de a lo sumo una muestra (\SI{2}{\milli\second}).
 
 \section{Complementos sobre el tacograma y el periodograma}
 \label{anx:lomb}
@@ -163,7 +79,7 @@ La resolución es $1/T$; la grilla cuatro veces más fina ubica mejor los picos,
   \setlength{\tabcolsep}{4pt}
   \begin{tabular}{@{}lrrrrrrrr@{}}
     \toprule
-    Registro & $N$ & $T$ (s) & FC (lpm) & LF (\si{\milli\second\squared}) & HF (\si{\milli\second\squared}) & LF/HF & $\mathrm{LF_{nu}}$ (\%) & $f_\mathrm{HF}$ (Hz) \\
+    Registro & $N$ & $T$ (ss) & FC (lpm) & LF (\si{\milli\second\squared}) & HF (\si{\milli\second\squared}) & LF/HF & $\mathrm{LF_{nu}}$ (\%) & $f_\mathrm{HF}$ (Hz) \\
     \midrule
     V1 reposo              &  78 &  55 &  84 & 4870 & 1029 & \num{4.7} & 83 & \num{0.18} \\
     V1 post, completo      & 359 & 171 & 131 &   48 &   21 & \num{2.2} & 69 & \num{0.19} \\
@@ -173,6 +89,3 @@ La resolución es $1/T$; la grilla cuatro veces más fina ubica mejor los picos,
     \bottomrule
   \end{tabular}
 \end{table}
-
-\paragraph{Validación.}
-La ecuación~\eqref{eq:lomb} está implementada con NumPy en \texttt{periodograma\_lomb.py}. Se la validó con un tacograma sintético de \SI{180}{\second} a \SI{70}{lpm}, cuyo RR oscila un \SI{5}{\percent} a \SI{0.2}{\hertz}. El pico quedó en \SI{0.200}{\hertz} y el área coincidió con la varianza con un error del \SI{0.5}{\percent}. El resultado también coincidió, salvo errores de redondeo, con la función \texttt{lombscargle} de SciPy.
